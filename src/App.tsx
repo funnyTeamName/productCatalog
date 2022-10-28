@@ -1,8 +1,13 @@
-import React from 'react';
+import { useState } from 'react';
 
 function App() {
+  const [test] = useState(0);
+
   return (
-    <div>Phone</div>
+    <div>
+      Phone
+      {test}
+    </div>
   );
 }
 

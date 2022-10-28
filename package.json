@@ -25,7 +25,7 @@
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "lint": "eslint . --ignore-path .gitignore --fix",
+    "lint": "eslint ./src --fix",
     "prepare": "husky install"
   },
   "eslintConfig": {
@@ -47,12 +47,15 @@
     ]
   },
   "devDependencies": {
-    "@mate-academy/eslint-config": "0.0.20",
+    "@mate-academy/eslint-config-react-typescript": "^1.0.11",
     "@typescript-eslint/eslint-plugin": "^5.41.0",
     "@typescript-eslint/parser": "^5.41.0",
     "eslint": "^8.26.0",
     "eslint-plugin-react": "^7.31.10",
     "husky": "^8.0.0",
-    "nodemon": "^2.0.20"
+    "lint-staged": "^13.0.3"
+  },
+  "lint-staged": {
+    "*.tsx": "npm run lint"
   }
 }
