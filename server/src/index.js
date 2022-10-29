@@ -9,9 +9,6 @@ const app = express();
 app.get('/phones', (req, res) => {
   const phones = fs.readFileSync('./data/phones.json', 'utf-8');
 
-  const a = 10;
-  a = 5;
-
   res.send(JSON.parse(phones));
 });
 
