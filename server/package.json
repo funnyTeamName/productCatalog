@@ -1,0 +1,29 @@
+{
+  "name": "phone_catalog_api",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node main.js",
+    "dev": "nodemon main.js",
+    "lint": "eslint ./src --fix --color",
+    "prepare": "cd .. && husky install ./server/.husky"
+  },
+  "license": "GPL-3.0",
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "eslint-plugin-node": "^8.0.1",
+    "expect": "^29.2.1",
+    "nodemon": "^2.0.20",
+    "supertest": "^6.3.0",
+    "lint-staged": "^13.0.3",
+    "husky": "^8.0.0"
+  },
+  "dependencies": {
+    "@mate-academy/eslint-config": "0.0.20",
+    "express": "^4.18.2"
+  },
+  "lint-staged": {
+    "*.js": "npm run lint"
+  }
+}
