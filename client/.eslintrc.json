@@ -9,7 +9,8 @@
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaVersion": "latest",
-    "project": "./tsconfig.json",
+    "project": "tsconfig.json",
+    "tsconfigRootDir": "./", 
     "sourceType": "module"
   },
   "plugins": ["react", "@typescript-eslint"],
