@@ -1,0 +1,61 @@
+// mobile & pad primary btn
+.button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  min-width: max-content;
+  padding: 9.5px 47.5px;
+
+  font-size: $fs-14;
+  font-weight: $fw-700;
+  color: $color-white;
+  background-color: $color-accent;
+  border: none;
+  @include hover(background-color, $color-accent-2);
+
+  &:active {
+    background-color: $color-surface-2;
+  }
+
+  // desktop primary btn
+  &--primary {
+    padding: 9.5px 39.5px;
+    background-color: $color-accent;
+    border: none;
+    @include hover(background-color, $color-accent-2);
+
+    &:active {
+      background-color: $color-surface-2;
+    }
+  }
+
+  //secondary btn heart
+  &--secondary {
+    padding: 20px;
+    background-image: url("../../images/icons/heart.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: $color-surface-2;
+    border: 1px solid $color-surface-2;
+    @include hover(background-color, $color-icons);
+
+    &:active {
+      background-color: $color-black;
+      border-color: $color-elements;
+      background-image: url("../../images/icons/red-heart.svg");
+    }
+  }
+
+  //secondary btn next page
+  &--secondary-1 {
+    padding: 11px;
+    background-color: $color-surface-1;
+    border: 1px solid transparent;
+    @include hover(background-color, $color-accent);
+
+    &:active {
+      background-color: $color-black;
+      border-color: $color-elements;
+    }
+  }
+}

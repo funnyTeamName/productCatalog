@@ -1,0 +1,45 @@
+@mixin hover($_property, $_toValue) {
+  transition: #{$_property} $transition-time;
+  &:hover {
+    #{$_property}: $_toValue;
+  }
+}
+
+@mixin height-width ($height, $width) {
+  height: $height;
+  width: $width;
+}
+
+@mixin pad {
+  @media (min-width: 640px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: 1200px) {
+    @content;
+  }
+}
+
+@mixin container($size) {
+  padding-left: ($size);
+  padding-right: ($size);
+}
+
+@mixin grid-cycle($screen, $columns) {
+  @for $start from 1 through $columns {
+    @for $end from $start to $columns {
+      &--#{$screen}-#{$start}-#{$end} {
+        grid-column: #{$start} / #{$end + 1};
+      }
+    }
+  }
+}
+
+@mixin font-style($weight, $size, $height, $color:$color-white) {
+  font-weight: $weight;
+  font-size: $size;
+  line-height: $height;
+  color: $color;
+}
