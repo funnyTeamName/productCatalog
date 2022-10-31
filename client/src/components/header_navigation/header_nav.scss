@@ -1,0 +1,49 @@
+@import "../../styles/main.scss";
+
+.header {
+  &__header-navigation {
+    flex-grow: 6;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-right: 24px;
+  }
+}
+
+.header-navigation {
+  &__link {
+    position: relative;
+    margin-right: 64px;
+    color: $color-secondary;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 12px;
+    line-height: 11px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+
+    transition: color 0.3s;
+
+    @include phone {
+      display: none;
+    }
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &:hover {
+      color: $color-white;
+      &::after {
+        content: "";
+        position: absolute;
+        top: 30px;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background-color: $color-white;
+      }
+    }
+  }
+}

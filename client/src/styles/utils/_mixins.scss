@@ -10,8 +10,8 @@
   width: $width;
 }
 
-@mixin mobile {
-  @media (min-width: $mobile-media-width) {
+@mixin phone {
+  @media (max-width: 639px) {
     @content;
   }
 }
