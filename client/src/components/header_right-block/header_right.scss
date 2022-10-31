@@ -19,6 +19,11 @@
     width: 64px;
     height: 64px;
     border: 1px solid $color-elements;
+    transition: all $transition-time;
+
+    &:hover {
+      border-bottom: 2px solid $color-white;
+    }
 
     &-liked {
       background-image: url(../../../public/images/Favourites.png);
