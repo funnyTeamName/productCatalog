@@ -1,61 +1,18 @@
 import React from 'react';
-import './style.scss';
-import { Link, NavLink } from 'react-router-dom';
+import './header.scss';
+import { Link } from 'react-router-dom';
+import { HeaderNav } from '../header_navigation/header_nav';
+import { HeaderRight } from '../header_right-block/heder_right';
+import { BurgerMenu } from '../burger_menu/burger_menu';
 
-export const Header: React.FC = () => {
-  return (
-    <div>
-      <header className="header">
-        <div className="header__logo logo">
-          <Link to="/" className="logo__link" />
-        </div>
-        <nav className="header__header-navigation">
-          <NavLink
-            to="/Home"
-            className="header-navigation__link"
-          >
-            Home
-          </NavLink>
-          <NavLink
-            to="/Phone"
-            className="header-navigation__link"
-          >
-            Phone
-          </NavLink>
-          <NavLink
-            to="/Tablets"
-            className="header-navigation__link"
-          >
-            Tablets
-          </NavLink>
-          <NavLink
-            to="/Accessories"
-            className="header-navigation__link"
-          >
-            Accessories
-          </NavLink>
-        </nav>
-
-        <div className="header__header-right">
-          <NavLink
-            to="/"
-            className="
-              header__header-right-link
-              header__header-right-link-liked
-            "
-          />
-          <NavLink
-            to="/"
-            className="
-              header__header-right-link
-              header__header-right-link-shoping
-            "
-          />
-        </div>
-        <div className="burger">
-          <Link to="/" className="burger_menu" />
-        </div>
-      </header>
+export const Header: React.FC = () => (
+  <header className="header">
+    <div className="header__logo logo">
+      <Link to="/" className="logo__link" />
     </div>
-  );
-};
+
+    <HeaderNav />
+    <HeaderRight />
+    <BurgerMenu />
+  </header>
+);

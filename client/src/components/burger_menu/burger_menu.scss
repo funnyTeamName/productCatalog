@@ -1,0 +1,17 @@
+@import "../../styles/main.scss";
+
+.burger {
+  display: none;
+  width: 48px;
+  height: 48px;
+  border: 1px solid $color-elements;
+
+  background-image: url(../../../public/images/menu.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+
+  @include phone {
+    display: block;
+  }
+}

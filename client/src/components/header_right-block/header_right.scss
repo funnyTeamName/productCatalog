@@ -1,0 +1,34 @@
+@import "../../styles/main.scss";
+
+.header {
+  &__header-right {
+    flex-grow: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    @include phone {
+      display: none;
+    }
+  }
+
+  &__header-right-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 64px;
+    height: 64px;
+    border: 1px solid $color-elements;
+
+    &-liked {
+      background-image: url(../../../public/images/Favourites.png);
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+    &-shoping {
+      background-image: url(../../../public/images/Shopping.png);
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  }
+}
