@@ -10,14 +10,20 @@
   width: $width;
 }
 
+@mixin mobile {
+  @media (min-width: $mobile-media-width) {
+    @content;
+  }
+}
+
 @mixin pad {
-  @media (min-width: 640px) {
+  @media (min-width: $pad-media-width) {
     @content;
   }
 }
 
 @mixin desktop {
-  @media (min-width: 1200px) {
+  @media (min-width: $desktop-media-width) {
     @content;
   }
 }
