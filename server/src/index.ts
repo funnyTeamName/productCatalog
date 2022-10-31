@@ -2,12 +2,17 @@
 
 const fs = require('fs');
 const express = require('express');
+const cors = require('cors');
 
 const PORT = 8080;
 const app = express();
 
-app.get('/phones', (req, res) => {
+app.use(cors());
+
+app.get('/products', (req, res) => {
   const phones = fs.readFileSync('./data/phones.json', 'utf-8');
+
+  res.statusCode = 200;
 
   res.send(JSON.parse(phones));
 });
