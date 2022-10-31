@@ -1,7 +1,7 @@
 'use strict';
 
-import fs from 'fs';
-import express from 'express';
+const fs = require('fs');
+const express = require('express');
 
 const PORT = 8080;
 const app = express();
