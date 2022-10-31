@@ -31,26 +31,24 @@ $fw-800: 800;
 $mobile-columns: 4;
 $pad-columns: 12;
 $desktop-columns: 24;
-$grid-gap: 16px;
+$grid-column-gap: 16px;
+$grid-row-gap: 60px;
 
 $mobile-media-width: 320px;
 $pad-media-width: 640px;
 $desktop-media-width: 1200px;
 
 $mobile-grid-columns: $mobile-columns;
-$mobile-grid-column-width: 60px; //  repeat(4, minmax(60px, auto))
-$mobile-grid-gap: $grid-gap;
-$mobile-grid-padding-inline: 16px;
+$mobile-grid-column-width: repeat($mobile-columns, minmax(60px, 1fr));
+$mobile-grid-gap: $grid-column-gap;
 
 $pad-grid-columns: $pad-columns;
-$pad-grid-column-width: 34px; //  repeat(4, minmax(34px, auto))
-$pad-grid-gap: $grid-gap;
-$pad-grid-padding-inline: 24px;
+$pad-grid-column-width: repeat($pad-columns, minmax(34px, 81px));
+$pad-grid-gap: $grid-column-gap;
 
 $desktop-grid-columns: $desktop-columns;
-$desktop-grid-column-width: 32px;
-$desktop-grid-gap: $grid-gap;
-$desktop-grid-padding-inline: 24px;
+$desktop-grid-column-width: repeat($desktop-columns, 32px);
+$desktop-grid-gap: $grid-column-gap;
 
 //transition
 $transition-time: 0.3s;
