@@ -9,6 +9,7 @@
   ],
   "license": "MIT",
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.9.8"
   },
   "engines": {
