@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { ButtonClassModifier, ButtonClassType } from '../enums/buttonEnum';
-import { Button } from './Button';
+import { ButtonClassModifier, ButtonClassType } from '../../enums/buttonEnum';
+import { Button } from '../button/Button';
 
 export const Card: React.FC = () => {
   const [isActiveBtn, setIsActiveBtn] = useState(false);
