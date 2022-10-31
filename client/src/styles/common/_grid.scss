@@ -32,7 +32,7 @@
     grid-column-gap: $grid-column-gap;
     grid-row-gap: $grid-row-gap;
     margin: 0 auto;
-
+    margin: 80px 0;
 
     @include pad {
       grid-template-columns: repeat(2, 1fr);
