@@ -10,6 +10,12 @@
   width: $width;
 }
 
+@mixin phone {
+  @media (max-width: 639px) {
+    @content;
+  }
+}
+
 @mixin pad {
   @media (min-width: 640px) {
     @content;
