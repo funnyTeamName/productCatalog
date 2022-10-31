@@ -1,0 +1,126 @@
+@import "../../styles/main.scss";
+
+body {
+  margin: 0;
+  background-color: $color-primary;
+}
+
+.header {
+  display: flex;
+  background-color: $color-black;
+  border-bottom: 1px solid $color-elements;
+
+  &__logo {
+    flex-grow: 1;
+  }
+
+  &__header-navigation {
+    flex-grow: 6;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-right: 24px;
+  }
+
+  &__header-right {
+    flex-grow: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    @include phone {
+      display: none;
+    }
+  }
+
+  &__header-right-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 64px;
+    height: 64px;
+    border: 1px solid $color-elements;
+
+    &-liked {
+      background-image: url(../../../public/images/Favourites.png);
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+    &-shoping {
+      background-image: url(../../../public/images/Shopping.png);
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  }
+}
+
+.logo {
+  margin-top: 10px;
+
+  @include phone {
+    margin-top: 0;
+  }
+
+  &__link {
+    display: block;
+    width: 120px;
+    height: 48px;
+    background-image: url(../../../public/images/Logo.png);
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+}
+
+.header-navigation {
+  &__link {
+    position: relative;
+    margin-right: 64px;
+    color: $color-secondary;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 12px;
+    line-height: 11px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+
+    transition: color 0.3s;
+
+    @include phone {
+      display: none;
+    }
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &:hover {
+      color: $color-white;
+      &::after {
+        content: "";
+        position: absolute;
+        top: 30px;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background-color: $color-white;
+      }
+    }
+  }
+}
+
+.burger {
+  display: none;
+  width: 48px;
+  height: 48px;
+  border: 1px solid $color-elements;
+
+  background-image: url(../../../public/images/menu.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+
+  @include phone {
+    display: block;
+  }
+}
