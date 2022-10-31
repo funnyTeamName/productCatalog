@@ -1,5 +1,5 @@
 {
-  "name": "team_project",
+  "name": "product_catalog",
   "main": "index.ts",
   "scripts": {
     "start": "node ./server/src/index.ts"
