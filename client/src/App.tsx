@@ -1,7 +1,11 @@
+import { Footer } from './components/footer/footer';
+import { Header } from './components/header/header';
+
 function App() {
   return (
     <div>
-      Mega phone page
+      <Header />
+      <Footer />
     </div>
   );
 }

@@ -10,7 +10,7 @@
   width: $width;
 }
 
-@mixin mobile {
+@mixin phone {
   @media (max-width: $pad-media-width - 1) {
     @content;
   }
