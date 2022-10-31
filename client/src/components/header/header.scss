@@ -5,10 +5,18 @@ body {
   background-color: $color-primary;
 }
 
+body.lock {
+  overflow: hidden;
+}
+
 .header {
   display: flex;
   background-color: $color-black;
   border-bottom: 1px solid $color-elements;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
 
   &__logo {
     flex-grow: 1;
