@@ -39,7 +39,7 @@
     border: 1px solid $color-surface-2;
     @include hover(background-color, $color-icons);
 
-    &:active {
+    &-active {
       background-color: $color-black;
       border-color: $color-elements;
       background-image: url("../../images/icons/red-heart.svg");
@@ -53,7 +53,7 @@
     border: 1px solid transparent;
     @include hover(background-color, $color-accent);
 
-    &:active {
+    &-active {
       background-color: $color-black;
       border-color: $color-elements;
     }
