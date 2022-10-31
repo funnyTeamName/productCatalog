@@ -11,25 +11,25 @@ export const Header: React.FC = () => {
         </div>
         <nav className="header__header-navigation">
           <NavLink
-            to="/about"
+            to="/Home"
             className="header-navigation__link"
           >
             Home
           </NavLink>
           <NavLink
-            to="/about"
+            to="/Phone"
             className="header-navigation__link"
           >
             Phone
           </NavLink>
           <NavLink
-            to="/about"
+            to="/Tablets"
             className="header-navigation__link"
           >
             Tablets
           </NavLink>
           <NavLink
-            to="/about"
+            to="/Accessories"
             className="header-navigation__link"
           >
             Accessories
