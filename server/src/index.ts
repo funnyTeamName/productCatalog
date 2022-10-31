@@ -4,7 +4,7 @@ const fs = require('fs');
 const express = require('express');
 const cors = require('cors');
 
-const PORT = 8080;
+const PORT = process.env.port || 8080;
 const app = express();
 
 app.use(cors());
