@@ -17,7 +17,7 @@
     @include grid-cycle(mobile, $mobile-grid-columns + 1);
 
     @include pad {
-      @include grid-cycle(pad, $pad-grid-columns + 1);
+      @include grid-cycle(iPad, $pad-grid-columns + 1);
     }
 
     @include desktop {
@@ -42,9 +42,4 @@
       grid-template-columns: repeat(4, 1fr);
     }
   }
-}
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
 }

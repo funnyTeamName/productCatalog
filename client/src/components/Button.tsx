@@ -1,18 +1,20 @@
 import classNames from 'classnames';
-import { ButtonClass } from '../enums/Enums';
+import { ButtonClassModifier, ButtonClassType } from '../enums/Enums';
 
 type Props = {
   title?: string,
-  btnClass: ButtonClass,
+  btnClassType: ButtonClassType,
+  btnClassModifier?: ButtonClassModifier,
   isActiveBtn?: boolean,
   setIsActiveBtn?: (value: boolean) => void,
 };
 
 export const Button: React.FC<Props> = ({
   title,
-  btnClass,
+  btnClassType,
   isActiveBtn,
   setIsActiveBtn,
+  btnClassModifier,
 }) => {
   const handleClick = () => {
     if (setIsActiveBtn) {
@@ -23,9 +25,9 @@ export const Button: React.FC<Props> = ({
   return (
     <button
       onClick={handleClick}
-      className={classNames('button', btnClass,
+      className={classNames(btnClassType, btnClassModifier,
         {
-          'button--secondary-active': isActiveBtn,
+          'button__secondary--heart-acive': isActiveBtn,
         })}
       type="button"
     >
