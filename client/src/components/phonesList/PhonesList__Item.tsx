@@ -13,7 +13,7 @@ export const PhonesListItem: React.FC<Props> = ({ phone }) => {
   return (
     <div className="card">
       <img
-        src="https://klike.net/uploads/posts/2018-06/1528718829_4.jpg"
+        src={`http://localhost:8080/${phone.image}`}
         className="card__img"
         alt="product"
       />
