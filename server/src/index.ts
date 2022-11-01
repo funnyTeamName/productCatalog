@@ -9,6 +9,8 @@ const app = express();
 
 app.use(cors());
 
+app.use(express.static('./data/'));
+
 app.get('/products', (req, res) => {
   const phones = fs.readFileSync('./data/phones.json', 'utf-8');
 

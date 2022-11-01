@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { Footer } from './components/footer/footer';
@@ -13,9 +14,15 @@ export const App = () => {
   const [phones, setPhones] = useState<Phone[] | null>(null);
 
   useEffect(() => {
-    fetch('http://localhost:8080/products')
-      .then(res => res.json())
-      .then(data => setPhones(data));
+    const loadPhones = async () => {
+      const response = await axios.get('http://localhost:8080/products');
+
+      const data = await response.data;
+
+      setPhones(data);
+    };
+
+    loadPhones();
   }, []);
 
   return (
