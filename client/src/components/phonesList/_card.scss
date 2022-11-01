@@ -21,6 +21,9 @@
     @include height-width(208px, 196px);
     margin-top: 32px;
     margin-bottom: 24px;
+    border-radius: 10px;
+    
+    @include hover(scaleX, 120%);
   }
 
   &__description-content {
