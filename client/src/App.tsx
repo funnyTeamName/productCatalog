@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { Link, Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import { Footer } from './components/footer/footer';
 import { Header } from './components/header/header';
 import { PhonesList } from './components/phonesList/PhonesList';
@@ -34,8 +34,8 @@ export const App = () => {
       <Header />
 
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="home" element={<Link to="/home" replace />} />
+        <Route path="Home" element={<Home />} />
+        <Route path="/" element={<Navigate to="Home" replace />} />
 
         <Route path="phones">
           <Route index element={<PhonesList phones={phones} />} />
