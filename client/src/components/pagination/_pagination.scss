@@ -1,0 +1,27 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  @include height-width(max-content, 100%);
+
+  &__prev-btn {
+    margin-right: 16px;
+  }
+
+  &__next-btn {
+    margin-left: 16px;
+  }
+
+  &__list {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__page-number:not(:last-child) {
+    margin-right: 8px;
+  }
+
+  &__active-button {
+    background-color: $color-accent;
+  }
+}
