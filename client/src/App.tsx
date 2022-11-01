@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { Footer } from './components/footer/footer';
 import { Header } from './components/header/header';
-import { MainBlock } from './components/main_block/main_block';
 import { PhonesList } from './components/phonesList/PhonesList';
 import { Phone } from './types/Phone';
 import { NotFoundPage } from './pages/NotFoundPage';
@@ -25,13 +24,11 @@ export const App = () => {
 
     loadPhones();
   }, []);
- 
+
   return (
     <div>
       <Header />
-  
-      <MainBlock />
-      
+
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="home" element={<Navigate to="/" replace />} />
