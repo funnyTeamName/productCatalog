@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import './header_nav.scss';
@@ -6,25 +7,37 @@ export const HeaderNav: React.FC = () => (
   <nav className="header__header-navigation">
     <NavLink
       to="/Home"
-      className="header-navigation__link"
+      className={({
+        isActive,
+      }) => classNames('header-navigation__link',
+        { 'header-navigation__link--active': isActive })}
     >
       Home
     </NavLink>
     <NavLink
       to="/Phones"
-      className="header-navigation__link"
+      className={({
+        isActive,
+      }) => classNames('header-navigation__link',
+        { 'header-navigation__link--active': isActive })}
     >
-      Phone
+      Phones
     </NavLink>
     <NavLink
       to="/Tablets"
-      className="header-navigation__link"
+      className={({
+        isActive,
+      }) => classNames('header-navigation__link',
+        { 'header-navigation__link--active': isActive })}
     >
       Tablets
     </NavLink>
     <NavLink
       to="/Accessories"
-      className="header-navigation__link"
+      className={({
+        isActive,
+      }) => classNames('header-navigation__link',
+        { 'header-navigation__link--active': isActive })}
     >
       Accessories
     </NavLink>

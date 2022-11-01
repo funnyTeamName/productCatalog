@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Navigate, Route, Routes } from 'react-router-dom';
+import { Link, Route, Routes } from 'react-router-dom';
 import { Footer } from './components/footer/footer';
 import { Header } from './components/header/header';
 import { PhonesList } from './components/phonesList/PhonesList';
@@ -24,7 +24,7 @@ export const App = () => {
 
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="home" element={<Navigate to="/" replace />} />
+        <Route path="home" element={<Link to="/home" replace />} />
 
         <Route path="phones">
           <Route index element={<PhonesList phones={phones} />} />
