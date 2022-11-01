@@ -8,7 +8,7 @@ import { Phone } from '../../types/Phone';
 import './mainContent.scss';
 
 type Props = {
-  phones: Phone[] | null;
+  phones: Phone[];
 };
 
 export const Main: React.FC<Props> = ({ phones }) => (

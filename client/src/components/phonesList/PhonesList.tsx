@@ -39,9 +39,13 @@ export const PhonesList: React.FC<Props> = ({ phones }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [phonesPerPage, setPhonesPerPage] = useState(8);
 
+  const [filterType, setFilterType] = useState<FilterType>(FilterType.NEWEST);
+
+  const currentPhones = filterPhones(phones, filterType);
+
   const lastPhoneIndex = currentPage * phonesPerPage;
   const firstPhoneIndex = lastPhoneIndex - phonesPerPage;
-  const currentPhones = phones?.slice(firstPhoneIndex, lastPhoneIndex);
+  const visiblePhones = currentPhones.slice(firstPhoneIndex, lastPhoneIndex);
 
   const paginate = (pageNumber: number) => {
     setCurrentPage(pageNumber);
@@ -59,20 +63,19 @@ export const PhonesList: React.FC<Props> = ({ phones }) => {
     }
   };
 
-  const [filterType, setFilterType] = useState<FilterType>(FilterType.NEWEST);
-
-  const visiblePhones = filterPhones(currentPhones, filterType);
-
   return (
     <div className="container">
       <Filter
         length={phones?.length}
         filterType={filterType}
         handleFilterType={setFilterType}
+        phonesPerPage={phonesPerPage}
+        setPhonesPerPage={setPhonesPerPage}
+        setCurrentPage={setCurrentPage}
       />
 
       <div className="grid__cards">
-        {currentPhones?.map(phone => (
+        {visiblePhones?.map(phone => (
           <PhonesListItem key={phone.id} phone={phone} />))}
       </div>
 

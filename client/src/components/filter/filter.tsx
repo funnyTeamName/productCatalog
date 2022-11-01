@@ -7,12 +7,18 @@ type Props = {
   length: number | undefined;
   filterType: FilterType;
   handleFilterType: (filterType: FilterType) => void;
+  phonesPerPage: number;
+  setPhonesPerPage: (phonesPerPage: number) => void;
+  setCurrentPage: (pageNumber: number) => void;
 };
 
 export const Filter: React.FC<Props> = ({
   length,
   filterType,
   handleFilterType,
+  phonesPerPage,
+  setPhonesPerPage,
+  setCurrentPage,
 }) => {
   const handleFilter = (value: string) => {
     switch (value) {
@@ -77,11 +83,20 @@ export const Filter: React.FC<Props> = ({
 
         <div className="sorts__item">
           <p className="sorts__text">Items on page</p>
-          <select name="show" id="show" className="sorts__select">
+          <select
+            name="show"
+            id="show"
+            className="sorts__select"
+            value={phonesPerPage}
+            onChange={event => {
+              setPhonesPerPage(+event.target.value);
+              setCurrentPage(1);
+            }}
+          >
+            <option value="8" className="sorts__option">8</option>
             <option value="12" className="sorts__option">12</option>
-            <option value="24" className="sorts__option">16</option>
-            <option value="24" className="sorts__option">24</option>
-            <option value="36" className="sorts__option">36</option>
+            <option value="16" className="sorts__option">18</option>
+            <option value="20" className="sorts__option">20</option>
           </select>
         </div>
       </div>
