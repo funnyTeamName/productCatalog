@@ -4,10 +4,12 @@ const fs = require('fs');
 const express = require('express');
 const cors = require('cors');
 
-const PORT = process.env.port || 8080;
+const PORT = process.env.PORT || 8080;
 const app = express();
 
 app.use(cors());
+
+app.use(express.static('./data/'));
 
 app.get('/products', (req, res) => {
   const phones = fs.readFileSync('./data/phones.json', 'utf-8');

@@ -5,10 +5,18 @@ body {
   background-color: $color-primary;
 }
 
+body.lock {
+  overflow: hidden;
+}
+
 .header {
   display: flex;
   background-color: $color-black;
   border-bottom: 1px solid $color-elements;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
 
   &__logo {
     flex-grow: 1;
@@ -26,7 +34,7 @@ body {
     display: block;
     width: 120px;
     height: 48px;
-    background-image: url(../../../public/images/Logo.png);
+    background-image: url(../../images/icons/logo.svg);
     background-repeat: no-repeat;
     background-position: center;
   }

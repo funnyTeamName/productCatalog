@@ -1,5 +1,6 @@
 //COMMON BLOCKS
-@import "common/button";
+@import "../components/button/button";
+@import "./common/grid";
 
 //BEM BLOCKS
-@import "blocks/card";
+@import "../components/phonesList/card.scss";
