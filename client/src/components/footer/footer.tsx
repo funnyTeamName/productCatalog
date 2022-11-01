@@ -1,30 +1,51 @@
 import React from 'react';
 import './footer.scss';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 
-export const Footer: React.FC = () => (
-  <footer className="footer">
-    <div className="footer__logo logo">
-      <Link to="/" className="logo__link" />
-    </div>
+export const Footer: React.FC = () => {
+  function Scroll() {
+    window.scrollTo(0, 0);
 
-    <div className="footer__footer-navigation footer-navigation">
-      <NavLink to="/github" className="footer-navigation__link">
-        Github
-      </NavLink>
+    return useLocation().pathname;
+  }
 
-      <NavLink to="/contacts" className="footer-navigation__link">
-        Contacts
-      </NavLink>
+  const location = Scroll();
 
-      <NavLink to="/rights" className="footer-navigation__link">
-        Rights
-      </NavLink>
-    </div>
+  return (
+    <footer className="footer">
+      <div className="footer__footer-logo footer-logo">
+        <Link to="/" className="footer-logo__link" />
+      </div>
 
-    <div className="footer__footer-rollback footer-rollback">
-      <Link to="/" className="footer-rollback__text"> Back to top </Link>
-      <Link to="/" className="button__secondary button__secondary--up-page" />
-    </div>
-  </footer>
-);
+      <div className="footer__footer-navigation footer-navigation">
+        <a
+          href="https://github.com/funnyTeamName"
+          className="footer-navigation__link"
+        >
+          Github
+        </a>
+
+        <NavLink to="/" className="footer-navigation__link">
+          Contacts
+        </NavLink>
+
+        <NavLink to="/" className="footer-navigation__link">
+          Rights
+        </NavLink>
+      </div>
+
+      <div className="footer__footer-rollback footer-rollback">
+        <Link
+          to={location}
+          className="footer-rollback__text"
+        >
+          Back to top
+        </Link>
+        <Link
+          to={location}
+          className="button__secondary button__secondary--up-page"
+        />
+      </div>
+    </footer>
+  );
+};
