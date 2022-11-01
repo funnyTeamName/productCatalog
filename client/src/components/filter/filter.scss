@@ -1,0 +1,76 @@
+@import "../../styles/main.scss";
+
+.main {
+  margin-right: 150px;
+  margin-left: 150px;
+  margin-top: 25px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  &__logo {
+   display: flex;
+   margin-bottom: 40px;
+
+   &-home {
+    @include height-width(16px, 16px);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url(../../../public/images/Home.png);
+    margin-right: 15px;
+   }
+
+   &-vector {
+    @include height-width(16px, 16px);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url(../../../public/images/Vector.png);
+    margin-right: 15px
+   }
+
+    &-text {
+      @include font-style($fw-700, $fs-12, 15px, $color-secondary);
+    }
+  }
+
+  &__title {
+    @include font-style($fw-800, $fs-48, 56px);
+    letter-spacing: -0.01em;
+    margin-bottom: 8px;
+  }
+
+  &__sorts {
+    display: flex;
+  }
+}
+
+.device__count {
+  @include font-style($fw-600, $fs-14, 21px, $color-secondary);
+
+  &-margin {
+    margin-bottom: 40px;
+  }
+}
+
+.sorts__item {
+  margin-bottom: 4px;
+
+  &-margin {
+    margin-right: 16px;
+  }
+}
+
+.sorts__text {
+  @include font-style($fw-700, $fs-12, 15px, $color-secondary);
+  margin-bottom: 4px;
+}
+
+.sorts__select {
+  @include height-width(40px, 176px);
+  background: $color-surface-2;
+  @include font-style($fw-700, $fs-14, 21px);
+}
+

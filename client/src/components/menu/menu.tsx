@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import './menu.scss';
 
 type Props = {
@@ -26,14 +26,18 @@ export const Menu: React.FC<Props> = ({
         onClick={() => setActive(false)}
       >
         <div
-          onClick={(event) => event.stopPropagation()}
           aria-hidden="true"
           className="menu__content"
         >
           <ul className="menu__list">
             {items.map((item) => (
               <li className="menu__items">
-                <a className="menu__link" href={item.href}>{item.value}</a>
+                <Link
+                  className="menu__link"
+                  to={item.href}
+                >
+                  {item.value}
+                </Link>
               </li>
             ))}
           </ul>

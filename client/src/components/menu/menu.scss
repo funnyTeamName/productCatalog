@@ -12,8 +12,8 @@
   transform: translateX(-100%);
   transition: transform $transition-time;
   border: none;
-
-  @include pad {
+  
+  @media (min-width: 768px) {
     display: none;
   }
 
@@ -33,16 +33,11 @@
 
   &__link {
     position: relative;
-    color: $color-secondary;
-    text-decoration: none;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 800;
-    font-size: 12px;
-    line-height: 11px;
     letter-spacing: 0.04em;
     text-transform: uppercase;
+    @include font-style($fw-800, $fs-12, 11px, $color-secondary);
 
-    transition: color 0.3s;
+    transition: color $transition-time;
 
     &:hover {
       color: $color-white;
