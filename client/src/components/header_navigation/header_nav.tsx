@@ -11,7 +11,7 @@ export const HeaderNav: React.FC = () => (
       Home
     </NavLink>
     <NavLink
-      to="/Phone"
+      to="/Phones"
       className="header-navigation__link"
     >
       Phone
