@@ -11,7 +11,7 @@
 }
 
 @mixin phone {
-  @media (max-width: $pad-media-width - 1) {
+  @media (max-width: $burger-media-width) {
     @content;
   }
 }
