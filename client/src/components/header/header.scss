@@ -13,10 +13,11 @@ body.lock {
   display: flex;
   background-color: $color-black;
   border-bottom: 1px solid $color-elements;
-  position: fixed;
+  position: sticky;
   top: 0;
   left: 0;
   right: 0;
+  margin-bottom: 25px;
 
   &__logo {
     flex-grow: 1;
