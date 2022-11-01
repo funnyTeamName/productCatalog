@@ -53,20 +53,16 @@
 
 .notfound .notfound-404 h3 {
   position: relative;
-  font-size: 16px;
-  font-weight: 700;
+  @include font-style($fw-600, $fs-16, 16px, $color:$color-white);
   text-transform: uppercase;
-  color: $color-white;
   margin: 0px;
   letter-spacing: 3px;
   padding-left: 6px;
 }
 
 .notfound h2 {
-  font-size: 20px;
-  font-weight: 400;
+  @include font-style($fw-600, $fs-16, 16px, $color:$color-white);
   text-transform: uppercase;
-  color: $color-white;
   margin-top: 0px;
   margin-bottom: 25px;
 }
