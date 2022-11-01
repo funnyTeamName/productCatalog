@@ -44,8 +44,9 @@
 }
 
 @mixin font-style($weight, $size, $height, $color:$color-white) {
-  font-weight: $weight;
+  font-family: $ff-mont;
   font-size: $size;
+  font-weight: $weight;
   line-height: $height;
   color: $color;
 }

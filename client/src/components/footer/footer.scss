@@ -3,7 +3,6 @@
 .footer {
   display: flex;
   flex-direction: column;
-  background-color: $color-black;
   padding: 32px;
   border-top: 1px solid $color-elements;
 
@@ -54,10 +53,9 @@
     background-position: center;
     width: 89px;
     height: 32px;
-    background-image: url('./images/logo.svg');
+    background-image: url(../../images/icons/logo.svg);
   }
 }
-
 
 .footer-navigation {
   &__link {
@@ -90,11 +88,4 @@
     line-height: 15px;
     margin-right: 16px;
   }
-
-  &__button {
-    width: 32px;
-    height: 32px;
-    background-image: url('./images/footer_button.svg');
-  }
 }
-
