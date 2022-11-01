@@ -1,3 +1,5 @@
+import { useState } from 'react';
+import { FilterType } from '../../enums/FilterType';
 import { Phone } from '../../types/Phone';
 import { Filter } from '../filter/filter';
 import { PhonesListItem } from './PhonesList__Item';
@@ -6,13 +8,53 @@ type Props = {
   phones: Phone[] | null;
 };
 
+function filterPhones(
+  phones: Phone[] | null,
+  filterType: FilterType = FilterType.NEWEST,
+): Phone[] {
+  if (!phones) {
+    return [];
+  }
+
+  const visiblePhones = [...phones];
+
+  visiblePhones.sort((p1, p2) => {
+    switch (filterType) {
+      case FilterType.ASC:
+        return p1.price - p2.price;
+
+      case FilterType.DESC:
+        return p2.price - p1.price;
+
+      case FilterType.OLDEST:
+        return p1.year - p2.year;
+
+      default:
+      case FilterType.NEWEST:
+        return p2.year - p1.year;
+    }
+  });
+
+  return visiblePhones;
+}
+
 export const PhonesList: React.FC<Props> = ({ phones }) => {
+  const [filterType, setFilterType] = useState<FilterType>(FilterType.NEWEST);
+
+  const visiblePhones = filterPhones(phones, filterType);
+
   return (
     <div className="container">
-      <Filter length={phones?.length} />
+      <Filter
+        length={phones?.length}
+        filterType={filterType}
+        handleFilterType={setFilterType}
+      />
 
       <div className="grid__cards">
-        {phones?.map(phone => <PhonesListItem key={phone.id} phone={phone} />)}
+        {visiblePhones?.map(phone => (
+          <PhonesListItem key={phone.id} phone={phone} />
+        ))}
       </div>
     </div>
   );
