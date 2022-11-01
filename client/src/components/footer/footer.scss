@@ -10,8 +10,6 @@ html {
   width: 100%;
   padding: 32px;
   border-top: 1px solid $color-elements;
-  bottom: 0;
-  position: fixed;
 
   @include pad {
     flex-direction: row;
