@@ -1,15 +1,20 @@
 {
   "files": {
-    "main.css": "/productCatalog/static/css/main.e6adbc87.css",
-    "main.js": "/productCatalog/static/js/main.96ef651e.js",
+    "main.css": "/productCatalog/static/css/main.39a3fe4c.css",
+    "main.js": "/productCatalog/static/js/main.0b28e827.js",
+    "static/media/logo.svg": "/productCatalog/static/media/logo.61c778bb493b57bf5cdd.svg",
     "static/media/heart.svg": "/productCatalog/static/media/heart.a48831a1ed897e1e3553.svg",
     "static/media/red-heart.svg": "/productCatalog/static/media/red-heart.e06f68523386b982e85a.svg",
+    "static/media/footer_button.svg": "/productCatalog/static/media/footer_button.0f2f0414c516f145a518.svg",
+    "static/media/next-page.svg": "/productCatalog/static/media/next-page.1218d346d7bbd8f26b9e.svg",
+    "static/media/prev-page.svg": "/productCatalog/static/media/prev-page.2cfdb8e7490ef908e01b.svg",
+    "static/media/up-page.svg": "/productCatalog/static/media/up-page.9344bb0be5d109fe52f6.svg",
     "index.html": "/productCatalog/index.html",
-    "main.e6adbc87.css.map": "/productCatalog/static/css/main.e6adbc87.css.map",
-    "main.96ef651e.js.map": "/productCatalog/static/js/main.96ef651e.js.map"
+    "main.39a3fe4c.css.map": "/productCatalog/static/css/main.39a3fe4c.css.map",
+    "main.0b28e827.js.map": "/productCatalog/static/js/main.0b28e827.js.map"
   },
   "entrypoints": [
-    "static/css/main.e6adbc87.css",
-    "static/js/main.96ef651e.js"
+    "static/css/main.39a3fe4c.css",
+    "static/js/main.0b28e827.js"
   ]
 }
