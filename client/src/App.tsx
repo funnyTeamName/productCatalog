@@ -11,7 +11,7 @@ import { Tablets } from './pages/Tablets';
 import { Accessories } from './pages/Accessories';
 
 export const App = () => {
-  const [phones, setPhones] = useState<Phone[] | null>(null);
+  const [phones, setPhones] = useState<Phone[]>([]);
 
   useEffect(() => {
     const loadPhones = async () => {
@@ -22,7 +22,11 @@ export const App = () => {
       setPhones(data);
     };
 
-    loadPhones();
+    try {
+      loadPhones();
+    } catch {
+      setPhones([]);
+    }
   }, []);
 
   return (

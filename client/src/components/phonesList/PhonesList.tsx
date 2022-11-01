@@ -5,17 +5,13 @@ import { Filter } from '../filter/filter';
 import { PhonesListItem } from './PhonesList__Item';
 
 type Props = {
-  phones: Phone[] | null;
+  phones: Phone[];
 };
 
 function filterPhones(
-  phones: Phone[] | null,
+  phones: Phone[],
   filterType: FilterType = FilterType.NEWEST,
 ): Phone[] {
-  if (!phones) {
-    return [];
-  }
-
   const visiblePhones = [...phones];
 
   visiblePhones.sort((p1, p2) => {
@@ -52,7 +48,7 @@ export const PhonesList: React.FC<Props> = ({ phones }) => {
       />
 
       <div className="grid__cards">
-        {visiblePhones?.map(phone => (
+        {visiblePhones.map(phone => (
           <PhonesListItem key={phone.id} phone={phone} />
         ))}
       </div>
