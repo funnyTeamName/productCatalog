@@ -6,9 +6,7 @@
   min-width: max-content;
   padding: 9.5px 39.5px;
 
-  font-size: $fs-14;
-  font-weight: $fw-700;
-  color: $color-white;
+  @include font-style($fw-700, $fs-14, 21px);
   background-color: $color-accent;
   border: none;
   @include hover(background-color, $color-accent-2);
@@ -33,9 +31,11 @@
 
     &--heart {
       padding: 20px;
+      border: 1px solid transparent;
       background-image: url("../../images/icons/heart.svg");
 
       &-acive {
+        border-color: $color-elements;
         background-image: url("../../images/icons/red-heart.svg");
       }
     }

@@ -24,7 +24,7 @@ export const Footer: React.FC = () => (
 
     <div className="footer__footer-rollback footer-rollback">
       <Link to="/" className="footer-rollback__text"> Back to top </Link>
-      <Link to="/" className="footer-rollback__button" />
+      <Link to="/" className="button__secondary button__secondary--up-page" />
     </div>
   </footer>
 );
