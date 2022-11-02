@@ -7,6 +7,8 @@ import { PhonesListItem } from './PhonesList__Item';
 
 type Props = {
   phones: Phone[];
+  selectedPhones: number[];
+  setSelectedPhones: (value: number[]) => void;
 };
 
 function filterPhones(
@@ -35,10 +37,13 @@ function filterPhones(
   return visiblePhones;
 }
 
-export const PhonesList: React.FC<Props> = ({ phones }) => {
+export const PhonesList: React.FC<Props> = ({
+  phones,
+  selectedPhones,
+  setSelectedPhones,
+}) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [phonesPerPage, setPhonesPerPage] = useState(8);
-
   const [filterType, setFilterType] = useState<FilterType>(FilterType.NEWEST);
 
   const currentPhones = filterPhones(phones, filterType);
@@ -76,7 +81,13 @@ export const PhonesList: React.FC<Props> = ({ phones }) => {
 
       <div className="grid__cards">
         {visiblePhones?.map(phone => (
-          <PhonesListItem key={phone.id} phone={phone} />))}
+          <PhonesListItem
+            key={phone.id}
+            phone={phone}
+            selectedPhones={selectedPhones}
+            setSelectedPhones={setSelectedPhones}
+          />
+        ))}
       </div>
 
       <Pagination

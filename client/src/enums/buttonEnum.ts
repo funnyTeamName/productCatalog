@@ -9,4 +9,10 @@ export enum ButtonClassModifier {
   UP_PAGE = 'button__secondary--up-page',
   NUM_PAGE = 'button__secondary--num-page',
   HEART = 'button__secondary--heart',
+  ADDED = 'button-added',
+}
+
+export enum ButtonType {
+  CART = 'cart',
+  HEART = 'heart',
 }

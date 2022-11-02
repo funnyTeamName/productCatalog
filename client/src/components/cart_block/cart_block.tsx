@@ -6,10 +6,18 @@ import { CartBlockItem } from './cartBlockItem';
 
 type Props = {
   phones: Phone[];
+  selectedPhones: number[];
+  setSelectedPhones: (value: number[]) => void;
 };
 
-export const CartBlock: React.FC<Props> = ({ phones }) => {
-  const visiblePhones = phones.filter(phone => phone.price > 1800);
+export const CartBlock: React.FC<Props> = ({
+  phones,
+  selectedPhones,
+  setSelectedPhones,
+}) => {
+  const visiblePhones = phones.filter(phone => (
+    selectedPhones.includes(phone.id)
+  ));
   const [totalPrice, setTotalPrice] = useState(0);
   const [countItems, setCountItems] = useState(0);
 
@@ -42,6 +50,8 @@ export const CartBlock: React.FC<Props> = ({ phones }) => {
         <CartBlockItem
           key={phone.id}
           phone={phone}
+          setSelectedPhones={setSelectedPhones}
+          selectedPhones={selectedPhones}
           totalPrice={totalPrice}
           setTotalPrice={setTotalPrice}
           countItems={countItems}
