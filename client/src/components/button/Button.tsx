@@ -6,19 +6,25 @@ type Props = {
   btnClassType: ButtonClassType,
   btnClassModifier?: ButtonClassModifier,
   isActiveBtn?: boolean,
-  setIsActiveBtn?: (value: boolean) => void,
+  selectedPhones: number[];
+  setSelectedPhones: (value: number[]) => void;
+  phoneId: number;
 };
 
 export const Button: React.FC<Props> = ({
   title,
   btnClassType,
   isActiveBtn,
-  setIsActiveBtn,
   btnClassModifier,
+  selectedPhones,
+  setSelectedPhones,
+  phoneId,
 }) => {
   const handleClick = () => {
-    if (setIsActiveBtn) {
-      setIsActiveBtn(!isActiveBtn);
+    if (selectedPhones.includes(phoneId)) {
+      setSelectedPhones(selectedPhones.filter(id => id !== phoneId));
+    } else {
+      setSelectedPhones([...selectedPhones, phoneId]);
     }
   };
 

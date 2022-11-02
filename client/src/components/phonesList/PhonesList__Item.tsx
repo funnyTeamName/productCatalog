@@ -1,15 +1,18 @@
-import { useState } from 'react';
 import { ButtonClassModifier, ButtonClassType } from '../../enums/buttonEnum';
 import { Button } from '../button/Button';
 import { Phone } from '../../types/Phone';
 
 type Props = {
   phone: Phone;
+  selectedPhones: number[];
+  setSelectedPhones: (value: number[]) => void;
 };
 
-export const PhonesListItem: React.FC<Props> = ({ phone }) => {
-  const [isActiveBtn, setIsActiveBtn] = useState(false);
-
+export const PhonesListItem: React.FC<Props> = ({
+  phone,
+  selectedPhones,
+  setSelectedPhones,
+}) => {
   return (
     <div className="card">
       <a href="/">
@@ -70,16 +73,33 @@ export const PhonesListItem: React.FC<Props> = ({ phone }) => {
         </div>
 
         <div className="card__buttons">
-          <Button
-            title="Add to cart"
-            btnClassType={ButtonClassType.PRIMARY}
-          />
+          {selectedPhones.includes(phone.id)
+            ? (
+              <Button
+                title="Added to cart"
+                btnClassType={ButtonClassType.PRIMARY}
+                btnClassModifier={ButtonClassModifier.ADDED}
+                selectedPhones={selectedPhones}
+                setSelectedPhones={setSelectedPhones}
+                phoneId={phone.id}
+              />
+            )
+            : (
+              <Button
+                title="Add to cart"
+                btnClassType={ButtonClassType.PRIMARY}
+                selectedPhones={selectedPhones}
+                setSelectedPhones={setSelectedPhones}
+                phoneId={phone.id}
+              />
+            )}
 
           <Button
             btnClassType={ButtonClassType.SECONDARY}
             btnClassModifier={ButtonClassModifier.HEART}
-            isActiveBtn={isActiveBtn}
-            setIsActiveBtn={setIsActiveBtn}
+            selectedPhones={selectedPhones}
+            setSelectedPhones={setSelectedPhones}
+            phoneId={phone.id}
           />
         </div>
       </div>

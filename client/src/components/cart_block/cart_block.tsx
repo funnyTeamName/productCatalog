@@ -6,10 +6,13 @@ import { CartBlockItem } from './cartBlockItem';
 
 type Props = {
   phones: Phone[];
+  selectedPhones: number[];
 };
 
-export const CartBlock: React.FC<Props> = ({ phones }) => {
-  const visiblePhones = phones.filter(phone => phone.price > 1800);
+export const CartBlock: React.FC<Props> = ({ phones, selectedPhones }) => {
+  const visiblePhones = phones.filter(phone => (
+    selectedPhones.includes(phone.id)
+  ));
 
   const totalPrice = visiblePhones
     .map(phone => phone.price)
