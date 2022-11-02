@@ -92,7 +92,9 @@ export const Filter: React.FC<Props> = ({
               setPhonesPerPage(+event.target.value);
               setCurrentPage(1);
 
-              window.location.replace('http://localhost:3000/#/Phones');
+              window.location.replace(
+                `${window.location.href.split('Phones/')[0]}Phones`,
+              );
             }}
           >
             <option value="8" className="sorts__option">8</option>
