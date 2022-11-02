@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/productCatalog/static/css/main.53f8a8c0.css",
-    "main.js": "/productCatalog/static/js/main.03b60985.js",
+    "main.css": "/productCatalog/static/css/main.f895ee20.css",
+    "main.js": "/productCatalog/static/js/main.87246cb7.js",
     "static/media/logo.svg": "/productCatalog/static/media/logo.61c778bb493b57bf5cdd.svg",
     "static/media/Mont-Heavy.ttf": "/productCatalog/static/media/Mont-Heavy.f370bce757bbfe4c8350.ttf",
     "static/media/Mont-Regular.ttf": "/productCatalog/static/media/Mont-Regular.e797167c18f9897bb607.ttf",
@@ -10,15 +10,16 @@
     "static/media/cart.svg": "/productCatalog/static/media/cart.c6d6212a3ea700d6002e.svg",
     "static/media/heart.svg": "/productCatalog/static/media/heart.a48831a1ed897e1e3553.svg",
     "static/media/red-heart.svg": "/productCatalog/static/media/red-heart.e06f68523386b982e85a.svg",
+    "static/media/Close.svg": "/productCatalog/static/media/Close.a7b1ced7ed3e49385129.svg",
     "static/media/next-page.svg": "/productCatalog/static/media/next-page.1218d346d7bbd8f26b9e.svg",
     "static/media/prev-page.svg": "/productCatalog/static/media/prev-page.2cfdb8e7490ef908e01b.svg",
     "static/media/up-page.svg": "/productCatalog/static/media/up-page.9344bb0be5d109fe52f6.svg",
     "index.html": "/productCatalog/index.html",
-    "main.53f8a8c0.css.map": "/productCatalog/static/css/main.53f8a8c0.css.map",
-    "main.03b60985.js.map": "/productCatalog/static/js/main.03b60985.js.map"
+    "main.f895ee20.css.map": "/productCatalog/static/css/main.f895ee20.css.map",
+    "main.87246cb7.js.map": "/productCatalog/static/js/main.87246cb7.js.map"
   },
   "entrypoints": [
-    "static/css/main.53f8a8c0.css",
-    "static/js/main.03b60985.js"
+    "static/css/main.f895ee20.css",
+    "static/js/main.87246cb7.js"
   ]
 }
