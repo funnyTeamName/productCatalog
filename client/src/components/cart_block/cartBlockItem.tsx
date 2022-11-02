@@ -7,7 +7,11 @@ type Props = {
 
 export const CartBlockItem: React.FC<Props> = ({ phone }) => (
   <div className="cart__block-item grid__item--desktop-1-15">
-    <button type="submit" className="cart__block-reset" aria-label="text" />
+    <button
+      type="submit"
+      className="cart__block-reset"
+      aria-label="text"
+    />
     <a href="/">
       <img
         src={`http://localhost:8080/${phone.image}`}

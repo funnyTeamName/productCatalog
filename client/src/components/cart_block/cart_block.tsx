@@ -1,6 +1,6 @@
 import React from 'react';
+import { useNavigate, Link } from 'react-router-dom';
 import './cart_block.scss';
-import { Link } from 'react-router-dom';
 import { Phone } from '../../types/Phone';
 import { CartBlockItem } from './cartBlockItem';
 
@@ -15,11 +15,19 @@ export const CartBlock: React.FC<Props> = ({ phones }) => {
     .map(phone => phone.price)
     .reduce((sum, value) => sum + value, 0);
 
+  const navigate = useNavigate();
+
   return (
     <div className="cart__block grid">
       <div className="cart__block-links">
         <Link to="/" className="cart__block-vector" />
-        <a href="http://" className="cart__block-link">Back</a>
+        <button
+          type="submit"
+          className="cart__block-link"
+          onClick={() => navigate(-1)}
+        >
+          Back
+        </button>
       </div>
       <div className="cart__block-title">Cart</div>
 
