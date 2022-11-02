@@ -20,7 +20,7 @@ export const Pagination: React.FC<Props> = ({
   prevPage,
 }) => {
   const pageNumbers = [];
-  const selectedPage = useLocation().pathname.split('/Phones/')[1];
+  const selectedPage = useLocation().pathname.split('/Phones/')[1] || 1;
 
   if (totalPhones) {
     const totalPages = Math.ceil(totalPhones / phonesPerPage);

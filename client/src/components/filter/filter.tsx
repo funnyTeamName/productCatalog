@@ -91,6 +91,8 @@ export const Filter: React.FC<Props> = ({
             onChange={event => {
               setPhonesPerPage(+event.target.value);
               setCurrentPage(1);
+
+              window.location.replace('http://localhost:3000/#/Phones');
             }}
           >
             <option value="8" className="sorts__option">8</option>
