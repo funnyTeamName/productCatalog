@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react';
 import { Footer } from './components/footer/footer';
 import { Header } from './components/header/header';
 import { Phone } from './types/Phone';
-import { CartBlock } from './components/cart_block/cart_block';
 import { Main } from './components/mainContent/mainContent';
 
 export const App = () => {
@@ -28,10 +27,8 @@ export const App = () => {
   return (
     <div>
       <Header />
-      
-      <Main phones={phones} />
 
-      <CartBlock />
+      <Main phones={phones} />
 
       <Footer />
     </div>
