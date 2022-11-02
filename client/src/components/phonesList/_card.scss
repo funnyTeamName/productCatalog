@@ -18,12 +18,13 @@
   background-color: $color-surface-1;
 
   &__img {
-    @include height-width(208px, 196px);
+    @include height-width(208px, 140px);
     margin-top: 32px;
     margin-bottom: 24px;
-    border-radius: 10px;
+    border-radius: 15px;
     
-    @include hover(scaleX, 120%);
+    object-fit: fill;
+    @include hover(scale, 105%);
   }
 
   &__description-content {
@@ -36,17 +37,17 @@
     margin-block-end: 0;
     min-height: 42px;
     margin-bottom: 8px;
-    @include font-style(600, $fs-14, 21px);
+    @include font-style($fw-600, $fs-14, 21px);
   }
 
   &__price {
     display: inline-block;
-    @include font-style(800, $fs-22, 30px);
+    @include font-style($fw-800, $fs-22, 30px);
   }
 
   &__price--old {
     margin-left: 5px;
-    color: $color-secondary;
+    @include font-style($fw-600, $fs-22, 28px, $color-secondary);
   }
 
   &__decorative-line {
@@ -65,11 +66,11 @@
   }
 
   &__subtitle {
-    @include font-style(700, $fs-12, 15px, $color-secondary);
+    @include font-style($fw-700, $fs-12, 15px, $color-secondary);
   }
 
   &__features {
-    @include font-style(700, $fs-12, 15px);
+    @include font-style($fw-700, $fs-12, 15px);
   }
 
   &__description {
