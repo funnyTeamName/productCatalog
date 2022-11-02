@@ -43,8 +43,8 @@ export const CartBlock: React.FC<Props> = ({
         >
           Back
         </button>
+        <div className="cart__block-title">Cart</div>
       </div>
-      <div className="cart__block-title">Cart</div>
 
       {visiblePhones.map(phone => (
         <CartBlockItem

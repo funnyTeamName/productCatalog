@@ -1,7 +1,7 @@
 @import '../../styles/main.scss';
 
-.cart__block{
-  @include phone{
+.cart__block {
+  @include phone {
     margin-left: 16px;
     margin-right: 16px;
   }
@@ -14,6 +14,7 @@
     margin-left: 150px;
     margin-right: 150px;
   }
+
   &-links {
     display: flex;
     margin-bottom: 16px;
@@ -24,11 +25,14 @@
     background-repeat: no-repeat;
     background-position: center;
     background-image: url(../../images/icons/prev-page.svg);
-    margin-right: 15px
+    margin-right: 15px;
   }
 
   &-link {
     @include font-style($fw-700, $fs-12, 15px);
+    background-color: $color-surface-2;
+    padding: 0 10px;
+
     &:hover {
       text-decoration: underline;
     }
@@ -46,7 +50,7 @@
     align-items: center;
     padding: 24px;
     margin-bottom: 16px;
-    background-color: $color-surface-1; 
+    background-color: $color-surface-1;
   }
 
   &-reset {
@@ -124,7 +128,6 @@
       border-bottom: 1px solid $color-elements;
     }
 
-
     &-button {
       @include height-width(48px, 100%);
       @include font-style($fw-700, $fs-14, 21px);
@@ -134,4 +137,3 @@
     }
   }
 }
-

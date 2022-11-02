@@ -21,7 +21,7 @@ export const CartBlockItem: React.FC<Props> = ({
   setCountItems,
 }) => {
   const handleRemove = () => {
-    setSelectedPhones(selectedPhones.filter(id => id !== phone.id))
+    setSelectedPhones(selectedPhones.filter(id => id !== phone.id));
   };
 
   const [count, setCount] = useState(1);
@@ -61,13 +61,6 @@ export const CartBlockItem: React.FC<Props> = ({
       <div className="cart__block-buttons">
         <button
           type="submit"
-          className="cart__block-btn-min"
-        >
-          -
-        </button>
-        <p className="cart__block-count">1</p>
-        <button
-          type="submit"
           className="cart__block-btn
               cart__block-btn-plus"
           onClick={changeCountSubtract}
@@ -85,7 +78,7 @@ export const CartBlockItem: React.FC<Props> = ({
           +
         </button>
       </div>
-      <div className="cart__block-price">{phone.price}</div>
+      <div className="cart__block-price">{phone.price * count}</div>
     </div>
   );
 };
