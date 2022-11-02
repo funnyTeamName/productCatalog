@@ -12,11 +12,13 @@ export const PhonesListItem: React.FC<Props> = ({ phone }) => {
 
   return (
     <div className="card">
-      <img
-        src={`http://localhost:8080/${phone.image}`}
-        className="card__img"
-        alt="product"
-      />
+      <a href="/">
+        <img
+          src={`http://localhost:8080/${phone.image}`}
+          className="card__img"
+          alt="product"
+        />
+      </a>
 
       <div className="card__description-content">
         <p className="card__product-title">

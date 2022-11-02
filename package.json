@@ -2,7 +2,9 @@
   "name": "product_catalog",
   "main": "index.ts",
   "scripts": {
-    "start": "node ./server/src/index.ts"
+    "start": "npm start --prefix server",
+    "build:client": "npm run build --prefix client",
+    "ci:client": "npm ci --prefix client"
   },
   "keywords": [
     "heroku"
@@ -14,5 +16,8 @@
   },
   "engines": {
     "node": "14.x"
+  },
+  "devDependencies": {
+    "axios": "^1.1.3"
   }
 }
