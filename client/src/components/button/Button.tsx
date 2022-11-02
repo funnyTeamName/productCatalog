@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { ButtonClassModifier, ButtonClassType } from '../../enums/buttonEnum';
+import { ButtonClassModifier, ButtonClassType } from '../../enums/ButtonEnum';
 
 type Props = {
   title?: string,

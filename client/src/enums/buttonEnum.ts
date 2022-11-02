@@ -11,3 +11,8 @@ export enum ButtonClassModifier {
   HEART = 'button__secondary--heart',
   ADDED = 'button-added',
 }
+
+export enum ButtonType {
+  CART = 'cart',
+  HEART = 'heart',
+}

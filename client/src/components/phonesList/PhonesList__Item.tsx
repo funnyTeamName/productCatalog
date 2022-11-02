@@ -1,4 +1,8 @@
-import { ButtonClassModifier, ButtonClassType } from '../../enums/buttonEnum';
+import {
+  ButtonClassModifier,
+  ButtonClassType,
+  ButtonType,
+} from '../../enums/ButtonEnum';
 import { Button } from '../button/Button';
 import { Phone } from '../../types/Phone';
 
@@ -82,7 +86,7 @@ export const PhonesListItem: React.FC<Props> = ({
                 selectedPhones={selectedPhones}
                 setSelectedPhones={setSelectedPhones}
                 phoneId={phone.id}
-                type="cart"
+                type={ButtonType.CART}
               />
             )
             : (
@@ -92,7 +96,7 @@ export const PhonesListItem: React.FC<Props> = ({
                 selectedPhones={selectedPhones}
                 setSelectedPhones={setSelectedPhones}
                 phoneId={phone.id}
-                type="cart"
+                type={ButtonType.CART}
               />
             )}
 
@@ -102,7 +106,7 @@ export const PhonesListItem: React.FC<Props> = ({
             selectedPhones={selectedPhones}
             setSelectedPhones={setSelectedPhones}
             phoneId={phone.id}
-            type="heart"
+            type={ButtonType.HEART}
           />
         </div>
       </div>
