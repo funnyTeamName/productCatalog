@@ -16,7 +16,7 @@ export const HeaderRight: React.FC = () => (
       "
     />
     <NavLink
-      to="/Shoping"
+      to="/Shopping"
       className="
         header__header-right-link
         header__header-right-link-shoping
