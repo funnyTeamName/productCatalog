@@ -82,6 +82,7 @@ export const PhonesListItem: React.FC<Props> = ({
                 selectedPhones={selectedPhones}
                 setSelectedPhones={setSelectedPhones}
                 phoneId={phone.id}
+                type="cart"
               />
             )
             : (
@@ -91,6 +92,7 @@ export const PhonesListItem: React.FC<Props> = ({
                 selectedPhones={selectedPhones}
                 setSelectedPhones={setSelectedPhones}
                 phoneId={phone.id}
+                type="cart"
               />
             )}
 
@@ -100,6 +102,7 @@ export const PhonesListItem: React.FC<Props> = ({
             selectedPhones={selectedPhones}
             setSelectedPhones={setSelectedPhones}
             phoneId={phone.id}
+            type="heart"
           />
         </div>
       </div>

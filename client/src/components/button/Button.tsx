@@ -9,6 +9,7 @@ type Props = {
   selectedPhones: number[];
   setSelectedPhones: (value: number[]) => void;
   phoneId: number;
+  type: 'heart' | 'cart';
 };
 
 export const Button: React.FC<Props> = ({
@@ -19,12 +20,15 @@ export const Button: React.FC<Props> = ({
   selectedPhones,
   setSelectedPhones,
   phoneId,
+  type,
 }) => {
   const handleClick = () => {
-    if (selectedPhones.includes(phoneId)) {
-      setSelectedPhones(selectedPhones.filter(id => id !== phoneId));
-    } else {
-      setSelectedPhones([...selectedPhones, phoneId]);
+    if (type === 'cart') {
+      if (selectedPhones.includes(phoneId)) {
+        setSelectedPhones(selectedPhones.filter(id => id !== phoneId));
+      } else {
+        setSelectedPhones([...selectedPhones, phoneId]);
+      }
     }
   };
 
