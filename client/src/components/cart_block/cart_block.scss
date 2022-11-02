@@ -1,9 +1,8 @@
-@import "../../styles/main.scss";
+@import '../../styles/main.scss';
 
-.cart__block{
+.cart__block {
   margin-right: 150px;
   margin-left: 150px;
-
 
   &-links {
     display: flex;
@@ -15,7 +14,7 @@
     background-repeat: no-repeat;
     background-position: center;
     background-image: url(../../../public/images/Vector_back.png);
-    margin-right: 15px
+    margin-right: 15px;
   }
 
   &-link {
@@ -46,7 +45,6 @@
     padding: 24px;
     margin-bottom: 16px;
     background-color: $color-surface-1;
-    
   }
 
   &-reset {
@@ -58,28 +56,9 @@
     border: none;
   }
 
-  &-img1 {
-    @include height-width(80px, 80px);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    background-image: url(../../../public/images/iphone_14_pro.png);
-  }
-
-  &-img2 {
-    @include height-width(80px, 80px);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    background-image: url(../../../public/images/iphone_14_plus.png);
-  }
-
-  &-img3 {
-    @include height-width(80px, 80px);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    background-image: url(../../../public/images/iphone_11_pro_max.png);
+  &-img {
+    @include height-width(66px, 66px);
+    @include hover(scale, 115%);
   }
 
   &-info {
@@ -96,7 +75,7 @@
     color: $color-icons;
     border: 1px solid $color-elements;
   }
-  
+
   &-count {
     @include height-width(32px, 32px);
     display: flex;

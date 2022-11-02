@@ -26,7 +26,7 @@ export const Main: React.FC<Props> = ({ phones }) => (
       <Route path="tablets" element={<Tablets />} />
       <Route path="accessories" element={<Accessories />} />
 
-      <Route path="shopping" element={<CartBlock />} />
+      <Route path="shopping" element={<CartBlock phones={phones} />} />
 
       <Route path="*" element={<NotFoundPage />} />
     </Routes>
