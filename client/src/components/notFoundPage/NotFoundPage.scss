@@ -6,19 +6,27 @@
 }
 
 #notfound {
-  height: 100vh;
+  min-height: calc(100vh - 334px);
+
+  @include pad {
+    min-height: calc(100vh - 189px);
+  }
 }
 
 #notfound .notfound {
   position: absolute;
   left: 50%;
-  top: 50%;
+  top: 40%;
+  @include pad {
+    top: 45%;
+  }
   -webkit-transform: translate(-50%, -50%);
       -ms-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
 }
 
 .notfound {
+  z-index: -1;
   max-width: 520px;
   width: 100%;
   line-height: 1.4;
