@@ -4,15 +4,35 @@ import { Link } from 'react-router-dom';
 
 export const CartBlock: React.FC = () => (
   <div className="cart__block grid">
-    <div className="cart__block-links">
+    <div
+      className="cart__block-links
+      grid__item--mobile-1-2
+      grid__item--iPad-1-2
+      grid__item--desktop-1-2"
+    >
       <Link to="/" className="cart__block-vector" />
       <a href="http://" className="cart__block-link">Back</a>
     </div>
-    <div className="cart__block-title">Cart</div>
+    <div className="cart__block-title
+    grid__item--mobile-1-3
+      grid__item--iPad-1-3
+      grid__item--desktop-1-3"
+    >
+      Cart
+    </div>
 
-          {/* BLOCK CARTS 1 */}
-          <div className="cart__block-item grid__item--desktop-1-15">
-        <button type="submit" className="cart__block-reset" aria-label="text" />
+    <div
+      className="grid__item--mobile-1-4
+      grid__item--iPad-1-12
+      grid__item--desktop-1-16"
+    >
+      {/* BLOCK CARTS 1 */}
+      <div className="cart__block-item">
+        <button
+          type="submit"
+          className="cart__block-reset"
+          aria-label="text"
+        />
         <Link to="/" className="cart__block-img1" />
         <div className="cart__block-info">
           Apple iPhone 14 Pro 128GB Silver (MQ023)
@@ -37,7 +57,7 @@ export const CartBlock: React.FC = () => (
       </div>
 
       {/* BLOCK CARTS 2 */}
-      <div className="cart__block-item grid__item--desktop-1-15">
+      <div className="cart__block-item">
         <button type="submit" className="cart__block-reset" aria-label="text" />
         <Link to="/" className="cart__block-img2" />
         <div className="cart__block-info">
@@ -63,7 +83,7 @@ export const CartBlock: React.FC = () => (
       </div>
 
       {/* BLOCK CARTS 3 */}
-      <div className="cart__block-item grid__item--desktop-1-15">
+      <div className="cart__block-item">
         <button type="submit" className="cart__block-reset" aria-label="text" />
         <Link to="/" className="cart__block-img3" />
         <div className="cart__block-info">
@@ -87,17 +107,22 @@ export const CartBlock: React.FC = () => (
         </div>
         <div className="cart__block-price">$799</div>
       </div>
+    </div>
 
-      {/* BLOCK TOTAL */}
-      <div className="cart__block-total grid__item--desktop-17-23">
-        <div className="cart__block-total-title">$2657</div>
-        <div className="cart__block-total-subtitle">Total for 3 items</div>
-        <button
-          type="submit"
-          className="cart__block-total-button"
-        >
-          Checkout
-        </button>
-      </div>
+    {/* BLOCK TOTAL */}
+    <div className="cart__block-total
+      grid__item--mobile-1-4
+      grid__item--iPad-1-12
+      grid__item--desktop-17-24"
+    >
+      <div className="cart__block-total-title">$2657</div>
+      <div className="cart__block-total-subtitle">Total for 3 items</div>
+      <button
+        type="submit"
+        className="cart__block-total-button"
+      >
+        Checkout
+      </button>
+    </div>
   </div>
 );
