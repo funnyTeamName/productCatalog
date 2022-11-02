@@ -10,6 +10,7 @@ import { NotFoundPage } from './pages/NotFoundPage';
 import { Home } from './pages/Home';
 import { Tablets } from './pages/Tablets';
 import { Accessories } from './pages/Accessories';
+import { CartBlock } from './components/cart_block/cart_block';
 
 export const App = () => {
   const [phones, setPhones] = useState<Phone[] | null>(null);
@@ -25,13 +26,13 @@ export const App = () => {
 
     loadPhones();
   }, []);
- 
+
   return (
     <div>
       <Header />
-  
+
       <MainBlock />
-      
+
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="home" element={<Navigate to="/" replace />} />
@@ -46,7 +47,7 @@ export const App = () => {
 
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
-
+      <CartBlock />
       <Footer />
     </div>
   );

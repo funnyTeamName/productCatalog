@@ -1,0 +1,162 @@
+@import "../../styles/main.scss";
+
+.cart__block{
+  margin-right: 150px;
+  margin-left: 150px;
+
+
+  &-links {
+    display: flex;
+    margin-bottom: 16px;
+  }
+
+  &-vector {
+    @include height-width(16px, 16px);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url(../../../public/images/Vector_back.png);
+    margin-right: 15px
+  }
+
+  &-link {
+    font-weight: $fw-700;
+    font-size: $fs-12;
+    line-height: 15px;
+    color: $color-white;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &-title {
+    font-weight: $fw-800;
+    font-size: $fs-48;
+    line-height: 56px;
+    letter-spacing: -0.01em;
+    color: $color-white;
+    margin-bottom: 32px;
+  }
+
+  &-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 128px;
+    padding: 24px;
+    margin-bottom: 16px;
+    background-color: $color-surface-1;
+    
+  }
+
+  &-reset {
+    @include height-width(16px, 16px);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url(../../../public/images/Close.png);
+    background-color: transparent;
+    border: none;
+  }
+
+  &-img1 {
+    @include height-width(80px, 80px);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-image: url(../../../public/images/iphone_14_pro.png);
+  }
+
+  &-img2 {
+    @include height-width(80px, 80px);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-image: url(../../../public/images/iphone_14_plus.png);
+  }
+
+  &-img3 {
+    @include height-width(80px, 80px);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-image: url(../../../public/images/iphone_11_pro_max.png);
+  }
+
+  &-info {
+    width: 300px;
+    font-weight: $fw-600;
+    font-size: $fs-14;
+    line-height: 21px;
+    color: $color-white;
+  }
+
+  &-btn-min {
+    @include height-width(32px, 32px);
+    background-color: $color-surface-1;
+    color: $color-icons;
+    border: 1px solid $color-elements;
+  }
+  
+  &-count {
+    @include height-width(32px, 32px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: $fw-600;
+    font-size: $fs-14;
+    line-height: 21px;
+    color: $color-white;
+  }
+
+  &-buttons {
+    display: flex;
+  }
+
+  &-btn-plus {
+    @include height-width(32px, 32px);
+    background-color: $color-surface-2;
+    color: $color-white;
+    border: none;
+  }
+
+  &-price {
+    font-weight: $fw-800;
+    font-size: $fs-22;
+    line-height: 140%;
+    color: $color-white;
+  }
+
+  &-total {
+    text-align: center;
+    padding: 24px;
+    border: 1px solid $color-elements;
+
+    &-title {
+      font-weight: $fw-800;
+      font-size: $fs-32;
+      line-height: 41px;
+      letter-spacing: -0.01em;
+      color: $color-white;
+    }
+
+    &-subtitle {
+      font-weight: $fw-600;
+      font-size: $fs-14;
+      line-height: 21px;
+      color: $color-secondary;
+      padding-bottom: 25px;
+      border-bottom: 1px solid $color-elements;
+    }
+
+    &-button {
+      @include height-width(48px, 100%);
+      background-color: $color-accent;
+      font-weight: $fw-700;
+      font-size: $fs-14;
+      line-height: 21px;
+      color: $color-white;
+      margin-top: 25px;
+      border: none;
+    }
+  }
+}
