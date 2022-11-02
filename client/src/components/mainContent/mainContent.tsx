@@ -7,6 +7,7 @@ import { PhonesList } from '../phonesList/PhonesList';
 import { Phone } from '../../types/Phone';
 import './mainContent.scss';
 import { CartBlock } from '../cart_block/cart_block';
+import { PhoneInfo } from '../phone_info/phone_info';
 
 type Props = {
   phones: Phone[];
@@ -27,6 +28,8 @@ export const Main: React.FC<Props> = ({ phones }) => (
       <Route path="accessories" element={<Accessories />} />
 
       <Route path="shopping" element={<CartBlock phones={phones} />} />
+
+      <Route path="phoneInfo" element={<PhoneInfo phones={phones} />} />
 
       <Route path="*" element={<NotFoundPage />} />
     </Routes>

@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { ButtonClassModifier, ButtonClassType } from '../../enums/buttonEnum';
 import { Button } from '../button/Button';
@@ -12,13 +13,13 @@ export const PhonesListItem: React.FC<Props> = ({ phone }) => {
 
   return (
     <div className="card">
-      <a href="/">
+      <Link to="/phoneInfo">
         <img
           src={`http://localhost:8080/${phone.image}`}
           className="card__img"
           alt="product"
         />
-      </a>
+      </Link>
 
       <div className="card__description-content">
         <p className="card__product-title">
