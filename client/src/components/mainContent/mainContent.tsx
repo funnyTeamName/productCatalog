@@ -6,6 +6,7 @@ import { Accessories } from '../../pages/Accessories';
 import { PhonesList } from '../phonesList/PhonesList';
 import { Phone } from '../../types/Phone';
 import './mainContent.scss';
+import { CartBlock } from '../cart_block/cart_block';
 
 type Props = {
   phones: Phone[];
@@ -24,6 +25,8 @@ export const Main: React.FC<Props> = ({ phones }) => (
 
       <Route path="tablets" element={<Tablets />} />
       <Route path="accessories" element={<Accessories />} />
+
+      <Route path="shopping" element={<CartBlock />} />
 
       <Route path="*" element={<NotFoundPage />} />
     </Routes>
