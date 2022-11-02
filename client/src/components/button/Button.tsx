@@ -1,5 +1,9 @@
 import classNames from 'classnames';
-import { ButtonClassModifier, ButtonClassType } from '../../enums/ButtonEnum';
+import {
+  ButtonClassModifier,
+  ButtonClassType,
+  ButtonType,
+} from '../../enums/ButtonEnum';
 
 type Props = {
   title?: string,
@@ -9,7 +13,7 @@ type Props = {
   selectedPhones: number[];
   setSelectedPhones: (value: number[]) => void;
   phoneId: number;
-  type: 'heart' | 'cart';
+  type: ButtonType;
 };
 
 export const Button: React.FC<Props> = ({
