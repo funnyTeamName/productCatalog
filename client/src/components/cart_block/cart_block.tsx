@@ -7,9 +7,14 @@ import { CartBlockItem } from './cartBlockItem';
 type Props = {
   phones: Phone[];
   selectedPhones: number[];
+  setSelectedPhones: (value: number[]) => void;
 };
 
-export const CartBlock: React.FC<Props> = ({ phones, selectedPhones }) => {
+export const CartBlock: React.FC<Props> = ({
+  phones,
+  selectedPhones,
+  setSelectedPhones,
+}) => {
   const visiblePhones = phones.filter(phone => (
     selectedPhones.includes(phone.id)
   ));
@@ -35,7 +40,12 @@ export const CartBlock: React.FC<Props> = ({ phones, selectedPhones }) => {
       <div className="cart__block-title">Cart</div>
 
       {visiblePhones.map(phone => (
-        <CartBlockItem key={phone.id} phone={phone} />
+        <CartBlockItem
+          key={phone.id}
+          phone={phone}
+          setSelectedPhones={setSelectedPhones}
+          selectedPhones={selectedPhones}
+        />
       ))}
 
       <div className="cart__block-total grid__item--desktop-17-23">

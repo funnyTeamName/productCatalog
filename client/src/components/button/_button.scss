@@ -3,8 +3,7 @@
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  min-width: max-content;
-  padding: 9.5px 39.5px;
+  width: 160px;
 
   @include font-style($fw-700, $fs-14, 21px);
   background-color: $color-accent;

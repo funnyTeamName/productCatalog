@@ -54,6 +54,7 @@ export const Main: React.FC<Props> = ({ phones }) => {
             <CartBlock
               phones={phones}
               selectedPhones={selectedPhones}
+              setSelectedPhones={setSelectedPhones}
             />
           )}
         />
