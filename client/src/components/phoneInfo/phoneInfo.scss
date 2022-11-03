@@ -6,7 +6,6 @@
   justify-content: space-between;
   margin: 0 auto;
   max-width: 1200px;
-  padding-left: 20px;
 
   &__logo {
    display: flex;
@@ -70,7 +69,6 @@
 .phone {
   max-width: 1200px;
   margin: 0 auto;
-  margin-left: 32px;
   &__title {
     font-weight: $fw-800;
     font-size: 34px;
@@ -83,6 +81,50 @@
   &__wrapper {
     display: flex;
     align-items: center;
+  }
+
+  &__chose-color {
+    display: flex;
+    align-items: center;
+    margin-bottom: 32px;
+    &-text {
+      font-weight: $fw-700;
+      font-size: 12px;
+      line-height: 15px;
+      letter-spacing: 0.02em;
+      color: $color-secondary;
+      margin-right: 16px;
+      font-family: $ff-mont;
+    }
+    &-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1px solid $color-secondary;
+      margin-right: 16px;
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+    &-item {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1px solid $color-secondary;
+      margin-right: 16px;
+      &:last-child {
+        margin-right: 0;
+      }
+      &-active {
+        background-color: $color-secondary;
+      }
+    }
+    &-list {
+      display: flex;
+      align-items: center;
+      margin-right: 16px;
+      
+    }
   }
 
   &__list {
@@ -102,6 +144,7 @@
     width: 442px;
     height: 442px;
     margin-right: 76px;
+    object-fit: contain;
   }
 
   &__button {
@@ -117,6 +160,9 @@
     border: 1px solid #e2e6e9;
     box-sizing: border-box;
     padding: 8px;
+    &--focus {
+      border: 1px solid #313237;
+    }
   }
 
   &__cart {
@@ -130,6 +176,16 @@
     border: 0;
     cursor: pointer;
     margin-right: 0;
+
+    &:hover {
+      box-shadow: 0 3px 13px rgba(23, 32, 49, 0.26);
+    }
+
+    &--focus {
+      border: 1px solid #e2e6e9;
+      color: #27ae60;
+      background-color: #fff;
+    }
   }
 
   &__price {
@@ -168,7 +224,7 @@
   }
 
   &__name {
-    color: #89939a;
+    color: $color-secondary;
     margin: 0;
   }
 
@@ -185,9 +241,24 @@
 
   &__about {
     display: flex;
+    flex-grow: 1;
     flex-direction: column;
     font-family: $ff-mont;
     color: $color-white;
+
+    &--title {
+      font-weight: $fw-700;
+      font-size: $fs-20;
+      color: $color-white;
+      margin-bottom: 16px;
+    }
+    &--text {
+      font-weight: $fw-400;
+      font-size: $fs-16;
+      line-height: 24px;
+      margin-bottom: 16px;
+      color: $color-secondary;
+    }
   }
 
   &__specs {
