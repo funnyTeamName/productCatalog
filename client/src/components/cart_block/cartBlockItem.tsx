@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Phone } from '../../types/Phone';
 
 type Props = {
@@ -25,6 +25,18 @@ export const CartBlockItem: React.FC<Props> = ({
   };
 
   const [count, setCount] = useState(1);
+
+  useEffect(() => {
+    const data = window.localStorage.getItem(`item:${phone.id}`);
+
+    if (data !== null) {
+      setCount(JSON.parse(data));
+    }
+  }, []);
+
+  useEffect(() => {
+    window.localStorage.setItem(`item:${phone.id}`, JSON.stringify(count));
+  }, [count]);
 
   const changeCountSubtract = () => {
     if (count > 1) {
