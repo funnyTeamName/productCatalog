@@ -8,7 +8,7 @@ export interface PhoneType {
   priceDiscount: number;
   colorsAvailable: [string];
   color: string;
-  image: [string];
+  images: [string];
   description: [
     {
       title: string;

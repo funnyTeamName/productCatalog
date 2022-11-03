@@ -1,16 +1,48 @@
 import { Link, useNavigate } from 'react-router-dom';
 import './phone_info.scss';
-import { Phone } from '../../types/Phone';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+import { PhoneType } from '../../types/PhoneType';
+import { Button } from '../button/Button';
+import {
+  ButtonClassModifier,
+  ButtonClassType,
+  ButtonType,
+} from '../../enums/ButtonEnum';
 
 type Props = {
-  phones: Phone[];
+  phoneId: number;
+  setSelectedPhones: (value: number[]) => void;
+  selectedPhones: number[];
 };
 
 export const PhoneInfo: React.FC<Props> = ({
-  phones,
+  phoneId,
+  setSelectedPhones,
+  selectedPhones,
 }) => {
-  const findPhone = phones.find(phone => phone.id);
+  const [foundPhone, setFoundPhone] = useState<PhoneType | null>(null);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const loadPhone = async () => {
+      const response = await axios.get(`http://localhost:8080/products/${phoneId}`);
+
+      const data = await response.data;
+
+      setFoundPhone(data);
+    };
+
+    try {
+      loadPhone();
+    } catch {
+      setFoundPhone(null);
+    }
+  }, []);
+
+  if (!foundPhone) {
+    return <h2>404</h2>;
+  }
 
   return (
     <main className="phone">
@@ -27,7 +59,7 @@ export const PhoneInfo: React.FC<Props> = ({
           </Link>
           <Link to="/" className="phone-info__logo-vector" />
           <p className="phone-info__logo-text">
-            {findPhone?.name}
+            {foundPhone.name}
           </p>
         </div>
         <div className="back__btn">
@@ -46,14 +78,14 @@ export const PhoneInfo: React.FC<Props> = ({
       </div>
       <div className="container">
         <h1 className="phone__title h1">
-          {findPhone?.name}
+          {foundPhone.name}
         </h1>
         <div className="phone__wrapper">
           <div className="phone__list">
             <img src="" alt="" />
           </div>
           <img
-            src={`http://localhost:8080/${findPhone?.image}`}
+            src={`http://localhost:8080/${foundPhone.images[0]}`}
             alt="pictureCart"
             className="phone__image"
           />
@@ -61,29 +93,50 @@ export const PhoneInfo: React.FC<Props> = ({
             <div className="phone__price">
               <p className="phone__newPrice">
                 $
-                {findPhone?.price}
+                {foundPhone.priceDiscount}
               </p>
               <p className="phone__oldPrice">
                 $
-                {findPhone?.fullPrice}
+                {foundPhone.priceRegular}
               </p>
             </div>
             <div className="phone__button">
-              {/* <Button
-                title="Add to cart"
-                btnClassType={ButtonClassType.PRIMARY}
-              /> */}
+              {selectedPhones.includes(phoneId)
+                ? (
+                  <Button
+                    title="Added to cart"
+                    btnClassType={ButtonClassType.PRIMARY}
+                    btnClassModifier={ButtonClassModifier.ADDED}
+                    selectedPhones={selectedPhones}
+                    setSelectedPhones={setSelectedPhones}
+                    phoneId={phoneId}
+                    type={ButtonType.CART}
+                  />
+                )
+                : (
+                  <Button
+                    title="Add to cart"
+                    btnClassType={ButtonClassType.PRIMARY}
+                    selectedPhones={selectedPhones}
+                    setSelectedPhones={setSelectedPhones}
+                    phoneId={phoneId}
+                    type={ButtonType.CART}
+                  />
+                )}
 
-              {/* <Button
+              <Button
                 btnClassType={ButtonClassType.SECONDARY}
                 btnClassModifier={ButtonClassModifier.HEART}
-                isActiveBtn={isActiveBtn}
-              /> */}
+                selectedPhones={selectedPhones}
+                setSelectedPhones={setSelectedPhones}
+                phoneId={phoneId}
+                type={ButtonType.HEART}
+              />
             </div>
             <div className="phone__characteristic smalltext">
               <p className="phone__name">Screen</p>
               <p className="phone__value">
-                {findPhone?.screen}
+                {foundPhone.screen}
               </p>
             </div>
             <div className="phone__characteristic smalltext">
@@ -99,7 +152,7 @@ export const PhoneInfo: React.FC<Props> = ({
             <div className="phone__characteristic smalltext">
               <p className="phone__name">RAM</p>
               <p className="phone__value">
-                {findPhone?.ram}
+                {foundPhone.ram}
               </p>
             </div>
           </div>
@@ -118,7 +171,7 @@ export const PhoneInfo: React.FC<Props> = ({
             <div className="phone__characteristic smalltext">
               <p className="phone__name">Screen</p>
               <p className="phone__value">
-                {findPhone?.screen}
+                {foundPhone.screen}
               </p>
             </div>
             <div className="phone__characteristic smalltext">
@@ -134,13 +187,13 @@ export const PhoneInfo: React.FC<Props> = ({
             <div className="phone__characteristic smalltext">
               <p className="phone__name">RAM</p>
               <p className="phone__value">
-                {findPhone?.ram}
+                {foundPhone.ram}
               </p>
             </div>
             <div className="phone__characteristic smalltext">
               <p className="phone__name">Built in memory</p>
               <p className="phone__value">
-                {findPhone?.capacity}
+                {foundPhone.capacity}
               </p>
             </div>
             <div className="phone__characteristic smalltext">

@@ -11,16 +11,21 @@ type Props = {
   phone: Phone;
   selectedPhones: number[];
   setSelectedPhones: (value: number[]) => void;
+  setPhoneId: (value: number) => void;
 };
 
 export const PhonesListItem: React.FC<Props> = ({
   phone,
   selectedPhones,
   setSelectedPhones,
+  setPhoneId,
 }) => {
   return (
     <div className="card">
-      <Link to="/phoneInfo">
+      <Link
+        to="/phoneInfo"
+        onClick={() => setPhoneId(phone.id)}
+      >
         <img
           src={`http://localhost:8080/${phone.image}`}
           className="card__img"

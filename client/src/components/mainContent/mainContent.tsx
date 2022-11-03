@@ -17,6 +17,8 @@ type Props = {
 export const Main: React.FC<Props> = ({ phones }) => {
   const [selectedPhones, setSelectedPhones] = useState<number[] | []>([]);
 
+  const [phoneId, setPhoneId] = useState(1);
+
   return (
     <div className="mainContent">
       <Routes>
@@ -31,6 +33,7 @@ export const Main: React.FC<Props> = ({ phones }) => {
                 phones={phones}
                 selectedPhones={selectedPhones}
                 setSelectedPhones={setSelectedPhones}
+                setPhoneId={setPhoneId}
               />
             )}
           />
@@ -41,6 +44,7 @@ export const Main: React.FC<Props> = ({ phones }) => {
                 phones={phones}
                 selectedPhones={selectedPhones}
                 setSelectedPhones={setSelectedPhones}
+                setPhoneId={setPhoneId}
               />
             )}
           />
@@ -49,7 +53,16 @@ export const Main: React.FC<Props> = ({ phones }) => {
         <Route path="tablets" element={<Tablets />} />
         <Route path="accessories" element={<Accessories />} />
 
-        <Route path="phoneInfo" element={<PhoneInfo phones={phones} />} />
+        <Route
+          path="phoneInfo"
+          element={(
+            <PhoneInfo
+              phoneId={phoneId}
+              selectedPhones={selectedPhones}
+              setSelectedPhones={setSelectedPhones}
+            />
+          )}
+        />
 
         <Route
           path="shopping"
