@@ -12,11 +12,32 @@ app.use(cors());
 app.use(express.static('./data/'));
 
 app.get('/products', (req, res) => {
-  const phones = fs.readFileSync('./data/phones.json', 'utf-8');
+  const phones = JSON.parse(fs.readFileSync('./data/phones.json', 'utf-8'));
 
   res.statusCode = 200;
 
-  res.send(JSON.parse(phones));
+  res.send(phones);
+});
+
+app.get('/products/new', (req, res) => {
+  const phones = JSON.parse(fs.readFileSync('./data/phones.json', 'utf-8'))
+    .sort((p1, p2) => p2.year - p1.year)
+    .splice(0, 8);
+
+  res.statusCode = 200;
+
+  res.send(phones);
+});
+
+app.get('/products/discount', (req, res) => {
+  const phones = JSON.parse(fs.readFileSync('./data/phones.json', 'utf-8'))
+    .filter(phone => phone.price < 1000)
+    .sort((p1, p2) => p2.price - p1.price)
+    .splice(0, 8);
+
+  res.statusCode = 200;
+
+  res.send(phones);
 });
 
 app.get('/products/:productId', (req, res) => {
