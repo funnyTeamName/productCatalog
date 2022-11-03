@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import { useLocation } from 'react-router-dom';
-import { ButtonClassModifier, ButtonClassType } from '../../enums/buttonEnum';
+import { ButtonClassModifier, ButtonClassType } from '../../enums/ButtonEnum';
 
 type Props = {
   phonesPerPage: number,
@@ -20,7 +20,7 @@ export const Pagination: React.FC<Props> = ({
   prevPage,
 }) => {
   const pageNumbers = [];
-  const selectedPage = useLocation().pathname.split('/Phones/')[1];
+  const selectedPage = useLocation().pathname.split('/Phones/')[1] || 1;
 
   if (totalPhones) {
     const totalPages = Math.ceil(totalPhones / phonesPerPage);

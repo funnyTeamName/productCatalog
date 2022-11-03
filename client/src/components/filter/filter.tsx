@@ -43,6 +43,8 @@ export const Filter: React.FC<Props> = ({
     }
   };
 
+  const currentUrl = window.location.href.split('Phones/')[0];
+
   return (
     <div className="container">
       <div className="container__logo">
@@ -91,6 +93,12 @@ export const Filter: React.FC<Props> = ({
             onChange={event => {
               setPhonesPerPage(+event.target.value);
               setCurrentPage(1);
+
+              window.location.replace(
+                currentUrl.endsWith('Phones')
+                  ? currentUrl
+                  : `${currentUrl.split('Phones/')[0]}Phones`,
+              );
             }}
           >
             <option value="8" className="sorts__option">8</option>

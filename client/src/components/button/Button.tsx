@@ -1,24 +1,38 @@
 import classNames from 'classnames';
-import { ButtonClassModifier, ButtonClassType } from '../../enums/buttonEnum';
+import {
+  ButtonClassModifier,
+  ButtonClassType,
+  ButtonType,
+} from '../../enums/ButtonEnum';
 
 type Props = {
   title?: string,
   btnClassType: ButtonClassType,
   btnClassModifier?: ButtonClassModifier,
   isActiveBtn?: boolean,
-  setIsActiveBtn?: (value: boolean) => void,
+  selectedPhones: number[];
+  setSelectedPhones: (value: number[]) => void;
+  phoneId: number;
+  type: ButtonType;
 };
 
 export const Button: React.FC<Props> = ({
   title,
   btnClassType,
   isActiveBtn,
-  setIsActiveBtn,
   btnClassModifier,
+  selectedPhones,
+  setSelectedPhones,
+  phoneId,
+  type,
 }) => {
   const handleClick = () => {
-    if (setIsActiveBtn) {
-      setIsActiveBtn(!isActiveBtn);
+    if (type === 'cart') {
+      if (selectedPhones.includes(phoneId)) {
+        setSelectedPhones(selectedPhones.filter(id => id !== phoneId));
+      } else {
+        setSelectedPhones([...selectedPhones, phoneId]);
+      }
     }
   };
 
