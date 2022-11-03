@@ -1,14 +1,4 @@
-.container {
-  box-sizing: border-box;
-  display: flex;
-  flex-wrap: wrap;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.page__content {
-  background-color: $color-black;
-}
+@import "../../styles/main.scss";
 
 .card {
   display: flex;

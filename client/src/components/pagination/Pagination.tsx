@@ -1,6 +1,7 @@
 import classNames from 'classnames';
 import { useLocation } from 'react-router-dom';
-import { ButtonClassModifier, ButtonClassType } from '../../enums/ButtonEnum';
+import { ButtonClassModifier, ButtonClassType } from '../../enums/buttonEnum';
+// import './_pagination.scss';
 
 type Props = {
   phonesPerPage: number,
@@ -31,7 +32,7 @@ export const Pagination: React.FC<Props> = ({
   }
 
   return (
-    <div className="pagination">
+    <div className="page__pagination pagination">
       <a // eslint-disable-line jsx-a11y/anchor-has-content
         href={`#/Phones/${currentPage}`}
         aria-label="link"

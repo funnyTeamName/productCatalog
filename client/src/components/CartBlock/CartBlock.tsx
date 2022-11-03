@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import './cart_block.scss';
 import { Phone } from '../../types/Phone';
-import { CartBlockItem } from './cartBlockItem';
+import { CartBlockItem } from './CartBlockItem';
+import './CartBlock.scss';
 
 type Props = {
   phones: Phone[];

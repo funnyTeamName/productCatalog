@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Menu } from '../menu/menu';
-import './burger_menu.scss';
+import { Menu } from '../Menu';
+import './BurgerMenu.scss';
 
 export const BurgerMenu: React.FC = () => {
   const [menuActive, setMenuActive] = useState(false);

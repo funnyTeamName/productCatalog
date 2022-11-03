@@ -1,6 +1,6 @@
 import React from 'react';
-import './footer.scss';
 import { Link, NavLink, useLocation } from 'react-router-dom';
+import './Footer.scss';
 
 export const Footer: React.FC = () => {
   function Scroll() {

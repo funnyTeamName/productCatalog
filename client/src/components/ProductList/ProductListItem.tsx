@@ -2,9 +2,10 @@ import {
   ButtonClassModifier,
   ButtonClassType,
   ButtonType,
-} from '../../enums/ButtonEnum';
-import { Button } from '../button/Button';
+} from '../../enums/buttonEnum';
+import { Button } from '../Button';
 import { Phone } from '../../types/Phone';
+import './ProductCard.scss';
 
 type Props = {
   phone: Phone;

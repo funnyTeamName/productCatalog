@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import './header_right.scss';
+import './HeaderRightBlock.scss';
 
 export const HeaderRight: React.FC = () => (
   <div

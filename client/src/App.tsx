@@ -1,9 +1,9 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { Footer } from './components/footer/footer';
-import { Header } from './components/header/header';
+import { Footer } from './components/Footer';
+import { Header } from './components/Header';
 import { Phone } from './types/Phone';
-import { Main } from './components/mainContent/mainContent';
+import { Main } from './components/MainContent';
 
 export const App = () => {
   const [phones, setPhones] = useState<Phone[]>([]);
