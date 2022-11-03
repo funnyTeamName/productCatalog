@@ -28,7 +28,7 @@
     background-image: url(../../../public/images/cross.png);
   }
 
-  @include phone {
+  @include phoneSpecial {
     display: block;
   }
 }

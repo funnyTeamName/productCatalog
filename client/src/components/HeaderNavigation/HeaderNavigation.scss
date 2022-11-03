@@ -35,7 +35,7 @@
       }
     }
 
-    @include phone {
+    @include phoneSpecial {
       display: none;
     }
     &:last-child {
