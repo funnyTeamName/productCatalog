@@ -54,7 +54,7 @@
     }
   }
   &__header-bottom {
-    @include phone {
+    @include phoneSpecial {
       display: flex;
     }
   }

@@ -84,24 +84,28 @@ export const PhoneInfo: React.FC<Props> = ({
         </h1>
         <div className="phone__wrapper">
           <div className="phone__list">
-            {foundPhone?.images.map(image => (
-              /* eslint-disable jsx-a11y/click-events-have-key-events, jsx-a11y/no-noninteractive-element-interactions */
-              <img
-                src={`http://localhost:8080/${image}`}
-                key={image}
-                onClick={() => setImageCart([image])}
-                className={classNames('phone__item', {
-                  'phone__item--focus': imageCart?.includes(image),
-                })}
-                alt="imageCart"
-              />
-            ))}
+            <div className="image__container">
+              {foundPhone?.images.map(image => (
+                /* eslint-disable jsx-a11y/click-events-have-key-events, jsx-a11y/no-noninteractive-element-interactions */
+                <img
+                  src={`http://localhost:8080/${image}`}
+                  key={image}
+                  onClick={() => setImageCart([image])}
+                  className={classNames('phone__item', {
+                    'phone__item--focus': imageCart?.includes(image),
+                  })}
+                  alt="imageCart"
+                />
+              ))}
+            </div>
+
+            <img
+              src={`http://localhost:8080/${imageCart ? imageCart[0] : foundPhone?.images[0]}`}
+              alt="phone"
+              className="phone__image"
+            />
           </div>
-          <img
-            src={`http://localhost:8080/${imageCart ? imageCart[0] : foundPhone?.images[0]}`}
-            alt="phone"
-            className="phone__image"
-          />
+
           <div className="phone__functional">
             <p className="phone__chose-color-text">
               Avaliable colors
@@ -126,6 +130,33 @@ export const PhoneInfo: React.FC<Props> = ({
                 ))}
               </div>
 
+            </div>
+            <div className="phone__line--min" />
+            <p
+              className="phone__chose-color-text"
+            >
+              Select capacity
+            </p>
+            <div className="phone__chose-capacity">
+              <div className="phone__chose-capacity-list">
+                {foundPhone?.capacityAvailable.map(capacity => (
+                  <div
+                    key={capacity}
+                    className={classNames('phone__chose-capacity-item', {
+                      // eslint-disable-next-line max-len
+                      'phone__chose-capacity-item--focus': capacity === foundPhone?.capacity,
+                    })}
+                  >
+                    <button
+                      type="button"
+                      className="phone__chose-capacity-btn"
+                      aria-label="capacity"
+                    >
+                      {capacity}
+                    </button>
+                  </div>
+                ))}
+              </div>
             </div>
             <div className="phone__price">
               <p className="phone__newPrice">
@@ -219,7 +250,7 @@ export const PhoneInfo: React.FC<Props> = ({
           </div>
           <div className="phone__specs">
             <h2 className="phone__subtitle h2">Tech specs</h2>
-            <div className="phone__line cart__specs--line" />
+            <div className="phone__line--middle cart__specs--line" />
             <div className="phone__characteristic smalltext">
               <p className="phone__name">Screen</p>
               <p className="phone__value">

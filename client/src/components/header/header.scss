@@ -28,7 +28,7 @@ body.lock {
 .logo {
   margin-top: 10px;
 
-  @include phone {
+  @include phoneSpecial {
     margin-top: 0;
   }
 

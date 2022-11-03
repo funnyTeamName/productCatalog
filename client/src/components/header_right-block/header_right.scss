@@ -7,7 +7,7 @@
     justify-content: flex-end;
     align-items: center;
 
-    @include phoneSpecial {
+    @include phone {
       display: none;
     }
   }
