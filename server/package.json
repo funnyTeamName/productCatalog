@@ -4,7 +4,7 @@
   "engines": {
     "node": "14.x"
   },
-  "main": "src/index.ts",
+  "main": "dist/index.js",
   "scripts": {
     "build": "swc src -d build",
     "start": "node build/index.js",
