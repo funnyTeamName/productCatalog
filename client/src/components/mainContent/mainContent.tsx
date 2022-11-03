@@ -9,7 +9,7 @@ import {
 import { PhonesList } from '../ProductList/ProductList';
 import { Phone } from '../../types/Phone';
 import { CartBlock } from '../CartBlock';
-import './MainContent.scss';
+import './mainContent.scss';
 import { PhoneInfo } from '../phone_info/phone_info';
 
 type Props = {

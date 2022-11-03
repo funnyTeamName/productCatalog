@@ -3,7 +3,7 @@ import {
   ButtonClassModifier,
   ButtonClassType,
   ButtonType,
-} from '../../enums/buttonEnum';
+} from '../../enums/ButtonEnum';
 import './Button.scss';
 
 type Props = {

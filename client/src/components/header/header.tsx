@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { HeaderNav } from '../HeaderNavigation';
 import { HeaderRight } from '../HeaderRightBlock';
 import { BurgerMenu } from '../BurgerMenu';
-import './Header.scss';
+import './header.scss';
 
 export const Header: React.FC = () => (
   <header className="header">

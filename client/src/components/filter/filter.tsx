@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FilterType } from '../../enums/FilterType';
-import './Filter.scss';
+import './filter.scss';
 
 type Props = {
   length: number | undefined;

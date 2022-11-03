@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
-import './Menu.scss';
+import './menu.scss';
 
 type Props = {
   items: {

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Menu } from '../Menu';
+import { Menu } from '../menu';
 import './BurgerMenu.scss';
 
 export const BurgerMenu: React.FC = () => {
