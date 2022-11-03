@@ -1,7 +1,7 @@
 @import '../../styles/main.scss';
 
 .cart__block {
-  @include phoneSpecial {
+  @include phone {
     margin-left: 16px;
     margin-right: 16px;
   }
@@ -75,7 +75,7 @@
       width: 180px;
     }
 
-    @include phoneSpecial {
+    @include phone {
       width: 120px;
     }
   }

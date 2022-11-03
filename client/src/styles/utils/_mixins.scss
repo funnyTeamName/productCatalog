@@ -10,8 +10,14 @@
   width: $width;
 }
 
-@mixin phone {
+@mixin phoneSpecial {
   @media (max-width: $burger-media-width) {
+    @content;
+  }
+}
+
+@mixin phone {
+  @media (min-width: $mobile-media-width) {
     @content;
   }
 }
