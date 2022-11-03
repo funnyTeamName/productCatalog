@@ -3,6 +3,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import { Phone } from '../../types/Phone';
 import { CartBlockItem } from './CartBlockItem';
 import './CartBlock.scss';
+import { CartDialog } from './CartDialog/CartDialog';
 
 type Props = {
   phones: Phone[];
@@ -20,6 +21,15 @@ export const CartBlock: React.FC<Props> = ({
   ));
   const [totalPrice, setTotalPrice] = useState(0);
   const [countItems, setCountItems] = useState(0);
+  const [open, setOpen] = useState(false);
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   const initialTotalPrice = visiblePhones
     .map(phone => phone.price)
@@ -86,10 +96,13 @@ export const CartBlock: React.FC<Props> = ({
         <button
           type="submit"
           className="cart__block-total-button"
+          onClick={handleOpen}
         >
           Checkout
         </button>
       </div>
+
+      <CartDialog open={open} handleClose={handleClose} />
     </div>
   );
 };
