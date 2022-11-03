@@ -1,6 +1,9 @@
 {
   "name": "phone_catalog_api",
   "version": "1.0.0",
+  "engines": {
+    "node": "14.x"
+  },
   "main": "src/index.ts",
   "scripts": {
     "build": "swc src -d build",
