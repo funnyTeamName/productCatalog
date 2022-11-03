@@ -26,7 +26,7 @@ app.get('/products/:productId', (req, res) => {
 
   const phonePath = name.split(' ').join('-');
 
-  const foundPhone = fs.readFileSync(`./data/phones/${phonePath}.json`, 'utf-8');
+  const foundPhone = fs.readFileSync(`./data/phones/${phonePath.toLowerCase()}.json`, 'utf-8');
 
   res.send(JSON.parse(foundPhone));
 });
