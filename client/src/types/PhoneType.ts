@@ -1,5 +1,5 @@
 export interface PhoneType {
-  id: number;
+  id: string;
   namespaceId: string;
   name: string;
   capacityAvailable: [string];
