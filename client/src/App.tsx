@@ -27,9 +27,7 @@ export const App = () => {
   return (
     <div>
       <Header />
-
       <Main phones={phones} />
-
       <Footer />
     </div>
   );

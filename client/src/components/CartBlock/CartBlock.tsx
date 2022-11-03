@@ -26,9 +26,30 @@ export const CartBlock: React.FC<Props> = ({
     .reduce((sum, value) => sum + value, 0);
 
   useEffect(() => {
-    setTotalPrice(initialTotalPrice);
-    setCountItems(visiblePhones.length);
+    if (totalPrice === 0) {
+      setTotalPrice(initialTotalPrice);
+      setCountItems(visiblePhones.length);
+    }
   }, [initialTotalPrice]);
+
+  useEffect(() => {
+    const dataTotalPrice = window.localStorage.getItem('Total Price');
+
+    if (dataTotalPrice !== null) {
+      setTotalPrice(JSON.parse(dataTotalPrice));
+    }
+
+    const dataTotalCount = window.localStorage.getItem('Items Count');
+
+    if (dataTotalCount !== null) {
+      setCountItems(JSON.parse(dataTotalCount));
+    }
+  }, []);
+
+  useEffect(() => {
+    window.localStorage.setItem('Total Price', JSON.stringify(totalPrice));
+    window.localStorage.setItem('Items Count', JSON.stringify(countItems));
+  }, [totalPrice]);
 
   const navigate = useNavigate();
 

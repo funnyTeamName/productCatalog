@@ -4,7 +4,7 @@
   "main": "src/index.ts",
   "scripts": {
     "build": "npx tsc",
-    "start": "node build/index.js",
+    "start": "node src/index.ts",
     "dev": "nodemon src/index.ts",
     "lint": "eslint ./src --ext .ts --fix --color",
     "prepare": "cd .. && husky install ./server/.husky"

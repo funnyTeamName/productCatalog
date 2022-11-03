@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import {
   ButtonClassModifier,
   ButtonClassType,
@@ -11,22 +12,27 @@ type Props = {
   phone: Phone;
   selectedPhones: number[];
   setSelectedPhones: (value: number[]) => void;
+  setPhoneId: (value: number) => void;
 };
 
 export const PhonesListItem: React.FC<Props> = ({
   phone,
   selectedPhones,
   setSelectedPhones,
+  setPhoneId,
 }) => {
   return (
     <div className="card">
-      <a href="/">
+      <Link
+        to="/phoneInfo"
+        onClick={() => setPhoneId(phone.id)}
+      >
         <img
           src={`http://localhost:8080/${phone.image}`}
           className="card__img"
           alt="product"
         />
-      </a>
+      </Link>
 
       <div className="card__description-content">
         <p className="card__product-title">

@@ -9,6 +9,7 @@ type Props = {
   phones: Phone[];
   selectedPhones: number[];
   setSelectedPhones: (value: number[]) => void;
+  setPhoneId: (value: number) => void;
 };
 
 function filterPhones(
@@ -41,6 +42,7 @@ export const PhonesList: React.FC<Props> = ({
   phones,
   selectedPhones,
   setSelectedPhones,
+  setPhoneId,
 }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [phonesPerPage, setPhonesPerPage] = useState(8);
@@ -86,6 +88,7 @@ export const PhonesList: React.FC<Props> = ({
             phone={phone}
             selectedPhones={selectedPhones}
             setSelectedPhones={setSelectedPhones}
+            setPhoneId={setPhoneId}
           />
         ))}
       </div>
