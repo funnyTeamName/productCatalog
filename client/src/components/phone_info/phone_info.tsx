@@ -1,8 +1,5 @@
-import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Button } from '../button/Button';
 import './phone_info.scss';
-import { ButtonClassModifier, ButtonClassType } from '../../enums/buttonEnum';
 import { Phone } from '../../types/Phone';
 
 type Props = {
@@ -12,8 +9,6 @@ type Props = {
 export const PhoneInfo: React.FC<Props> = ({
   phones,
 }) => {
-  const [isActiveBtn, setIsActiveBtn] = useState(false);
-
   const findPhone = phones.find(phone => phone.id);
   const navigate = useNavigate();
 
@@ -74,17 +69,16 @@ export const PhoneInfo: React.FC<Props> = ({
               </p>
             </div>
             <div className="phone__button">
-              <Button
+              {/* <Button
                 title="Add to cart"
                 btnClassType={ButtonClassType.PRIMARY}
-              />
+              /> */}
 
-              <Button
+              {/* <Button
                 btnClassType={ButtonClassType.SECONDARY}
                 btnClassModifier={ButtonClassModifier.HEART}
                 isActiveBtn={isActiveBtn}
-                setIsActiveBtn={setIsActiveBtn}
-              />
+              /> */}
             </div>
             <div className="phone__characteristic smalltext">
               <p className="phone__name">Screen</p>
