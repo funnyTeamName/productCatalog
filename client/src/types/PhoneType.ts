@@ -1,5 +1,5 @@
 export interface PhoneType {
-  id: number;
+  id: string;
   namespaceId: string;
   name: string;
   capacityAvailable: [string];
@@ -8,7 +8,7 @@ export interface PhoneType {
   priceDiscount: number;
   colorsAvailable: [string];
   color: string;
-  image: [string];
+  images: [string];
   description: [
     {
       title: string;
