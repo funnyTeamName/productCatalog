@@ -103,7 +103,7 @@ export const Filter: React.FC<Props> = ({
           >
             <option value="8" className="sorts__option">8</option>
             <option value="12" className="sorts__option">12</option>
-            <option value="16" className="sorts__option">18</option>
+            <option value="16" className="sorts__option">16</option>
             <option value="20" className="sorts__option">20</option>
           </select>
         </div>
