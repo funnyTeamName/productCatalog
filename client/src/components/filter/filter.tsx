@@ -43,6 +43,8 @@ export const Filter: React.FC<Props> = ({
     }
   };
 
+  const currentUrl = window.location.href.split('Phones/')[0];
+
   return (
     <div className="container">
       <div className="container__logo">
@@ -93,7 +95,9 @@ export const Filter: React.FC<Props> = ({
               setCurrentPage(1);
 
               window.location.replace(
-                `${window.location.href.split('Phones/')[0]}Phones`,
+                currentUrl.endsWith('Phones')
+                  ? currentUrl
+                  : `${currentUrl.split('Phones/')[0]}Phones`,
               );
             }}
           >
