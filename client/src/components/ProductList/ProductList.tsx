@@ -2,8 +2,8 @@ import { useState } from 'react';
 import { Pagination } from '../pagination/Pagination';
 import { FilterType } from '../../enums/FilterType';
 import { Phone } from '../../types/Phone';
-import { Filter } from '../filter/filter';
-import { PhonesListItem } from './PhonesList__Item';
+import { Filter } from '../Filter';
+import { PhonesListItem } from './ProductListItem';
 
 type Props = {
   phones: Phone[];
@@ -71,7 +71,7 @@ export const PhonesList: React.FC<Props> = ({
   };
 
   return (
-    <div className="container">
+    <>
       <Filter
         length={phones?.length}
         filterType={filterType}
@@ -81,7 +81,7 @@ export const PhonesList: React.FC<Props> = ({
         setCurrentPage={setCurrentPage}
       />
 
-      <div className="grid__cards">
+      <div className="page__product-list grid__cards">
         {visiblePhones?.map(phone => (
           <PhonesListItem
             key={phone.id}
@@ -101,6 +101,6 @@ export const PhonesList: React.FC<Props> = ({
         nextPage={nextPage}
         prevPage={prevPage}
       />
-    </div>
+    </>
   );
 };

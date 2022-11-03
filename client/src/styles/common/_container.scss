@@ -1,0 +1,23 @@
+@import '../utils';
+
+.container {
+  max-width: 1200px;
+  padding: 0 32px;
+  margin: 0 auto;
+}
+
+.logo {
+  @include font-style($fw-600, $fs-20, 20px);
+  text-transform: uppercase;
+
+  @include phone {
+    font-size: $fs-16;
+  }
+
+  &__icon {
+    padding: 10px;
+    background-image: url(../../images/icons/heart.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+}

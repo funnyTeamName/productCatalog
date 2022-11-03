@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import './header_nav.scss';
+import './HeaderNavigation.scss';
 
 export const HeaderNav: React.FC = () => (
   <nav className="header__header-navigation">

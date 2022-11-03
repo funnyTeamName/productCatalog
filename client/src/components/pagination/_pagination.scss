@@ -1,9 +1,10 @@
+// @import "../../styles/main.scss";
+
 .pagination {
   display: flex;
   justify-content: center;
   width: 100%;
   @include height-width(max-content, 100%);
-  margin-bottom: 80px;
 
   &__prev-btn {
     margin-right: 16px;

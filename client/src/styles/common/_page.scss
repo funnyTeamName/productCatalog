@@ -1,0 +1,18 @@
+.page {
+
+  &__body {
+    background-color: $color-black;
+  }
+
+  &__filter {
+    margin-bottom: 24px;
+  }
+
+  &__product-list {
+    margin-bottom: 40px;
+  }
+
+  &__pagination {
+    margin-bottom: 80px;
+  }
+}

@@ -1,13 +1,15 @@
 import { useState } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
-import { NotFoundPage } from '../../pages/NotFoundPage';
-import { Home } from '../../pages/Home';
-import { Tablets } from '../../pages/Tablets';
-import { Accessories } from '../../pages/Accessories';
-import { PhonesList } from '../phonesList/PhonesList';
+import {
+  NotFoundPage,
+  Home,
+  Tablets,
+  Accessories,
+} from '../../pages';
+import { PhonesList } from '../ProductList/ProductList';
 import { Phone } from '../../types/Phone';
-import './mainContent.scss';
-import { CartBlock } from '../cart_block/cart_block';
+import { CartBlock } from '../CartBlock';
+import './MainContent.scss';
 import { PhoneInfo } from '../phone_info/phone_info';
 
 type Props = {
@@ -20,7 +22,7 @@ export const Main: React.FC<Props> = ({ phones }) => {
   const [phoneId, setPhoneId] = useState(1);
 
   return (
-    <div className="mainContent">
+    <div className="mainContent container">
       <Routes>
         <Route path="Home" element={<Home />} />
         <Route path="/" element={<Navigate to="Home" replace />} />
