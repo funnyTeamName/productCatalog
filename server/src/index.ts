@@ -43,11 +43,9 @@ app.get('/products/discount', (req, res) => {
 app.get('/products/:productId', (req, res) => {
   const data = JSON.parse(fs.readFileSync('./data/phones.json', 'utf-8'));
 
-  const { name } = data.find(phone => phone.id === req.params.productId);
+  const { phoneId } = data.find(phone => phone.id === req.params.productId);
 
-  const phonePath = name.split(' ').join('-');
-
-  const foundPhone = fs.readFileSync(`./data/phones/${phonePath.toLowerCase()}.json`, 'utf-8');
+  const foundPhone = fs.readFileSync(`./data/phones/${phoneId}.json`, 'utf-8');
 
   res.send(JSON.parse(foundPhone));
 });
