@@ -41,6 +41,7 @@
 
     @include phone {
       flex-direction: column;
+      padding: 16px;
     }
 
     @include pad {
@@ -56,6 +57,14 @@
     background-image: url(../../images/icons/Close.svg);
     background-color: transparent;
     border: none;
+
+    @include phone {
+      margin-right: 13px;
+    }
+
+    @include pad {
+      margin-right: 35px;
+    }
   }
 
   &-img {
@@ -66,16 +75,17 @@
   &-info {
     @include font-style($fw-600, $fs-14, 21px);
 
-    @include phone {
-      width: 50%;
-    }
+    // @include phone {
+    //   width: 60%;
+    //   text-align: left;
+    // }
 
     @include pad {
-      width: 70%;
+      width: 60%;
     }
 
     @include desktop {
-      width: 70%;
+      width: 60%;
     }
   }
 
@@ -145,10 +155,12 @@
   
     @include phone{
       width: 100%;
+      margin-bottom: 23px;
     }
   
     @include pad {
       width: 60%;
+      margin-bottom: 0;
     }
   }
 
@@ -163,7 +175,12 @@
     }
   
     @include pad {
-      width: 30%;
+      width: 35%;
     }
+  }
+
+  &-mobile-center {
+    display: flex;
+    align-items: center;
   }
 }

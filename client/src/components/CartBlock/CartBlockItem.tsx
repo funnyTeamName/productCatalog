@@ -67,19 +67,21 @@ export const CartBlockItem: React.FC<Props> = ({
     >
       <div className="cart__block-item">
         <div className="cart__block-group-1">
-          <button
-            type="submit"
-            className="cart__block-reset"
-            aria-label="text"
-            onClick={handleRemove}
-          />
-          <Link to={`/Phones/${phone.id}`} onClick={() => setPhoneId(phone.id)}>
-            <img
-              src={`http://localhost:8080/${phone.image}`}
-              className="cart__block-img"
-              alt=""
+          <div className="cart__block-mobile-center">
+            <button
+              type="submit"
+              className="cart__block-reset"
+              aria-label="text"
+              onClick={handleRemove}
             />
-          </Link>
+            <Link to={`/Phones/${phone.id}`} onClick={() => setPhoneId(phone.id)}>
+              <img
+                src={`http://localhost:8080/${phone.image}`}
+                className="cart__block-img"
+                alt=""
+              />
+            </Link>
+          </div>
           <div className="cart__block-info">{phone.name}</div>
         </div>
         <div className="cart__block-group-2">
@@ -100,7 +102,7 @@ export const CartBlockItem: React.FC<Props> = ({
               +
             </button>
           </div>
-          <div className="cart__block-price">{phone.price * count}</div>
+          <div className="cart__block-price">{`$${phone.price * count}`}</div>
         </div>
       </div>
     </div>
