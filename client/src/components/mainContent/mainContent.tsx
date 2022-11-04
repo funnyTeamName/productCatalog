@@ -22,9 +22,19 @@ export const Main: React.FC<Props> = ({ phones }) => {
   const [phoneId, setPhoneId] = useState(1);
 
   return (
-    <div className="mainContent container">
+    <div className="mainContent">
       <Routes>
-        <Route path="Home" element={<Home />} />
+        <Route
+          path="Home"
+          element={(
+            <Home
+              phones={phones}
+              selectedPhones={selectedPhones}
+              setSelectedPhones={setSelectedPhones}
+              setPhoneId={setPhoneId}
+            />
+          )}
+        />
         <Route path="/" element={<Navigate to="Home" replace />} />
 
         <Route path="phones">

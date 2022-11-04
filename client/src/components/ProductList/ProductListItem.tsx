@@ -1,9 +1,10 @@
 import { Link } from 'react-router-dom';
+import classNames from 'classnames';
 import {
   ButtonClassModifier,
   ButtonClassType,
   ButtonType,
-} from '../../enums/ButtonEnum';
+} from '../../enums/buttonEnum';
 import { Button } from '../button';
 import { Phone } from '../../types/Phone';
 import './ProductCard.scss';
@@ -13,6 +14,7 @@ type Props = {
   selectedPhones: number[];
   setSelectedPhones: (value: number[]) => void;
   setPhoneId: (value: number) => void;
+  size?: boolean;
 };
 
 export const PhonesListItem: React.FC<Props> = ({
@@ -20,9 +22,14 @@ export const PhonesListItem: React.FC<Props> = ({
   selectedPhones,
   setSelectedPhones,
   setPhoneId,
+  size,
 }) => {
   return (
-    <div className="card">
+    <div className={classNames('card',
+      {
+        'card--size': (size),
+      })}
+    >
       <Link
         to="/phoneInfo"
         onClick={() => setPhoneId(phone.id)}
@@ -34,7 +41,11 @@ export const PhonesListItem: React.FC<Props> = ({
         />
       </Link>
 
-      <div className="card__description-content">
+      <div className={classNames('card__description-content',
+        {
+          'card__description-content--size': (size),
+        })}
+      >
         <p className="card__product-title">
           {phone.name}
         </p>

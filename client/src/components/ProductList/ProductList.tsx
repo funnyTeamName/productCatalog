@@ -71,7 +71,7 @@ export const PhonesList: React.FC<Props> = ({
   };
 
   return (
-    <>
+    <div className="container">
       <Filter
         length={phones?.length}
         filterType={filterType}
@@ -81,7 +81,7 @@ export const PhonesList: React.FC<Props> = ({
         setCurrentPage={setCurrentPage}
       />
 
-      <div className="page__product-list grid__cards">
+      <div className="page__product-list grid--cards">
         {visiblePhones?.map(phone => (
           <PhonesListItem
             key={phone.id}
@@ -89,6 +89,7 @@ export const PhonesList: React.FC<Props> = ({
             selectedPhones={selectedPhones}
             setSelectedPhones={setSelectedPhones}
             setPhoneId={setPhoneId}
+            size
           />
         ))}
       </div>
@@ -101,6 +102,6 @@ export const PhonesList: React.FC<Props> = ({
         nextPage={nextPage}
         prevPage={prevPage}
       />
-    </>
+    </div>
   );
 };

@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import { useLocation } from 'react-router-dom';
-import { ButtonClassModifier, ButtonClassType } from '../../enums/ButtonEnum';
+import { ButtonClassModifier, ButtonClassType } from '../../enums/buttonEnum';
 // import './_pagination.scss';
 
 type Props = {

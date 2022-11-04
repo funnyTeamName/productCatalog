@@ -26,18 +26,24 @@
     }
   }
 
-  &__cards {
+  &--cards {
     display: grid;
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     grid-column-gap: $grid-column-gap;
     grid-row-gap: $grid-row-gap;
+    align-items: stretch;
+    justify-items: center;
 
     @include pad {
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(2, minmax(288px, 1fr));
+    }
+  
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
     }
 
     @include desktop {
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(4, minmax(272px, 1fr));
     }
   }
 }
