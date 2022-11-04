@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
-import { Navigate, Route, Routes } from 'react-router-dom';
+import {
+  Navigate, Route, Routes,
+} from 'react-router-dom';
 import {
   NotFoundPage,
   Home,
@@ -58,7 +60,12 @@ export const Main: React.FC<Props> = ({ phones }) => {
         <Route path="Home" element={<Home />} />
         <Route path="/" element={<Navigate to="Home" replace />} />
 
-        <Route path="phones">
+        <Route
+          path="phones"
+          element={<Navigate to="Page-1" />}
+        />
+
+        <Route path="phones/:currentPage">
           <Route
             index
             element={(
@@ -70,21 +77,18 @@ export const Main: React.FC<Props> = ({ phones }) => {
               />
             )}
           />
+
           <Route
-            path=":pagId"
+            path=":phoneId"
             element={(
-              <PhonesList
-                phones={phones}
+              <PhoneInfo
+                phoneId={phoneId}
                 selectedPhones={selectedPhones}
                 setSelectedPhones={setSelectedPhones}
-                setPhoneId={setPhoneId}
               />
             )}
           />
         </Route>
-
-        <Route path="tablets" element={<Tablets />} />
-        <Route path="accessories" element={<Accessories />} />
 
         <Route
           path="phoneInfo"
@@ -96,6 +100,9 @@ export const Main: React.FC<Props> = ({ phones }) => {
             />
           )}
         />
+
+        <Route path="tablets" element={<Tablets />} />
+        <Route path="accessories" element={<Accessories />} />
 
         <Route
           path="shopping"
