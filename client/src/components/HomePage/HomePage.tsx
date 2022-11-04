@@ -1,15 +1,21 @@
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 import { Phone } from '../../types/Phone';
-import { CategorySection } from '../CategorySection';
+import './SectionHero.scss';
+import { Loader } from '../Loader';
 import { HeroSection } from '../HeroSection';
 import { ModelsSection } from '../ModelsSection';
 import { HotPricesSection } from '../HotPricesSection';
-import './HomePage.scss';
+import { CategorySection } from '../CategorySection';
 
 type Props = {
   phones: Phone[];
   selectedPhones: number[];
   setSelectedPhones: (value: number[]) => void;
   setPhoneId: (value: number) => void;
+  size?: boolean;
+  likedPhones: number[];
+  setLikedPhones: (value: number[]) => void;
 };
 
 export const Home: React.FC<Props> = ({
@@ -17,25 +23,59 @@ export const Home: React.FC<Props> = ({
   selectedPhones,
   setSelectedPhones,
   setPhoneId,
+  likedPhones,
+  setLikedPhones,
 }) => {
-  return (
+  const [newModels, setNewModels] = useState<Phone[]>([]);
+  const [cheapModels, setCheapModels] = useState<Phone[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  const baseUrl = 'http://localhost:8080/products';
+
+  useEffect(() => {
+    const loadData = async () => {
+      const newRes = await axios.get(`${baseUrl}/new`);
+      const discountRes = await axios.get(`${baseUrl}/discount`);
+
+      const newData = await newRes.data;
+      const discountData = await discountRes.data;
+
+      setNewModels(newData);
+      setCheapModels(discountData);
+    };
+
+    try {
+      loadData();
+    } catch {
+      setNewModels([]);
+      setCheapModels([]);
+    } finally {
+      setIsLoading(false);
+    }
+  });
+
+  return isLoading ? <Loader /> : (
     <>
       <HeroSection />
 
       <ModelsSection
-        phones={phones}
+        phones={newModels}
         selectedPhones={selectedPhones}
         setSelectedPhones={setSelectedPhones}
         setPhoneId={setPhoneId}
+        likedPhones={likedPhones}
+        setLikedPhones={setLikedPhones}
       />
 
       <CategorySection phones={phones} />
 
       <HotPricesSection
-        phones={phones}
+        phones={cheapModels}
         selectedPhones={selectedPhones}
         setSelectedPhones={setSelectedPhones}
         setPhoneId={setPhoneId}
+        likedPhones={likedPhones}
+        setLikedPhones={setLikedPhones}
       />
     </>
   );

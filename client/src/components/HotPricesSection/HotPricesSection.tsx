@@ -1,13 +1,15 @@
 import classNames from 'classnames';
 import { ButtonClassModifier, ButtonClassType } from '../../enums/ButtonEnum';
 import { Phone } from '../../types/Phone';
-import { PhonesListItem } from '../ProductList/ProductListItem';
+import { PhonesListItem } from '../ProductList';
 
 type Props = {
   phones: Phone[];
   selectedPhones: number[];
   setSelectedPhones: (value: number[]) => void;
   setPhoneId: (value: number) => void;
+  likedPhones: number[];
+  setLikedPhones: (value: number[]) => void;
 };
 
 export const HotPricesSection: React.FC<Props> = ({
@@ -15,6 +17,8 @@ export const HotPricesSection: React.FC<Props> = ({
   selectedPhones,
   setSelectedPhones,
   setPhoneId,
+  likedPhones,
+  setLikedPhones,
 }) => {
   const cheapModels = phones
     .sort((p1, p2) => p1.price - p2.price)
@@ -73,6 +77,8 @@ export const HotPricesSection: React.FC<Props> = ({
               selectedPhones={selectedPhones}
               setSelectedPhones={setSelectedPhones}
               setPhoneId={setPhoneId}
+              likedPhones={likedPhones}
+              setLikedPhones={setLikedPhones}
             />
           </div>
         ))}
