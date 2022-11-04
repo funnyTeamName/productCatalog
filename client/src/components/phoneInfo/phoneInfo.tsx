@@ -1,7 +1,7 @@
 import { Link, useNavigate } from 'react-router-dom';
 import classNames from 'classnames';
 import './phoneInfo.scss';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { PhoneType } from '../../types/PhoneType';
 import { Button } from '../button/Button';
@@ -98,7 +98,6 @@ export const PhoneInfo: React.FC<Props> = ({
                 />
               ))}
             </div>
-
             <img
               src={`http://localhost:8080/${imageCart ? imageCart[0] : foundPhone?.images[0]}`}
               alt="phone"
