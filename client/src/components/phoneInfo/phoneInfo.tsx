@@ -15,12 +15,16 @@ type Props = {
   phoneId: number;
   setSelectedPhones: (value: number[]) => void;
   selectedPhones: number[];
+  likedPhones: number[];
+  setLikedPhones: (value: number[]) => void;
 };
 
 export const PhoneInfo: React.FC<Props> = ({
   phoneId,
   setSelectedPhones,
   selectedPhones,
+  likedPhones,
+  setLikedPhones,
 }) => {
   const [foundPhone, setFoundPhone] = useState<PhoneType | null>(null);
   const navigate = useNavigate();
@@ -178,6 +182,8 @@ export const PhoneInfo: React.FC<Props> = ({
                     setSelectedPhones={setSelectedPhones}
                     phoneId={phoneId}
                     type={ButtonType.CART}
+                    likedPhones={likedPhones}
+                    setLikedPhones={setLikedPhones}
                   />
                 )
                 : (
@@ -188,6 +194,8 @@ export const PhoneInfo: React.FC<Props> = ({
                     setSelectedPhones={setSelectedPhones}
                     phoneId={phoneId}
                     type={ButtonType.CART}
+                    likedPhones={likedPhones}
+                    setLikedPhones={setLikedPhones}
                   />
                 )}
 
@@ -198,6 +206,9 @@ export const PhoneInfo: React.FC<Props> = ({
                 setSelectedPhones={setSelectedPhones}
                 phoneId={phoneId}
                 type={ButtonType.HEART}
+                likedPhones={likedPhones}
+                setLikedPhones={setLikedPhones}
+                isActiveBtn={likedPhones.includes(phoneId)}
               />
             </div>
             <div className="phone__characteristic smalltext">
