@@ -113,7 +113,7 @@ export const Main: React.FC<Props> = ({ phones }) => {
           )}
         />
         <Route
-          path="favorite"
+          path="favourites"
           element={(
             <Favourites
               phones={phones}

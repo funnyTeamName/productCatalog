@@ -9,7 +9,7 @@ export const HeaderRight: React.FC = () => (
     "
   >
     <NavLink
-      to="/favorite"
+      to="/favourites"
       className="
         header__header-right-link
         header__header-right-link-liked
