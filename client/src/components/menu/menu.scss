@@ -13,7 +13,7 @@
   transition: transform $transition-time;
   border: none;
   
-  @media (min-width: 768px) {
+  @media (min-width: 769px) {
     display: none;
   }
 
@@ -54,7 +54,7 @@
     }
   }
   &__header-bottom {
-    @include phone {
+    @include phoneSpecial {
       display: flex;
     }
   }

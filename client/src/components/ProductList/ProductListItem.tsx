@@ -15,6 +15,8 @@ type Props = {
   setSelectedPhones: (value: number[]) => void;
   setPhoneId: (value: number) => void;
   size?: boolean;
+  likedPhones: number[];
+  setLikedPhones: (value: number[]) => void;
 };
 
 export const PhonesListItem: React.FC<Props> = ({
@@ -23,6 +25,8 @@ export const PhonesListItem: React.FC<Props> = ({
   setSelectedPhones,
   setPhoneId,
   size,
+  likedPhones,
+  setLikedPhones,
 }) => {
   return (
     <div className={classNames('card',
@@ -31,7 +35,7 @@ export const PhonesListItem: React.FC<Props> = ({
       })}
     >
       <Link
-        to="/phoneInfo"
+        to={`/Phones/${phone.id}`}
         onClick={() => setPhoneId(phone.id)}
       >
         <img
@@ -105,6 +109,8 @@ export const PhonesListItem: React.FC<Props> = ({
                 setSelectedPhones={setSelectedPhones}
                 phoneId={phone.id}
                 type={ButtonType.CART}
+                likedPhones={likedPhones}
+                setLikedPhones={setLikedPhones}
               />
             )
             : (
@@ -115,6 +121,8 @@ export const PhonesListItem: React.FC<Props> = ({
                 setSelectedPhones={setSelectedPhones}
                 phoneId={phone.id}
                 type={ButtonType.CART}
+                likedPhones={likedPhones}
+                setLikedPhones={setLikedPhones}
               />
             )}
 
@@ -125,6 +133,9 @@ export const PhonesListItem: React.FC<Props> = ({
             setSelectedPhones={setSelectedPhones}
             phoneId={phone.id}
             type={ButtonType.HEART}
+            likedPhones={likedPhones}
+            setLikedPhones={setLikedPhones}
+            isActiveBtn={likedPhones.includes(phone.id)}
           />
         </div>
       </div>

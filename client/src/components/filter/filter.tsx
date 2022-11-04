@@ -7,18 +7,18 @@ type Props = {
   length: number | undefined;
   filterType: FilterType;
   handleFilterType: (filterType: FilterType) => void;
-  phonesPerPage: number;
-  setPhonesPerPage: (phonesPerPage: number) => void;
-  setCurrentPage: (pageNumber: number) => void;
+  perPage: number;
+  setPerPage: (phonesPerPage: number) => void;
+  setPage: (pageNumber: number) => void;
 };
 
 export const Filter: React.FC<Props> = ({
   length,
   filterType,
   handleFilterType,
-  phonesPerPage,
-  setPhonesPerPage,
-  setCurrentPage,
+  perPage,
+  setPerPage,
+  setPage,
 }) => {
   const handleFilter = (value: string) => {
     switch (value) {
@@ -42,8 +42,6 @@ export const Filter: React.FC<Props> = ({
         handleFilterType(FilterType.NEWEST);
     }
   };
-
-  const currentUrl = window.location.href.split('Phones/')[0];
 
   return (
     <div className="grid">
@@ -104,16 +102,10 @@ export const Filter: React.FC<Props> = ({
               name="show"
               id="show"
               className="sorts__select"
-              value={phonesPerPage}
+              value={perPage}
               onChange={event => {
-                setPhonesPerPage(+event.target.value);
-                setCurrentPage(1);
-
-                window.location.replace(
-                  currentUrl.endsWith('Phones')
-                    ? currentUrl
-                    : `${currentUrl.split('Phones/')[0]}Phones`,
-                );
+                setPerPage(+event.target.value);
+                setPage(1);
               }}
             >
 

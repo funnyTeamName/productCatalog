@@ -8,7 +8,7 @@ export interface PhoneType {
   priceDiscount: number;
   colorsAvailable: [string];
   color: string;
-  images: [string];
+  images: string[];
   description: [
     {
       title: string;
@@ -25,7 +25,7 @@ export interface PhoneType {
   ],
   screen: string;
   resolution: string;
-  proccessor: string;
+  processor: string;
   ram: string;
   camera: string;
   zoom: string;

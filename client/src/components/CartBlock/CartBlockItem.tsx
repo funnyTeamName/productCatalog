@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { Phone } from '../../types/Phone';
 
 type Props = {
   phone: Phone;
   selectedPhones: number[];
   setSelectedPhones: (value: number[]) => void;
-  setTotalPrice: React.Dispatch<React.SetStateAction<number>>;
+  setTotalPrice: (value: number) => void;
   totalPrice: number;
   countItems: number;
-  setCountItems: React.Dispatch<React.SetStateAction<number>>,
+  setCountItems: (value: number) => void,
+  setPhoneId: (value: number) => void,
 };
 
 export const CartBlockItem: React.FC<Props> = ({
@@ -19,12 +21,17 @@ export const CartBlockItem: React.FC<Props> = ({
   totalPrice,
   countItems,
   setCountItems,
+  setPhoneId,
 }) => {
+  const [count, setCount] = useState(1);
+
   const handleRemove = () => {
     setSelectedPhones(selectedPhones.filter(id => id !== phone.id));
-  };
+    setTotalPrice(totalPrice - phone.price * count);
+    setCountItems(countItems - 1 * count);
 
-  const [count, setCount] = useState(1);
+    window.localStorage.removeItem(`item:${phone.id}`);
+  };
 
   useEffect(() => {
     const data = window.localStorage.getItem(`item:${phone.id}`);
@@ -60,13 +67,13 @@ export const CartBlockItem: React.FC<Props> = ({
         aria-label="text"
         onClick={handleRemove}
       />
-      <a href="/">
+      <Link to={`/Phones/${phone.id}`} onClick={() => setPhoneId(phone.id)}>
         <img
           src={`http://localhost:8080/${phone.image}`}
           className="cart__block-img"
           alt=""
         />
-      </a>
+      </Link>
       <div className="cart__block-info">
         {phone.name}
       </div>

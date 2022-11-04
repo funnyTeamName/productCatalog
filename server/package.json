@@ -1,10 +1,13 @@
 {
   "name": "phone_catalog_api",
   "version": "1.0.0",
-  "main": "src/index.ts",
+  "engines": {
+    "node": "14.x"
+  },
+  "main": "dist/index.js",
   "scripts": {
-    "build": "npx tsc",
-    "start": "node src/index.ts",
+    "build": "swc src -d build",
+    "start": "node build/index.js",
     "dev": "nodemon src/index.ts",
     "lint": "eslint ./src --ext .ts --fix --color",
     "prepare": "cd .. && husky install ./server/.husky"

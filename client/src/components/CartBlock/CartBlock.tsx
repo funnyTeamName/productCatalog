@@ -3,32 +3,55 @@ import { useNavigate, Link } from 'react-router-dom';
 import { Phone } from '../../types/Phone';
 import { CartBlockItem } from './CartBlockItem';
 import './CartBlock.scss';
+import { CartDialog } from './CartDialog/CartDialog';
 
 type Props = {
   phones: Phone[];
   selectedPhones: number[];
   setSelectedPhones: (value: number[]) => void;
+  totalPrice: number;
+  setTotalPrice: (value: number) => void;
+  countItems: number;
+  setCountItems: (value: number) => void;
+  setPhoneId: (value: number) => void,
 };
 
 export const CartBlock: React.FC<Props> = ({
   phones,
   selectedPhones,
   setSelectedPhones,
+  totalPrice,
+  setTotalPrice,
+  countItems,
+  setCountItems,
+  setPhoneId,
 }) => {
+  const [open, setOpen] = useState(false);
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   const visiblePhones = phones.filter(phone => (
     selectedPhones.includes(phone.id)
   ));
-  const [totalPrice, setTotalPrice] = useState(0);
-  const [countItems, setCountItems] = useState(0);
 
   const initialTotalPrice = visiblePhones
-    .map(phone => phone.price)
+    .map(phone => (phone.price * +window.localStorage.getItem(`item:${phone.id}`)!))
+    .reduce((sum, value) => sum + value, 0);
+
+  const initialItemsCount = visiblePhones
+    .map(phone => (1 * +window.localStorage.getItem(`item:${phone.id}`)!))
     .reduce((sum, value) => sum + value, 0);
 
   useEffect(() => {
     if (totalPrice === 0) {
       setTotalPrice(initialTotalPrice);
-      setCountItems(visiblePhones.length);
+      setCountItems(initialItemsCount);
     }
   }, [initialTotalPrice]);
 
@@ -77,6 +100,7 @@ export const CartBlock: React.FC<Props> = ({
           setTotalPrice={setTotalPrice}
           countItems={countItems}
           setCountItems={setCountItems}
+          setPhoneId={setPhoneId}
         />
       ))}
 
@@ -86,10 +110,13 @@ export const CartBlock: React.FC<Props> = ({
         <button
           type="submit"
           className="cart__block-total-button"
+          onClick={handleOpen}
         >
           Checkout
         </button>
       </div>
+
+      <CartDialog open={open} handleClose={handleClose} />
     </div>
   );
 };

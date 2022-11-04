@@ -10,6 +10,9 @@ type Props = {
   selectedPhones: number[];
   setSelectedPhones: (value: number[]) => void;
   setPhoneId: (value: number) => void;
+  size?: boolean;
+  likedPhones: number[];
+  setLikedPhones: (value: number[]) => void;
 };
 
 export const Home: React.FC<Props> = ({
@@ -17,6 +20,8 @@ export const Home: React.FC<Props> = ({
   selectedPhones,
   setSelectedPhones,
   setPhoneId,
+  likedPhones,
+  setLikedPhones,
 }) => {
   const newModels = phones
     .sort((p1, p2) => p2.year - p1.year)
@@ -126,6 +131,8 @@ export const Home: React.FC<Props> = ({
                 selectedPhones={selectedPhones}
                 setSelectedPhones={setSelectedPhones}
                 setPhoneId={setPhoneId}
+                likedPhones={likedPhones}
+                setLikedPhones={setLikedPhones}
               />
             </div>
           ))}
@@ -242,6 +249,8 @@ export const Home: React.FC<Props> = ({
                 selectedPhones={selectedPhones}
                 setSelectedPhones={setSelectedPhones}
                 setPhoneId={setPhoneId}
+                likedPhones={likedPhones}
+                setLikedPhones={setLikedPhones}
               />
             </div>
           ))}

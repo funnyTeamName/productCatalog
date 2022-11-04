@@ -19,7 +19,7 @@
   @include font-style($fw-600, $fs-20, 20px);
   text-transform: uppercase;
 
-  @include phone {
+  @include phoneSpecial {
     font-size: $fs-16;
   }
 
