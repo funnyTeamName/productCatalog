@@ -11,7 +11,7 @@ type Props = {
   setPhoneId: (value: number) => void;
 };
 
-export const Favorite: React.FC<Props> = ({
+export const Favorites: React.FC<Props> = ({
   phones,
   selectedPhones,
   setSelectedPhones,

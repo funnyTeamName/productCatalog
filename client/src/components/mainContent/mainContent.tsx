@@ -11,7 +11,7 @@ import { Phone } from '../../types/Phone';
 import { CartBlock } from '../CartBlock';
 import './mainContent.scss';
 import { PhoneInfo } from '../phoneInfo/phoneInfo';
-import { Favorite } from '../Favorite/Favorite';
+import { Favorites } from '../Favorites/Favorites';
 
 type Props = {
   phones: Phone[];
@@ -115,7 +115,7 @@ export const Main: React.FC<Props> = ({ phones }) => {
         <Route
           path="favorite"
           element={(
-            <Favorite
+            <Favorites
               phones={phones}
               selectedPhones={selectedPhones}
               setSelectedPhones={setSelectedPhones}
