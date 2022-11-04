@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react'; //
 import { Navigate, Route, Routes } from 'react-router-dom';
 import {
   NotFoundPage,
-  Home,
   Tablets,
   Accessories,
 } from '../../pages';
@@ -12,6 +11,7 @@ import { CartBlock } from '../CartBlock';
 import { PhoneInfo } from '../phoneInfo';
 import { Favourites } from '../Favourites';
 import './MainContent.scss';
+import { Home } from '../../pages/Home';
 
 type Props = {
   phones: Phone[];
