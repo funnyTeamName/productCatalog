@@ -6,19 +6,23 @@ import './Favourites.scss';
 
 type Props = {
   phones: Phone[];
+  likedPhones: number[];
+  setLikedPhones: (value: number[]) => void;
+  setPhoneId: (value: number) => void;
   selectedPhones: number[];
   setSelectedPhones: (value: number[]) => void;
-  setPhoneId: (value: number) => void;
 };
 
 export const Favourites: React.FC<Props> = ({
   phones,
+  likedPhones,
+  setLikedPhones,
+  setPhoneId,
   selectedPhones,
   setSelectedPhones,
-  setPhoneId,
 }) => {
   const visiblePhones = phones.filter(phone => (
-    selectedPhones.includes(phone.id)
+    likedPhones.includes(phone.id)
   ));
 
   return (
@@ -31,7 +35,7 @@ export const Favourites: React.FC<Props> = ({
       <div className="favourites__title">
         <p className="favourites__title-text">Favourites</p>
         <p className="favourites__count">
-          {selectedPhones.length}
+          {likedPhones.length}
           &nbsp;items
         </p>
       </div>
@@ -44,6 +48,8 @@ export const Favourites: React.FC<Props> = ({
             selectedPhones={selectedPhones}
             setSelectedPhones={setSelectedPhones}
             setPhoneId={setPhoneId}
+            setLikedPhones={setLikedPhones}
+            likedPhones={likedPhones}
           />
         ))}
       </div>

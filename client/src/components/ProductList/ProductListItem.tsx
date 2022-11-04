@@ -28,7 +28,7 @@ export const PhonesListItem: React.FC<Props> = ({
   return (
     <div className="card">
       <Link
-        to={`${phone.id}`}
+        to={`/Phones/${phone.id}`}
         onClick={() => setPhoneId(phone.id)}
       >
         <img
