@@ -1,4 +1,4 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom'; //
 import classNames from 'classnames';
 import './phoneInfo.scss';
 import React, { useEffect, useState } from 'react';

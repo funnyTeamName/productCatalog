@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react'; //
 import { useSearchParams } from 'react-router-dom';
 import { Pagination } from '../pagination/Pagination';
 import { FilterType } from '../../enums/FilterType';
