@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { Pagination } from '../pagination/Pagination';
 import { FilterType } from '../../enums/FilterType';
 import { Phone } from '../../types/Phone';
@@ -44,30 +45,27 @@ export const PhonesList: React.FC<Props> = ({
   setSelectedPhones,
   setPhoneId,
 }) => {
-  const [currentPage, setCurrentPage] = useState(1);
-  const [phonesPerPage, setPhonesPerPage] = useState(8);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [page, setPage] = useState(+(searchParams.get('page') || 1));
+  const [perPage, setPerPage] = useState(+(searchParams.get('perPage') || 8));
   const [filterType, setFilterType] = useState<FilterType>(FilterType.NEWEST);
+
+  useEffect(() => {
+    const params = new URLSearchParams();
+
+    params.append('page', `${page}`);
+    params.append('perPage', `${perPage}`);
+
+    setSearchParams(params.toString());
+  }, [page, perPage]);
+
+  const from = ((page - 1) * perPage) + 1;
+  const to = Math.min(phones.length, page * perPage);
 
   const currentPhones = filterPhones(phones, filterType);
 
-  const lastPhoneIndex = currentPage * phonesPerPage;
-  const firstPhoneIndex = lastPhoneIndex - phonesPerPage;
-  const visiblePhones = currentPhones.slice(firstPhoneIndex, lastPhoneIndex);
-
-  const paginate = (pageNumber: number) => {
-    setCurrentPage(pageNumber);
-  };
-
-  const nextPage = () => {
-    if (phones && lastPhoneIndex < phones.length) {
-      setCurrentPage(prev => prev + 1);
-    }
-  };
-
-  const prevPage = () => {
-    if (phones && firstPhoneIndex > 1) {
-      setCurrentPage(prev => prev - 1);
-    }
+  const handlePageChange = (newPage: number) => {
+    setPage(newPage);
   };
 
   return (
@@ -76,13 +74,13 @@ export const PhonesList: React.FC<Props> = ({
         length={phones?.length}
         filterType={filterType}
         handleFilterType={setFilterType}
-        phonesPerPage={phonesPerPage}
-        setPhonesPerPage={setPhonesPerPage}
-        setCurrentPage={setCurrentPage}
+        perPage={perPage}
+        setPerPage={setPerPage}
+        setPage={setPage}
       />
 
       <div className="page__product-list grid__cards">
-        {visiblePhones?.map(phone => (
+        {currentPhones.slice(from - 1, to).map(phone => (
           <PhonesListItem
             key={phone.id}
             phone={phone}
@@ -94,12 +92,10 @@ export const PhonesList: React.FC<Props> = ({
       </div>
 
       <Pagination
-        phonesPerPage={phonesPerPage}
-        totalPhones={phones?.length}
-        paginate={paginate}
-        currentPage={currentPage}
-        nextPage={nextPage}
-        prevPage={prevPage}
+        totalPhones={phones.length}
+        perPage={perPage}
+        page={page}
+        handlePageChange={handlePageChange}
       />
     </>
   );

@@ -1,68 +1,79 @@
 import classNames from 'classnames';
-import { useLocation } from 'react-router-dom';
 import { ButtonClassModifier, ButtonClassType } from '../../enums/ButtonEnum';
 // import './_pagination.scss';
 
 type Props = {
-  phonesPerPage: number,
-  totalPhones?: number,
-  paginate: (value: number) => void,
-  currentPage: number,
-  nextPage: () => void,
-  prevPage: () => void,
+  totalPhones: number,
+  perPage: number,
+  page: number,
+  handlePageChange: (value: number) => void;
 };
 
 export const Pagination: React.FC<Props> = ({
-  phonesPerPage,
   totalPhones,
-  paginate,
-  currentPage,
-  nextPage,
-  prevPage,
+  perPage,
+  page,
+  handlePageChange,
 }) => {
-  const pageNumbers = [];
-  const selectedPage = useLocation().pathname.split('/Phones/Page-')[1] || 1;
+  const total = Math.ceil(totalPhones / perPage);
 
-  if (totalPhones) {
-    const totalPages = Math.ceil(totalPhones / phonesPerPage);
+  const handleClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    event.preventDefault();
 
-    for (let i = 1; i <= totalPages; i += 1) {
-      pageNumbers.push(i);
+    const nextPage = +(event.currentTarget.dataset.page || 0);
+
+    if (
+      nextPage === page || nextPage < 1 || nextPage > total
+    ) {
+      return;
     }
+
+    handlePageChange(nextPage);
+  };
+
+  function getPageNumbers(from: number, to: number): number[] {
+    const numbers = [];
+
+    for (let i = from; i <= to; i += 1) {
+      numbers.push(i);
+    }
+
+    return numbers;
   }
 
   return (
     <div className="page__pagination pagination">
       <a // eslint-disable-line jsx-a11y/anchor-has-content
-        href={`#/Phones/Page-${currentPage}`}
+        href="#prev"
         aria-label="link"
+        aria-disabled={page === 1}
+        data-page={page - 1}
         className={classNames(
           'pagination__prev-btn',
           ButtonClassType.SECONDARY,
           ButtonClassModifier.PREV_PAGE,
         )}
-        onClick={prevPage}
+        onClick={handleClick}
       />
 
       <ul className="pagination__list">
-        {pageNumbers.map(number => {
+        {getPageNumbers(1, total).map(currentPage => {
           return (
             <li
               className="pagination__page-number"
-              key={number}
+              key={currentPage}
             >
               <a
-                href={`#/Phones/Page-${currentPage}`}
+                href={`#${currentPage}`}
+                data-page={currentPage}
                 className={classNames(
                   ButtonClassType.SECONDARY,
                   ButtonClassModifier.NUM_PAGE,
-                  { 'pagination__active-button': (+selectedPage === number) },
+                  { 'pagination__active-button': (currentPage === page) },
                 )}
-                onClick={() => {
-                  paginate(number);
-                }}
+                onClick={handleClick}
               >
-                {number}
+                {currentPage}
               </a>
             </li>
           );
@@ -70,14 +81,16 @@ export const Pagination: React.FC<Props> = ({
       </ul>
 
       <a // eslint-disable-line jsx-a11y/anchor-has-content
-        href={`#/Phones/Page-${currentPage}`}
+        href="#/next"
         aria-label="link"
+        aria-disabled={page === total}
+        data-page={page + 1}
         className={classNames(
           'pagination__next-btn',
           ButtonClassType.SECONDARY,
           ButtonClassModifier.NEXT_PAGE,
         )}
-        onClick={nextPage}
+        onClick={handleClick}
       />
     </div>
   );
