@@ -1,9 +1,12 @@
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 import classNames from 'classnames';
 import { PhonesListItem } from '../components/ProductList/ProductListItem';
 import { ButtonClassModifier, ButtonClassType } from '../enums/ButtonEnum';
 import { SliderButton } from '../images/icons/SliderButton';
 import { Phone } from '../types/Phone';
 import './SectionHero.scss';
+import { Loader } from '../components/Loader';
 
 type Props = {
   phones: Phone[];
@@ -23,15 +26,35 @@ export const Home: React.FC<Props> = ({
   likedPhones,
   setLikedPhones,
 }) => {
-  const newModels = phones
-    .sort((p1, p2) => p2.year - p1.year)
-    .slice(0, 5);
+  const [newModels, setNewModels] = useState<Phone[]>([]);
+  const [cheapModels, setCheapModels] = useState<Phone[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
 
-  const cheapModels = phones
-    .sort((p1, p2) => p1.price - p2.price)
-    .slice(0, 5);
+  const baseUrl = 'http://localhost:8080/products';
 
-  return (
+  useEffect(() => {
+    const loadData = async () => {
+      const newRes = await axios.get(`${baseUrl}/new`);
+      const discountRes = await axios.get(`${baseUrl}/discount`);
+
+      const newData = await newRes.data;
+      const discountData = await discountRes.data;
+
+      setNewModels(newData);
+      setCheapModels(discountData);
+    };
+
+    try {
+      loadData();
+    } catch {
+      setNewModels([]);
+      setCheapModels([]);
+    } finally {
+      setIsLoading(false);
+    }
+  });
+
+  return isLoading ? <Loader /> : (
     <>
       <section className="home__section-hero section-hero">
         <h1
