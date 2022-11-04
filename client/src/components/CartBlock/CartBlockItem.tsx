@@ -64,7 +64,7 @@ export const CartBlockItem: React.FC<Props> = ({
         aria-label="text"
         onClick={handleRemove}
       />
-      <a href="#/phoneInfo">
+      <a href={`#/Phones/${phone.id}`}>
         <img
           src={`http://localhost:8080/${phone.image}`}
           className="cart__block-img"

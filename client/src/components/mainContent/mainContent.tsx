@@ -60,12 +60,7 @@ export const Main: React.FC<Props> = ({ phones }) => {
         <Route path="Home" element={<Home />} />
         <Route path="/" element={<Navigate to="Home" replace />} />
 
-        <Route
-          path="phones"
-          element={<Navigate to="Page-1" />}
-        />
-
-        <Route path="phones/:currentPage">
+        <Route path="phones">
           <Route
             index
             element={(
@@ -89,17 +84,6 @@ export const Main: React.FC<Props> = ({ phones }) => {
             )}
           />
         </Route>
-
-        <Route
-          path="phoneInfo"
-          element={(
-            <PhoneInfo
-              phoneId={phoneId}
-              selectedPhones={selectedPhones}
-              setSelectedPhones={setSelectedPhones}
-            />
-          )}
-        />
 
         <Route path="tablets" element={<Tablets />} />
         <Route path="accessories" element={<Accessories />} />
