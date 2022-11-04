@@ -1,7 +1,5 @@
 import { useState, useEffect } from 'react';
-import {
-  Navigate, Route, Routes,
-} from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import {
   NotFoundPage,
   Home,
@@ -13,7 +11,7 @@ import { Phone } from '../../types/Phone';
 import { CartBlock } from '../CartBlock';
 import './mainContent.scss';
 import { PhoneInfo } from '../phoneInfo/phoneInfo';
-import { Favorites } from '../Favorites/Favorites';
+import { Favourites } from '../Favourites';
 
 type Props = {
   phones: Phone[];
@@ -61,12 +59,7 @@ export const Main: React.FC<Props> = ({ phones }) => {
         <Route path="Home" element={<Home />} />
         <Route path="/" element={<Navigate to="Home" replace />} />
 
-        <Route
-          path="phones"
-          element={<Navigate to="Page-1" />}
-        />
-
-        <Route path="phones/:currentPage">
+        <Route path="phones">
           <Route
             index
             element={(
@@ -78,18 +71,21 @@ export const Main: React.FC<Props> = ({ phones }) => {
               />
             )}
           />
-
           <Route
-            path=":phoneId"
+            path=":pagId"
             element={(
-              <PhoneInfo
-                phoneId={phoneId}
+              <PhonesList
+                phones={phones}
                 selectedPhones={selectedPhones}
                 setSelectedPhones={setSelectedPhones}
+                setPhoneId={setPhoneId}
               />
             )}
           />
         </Route>
+
+        <Route path="tablets" element={<Tablets />} />
+        <Route path="accessories" element={<Accessories />} />
 
         <Route
           path="phoneInfo"
@@ -101,9 +97,6 @@ export const Main: React.FC<Props> = ({ phones }) => {
             />
           )}
         />
-
-        <Route path="tablets" element={<Tablets />} />
-        <Route path="accessories" element={<Accessories />} />
 
         <Route
           path="shopping"
@@ -122,7 +115,7 @@ export const Main: React.FC<Props> = ({ phones }) => {
         <Route
           path="favorite"
           element={(
-            <Favorites
+            <Favourites
               phones={phones}
               selectedPhones={selectedPhones}
               setSelectedPhones={setSelectedPhones}

@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Phone } from '../../types/Phone';
 import { PhonesListItem } from '../ProductList/ProductListItem';
-import './Favorites.scss';
+import './Favourites.scss';
 
 type Props = {
   phones: Phone[];
@@ -11,7 +11,7 @@ type Props = {
   setPhoneId: (value: number) => void;
 };
 
-export const Favorites: React.FC<Props> = ({
+export const Favourites: React.FC<Props> = ({
   phones,
   selectedPhones,
   setSelectedPhones,
@@ -22,26 +22,22 @@ export const Favorites: React.FC<Props> = ({
   ));
 
   return (
-    <div className="favorite">
-      <div className="favorite__logo">
-        <Link to="/" className="favorite__logo-home" />
-        <Link to="/" className="favorite__logo-vector" />
-        <p className="favorite__logo-vector-text">
-          Favorites
-        </p>
+    <div className="favourites">
+      <div className="favourites__logo">
+        <Link to="/" className="favourites__logo-home" />
+        <Link to="/" className="favourites__logo-vector" />
+        <p className="favourites__logo-vector-text">Favourites</p>
       </div>
-      <div className="favorite__title">
-        <p className="favorite__title-text">
-          Favorites
-        </p>
-        <p className="favorite__count">
+      <div className="favourites__title">
+        <p className="favourites__title-text">Favourites</p>
+        <p className="favourites__count">
           {selectedPhones.length}
           &nbsp;items
         </p>
       </div>
 
-      <div className="favorite__phones grid__cards">
-        {visiblePhones.map(phone => (
+      <div className="favourites__phones grid__cards">
+        {visiblePhones.map((phone) => (
           <PhonesListItem
             key={phone.id}
             phone={phone}
