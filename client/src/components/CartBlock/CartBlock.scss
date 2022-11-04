@@ -1,20 +1,6 @@
 @import '../../styles/main.scss';
 
-.cart__block {
-  @include phoneSpecial {
-    margin-left: 16px;
-    margin-right: 16px;
-  }
-  @include pad {
-    margin-left: 24px;
-    margin-right: 24px;
-  }
-
-  @include desktop {
-    margin-left: 150px;
-    margin-right: 150px;
-  }
-
+.cart__block{
   &-links {
     display: flex;
     margin-bottom: 16px;
@@ -30,8 +16,8 @@
 
   &-link {
     @include font-style($fw-700, $fs-12, 15px);
-    background-color: $color-surface-2;
-    padding: 0 10px;
+    border: none;
+    background-color: transparent;
 
     &:hover {
       text-decoration: underline;
@@ -46,11 +32,21 @@
 
   &-item {
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
     padding: 24px;
     margin-bottom: 16px;
-    background-color: $color-surface-1;
+    background-color: $color-surface-1; 
+
+    @include phone {
+      flex-direction: column;
+    }
+
+    @include pad {
+      flex-direction: row;
+    }
+
   }
 
   &-reset {
@@ -69,14 +65,17 @@
 
   &-info {
     @include font-style($fw-600, $fs-14, 21px);
-    width: 300px;
 
-    @include pad {
-      width: 180px;
+    @include phone {
+      width: 50%;
     }
 
-    @include phoneSpecial {
-      width: 120px;
+    @include pad {
+      width: 70%;
+    }
+
+    @include desktop {
+      width: 70%;
     }
   }
 
@@ -128,12 +127,43 @@
       border-bottom: 1px solid $color-elements;
     }
 
+
     &-button {
       @include height-width(48px, 100%);
       @include font-style($fw-700, $fs-14, 21px);
       background-color: $color-accent;
       margin-top: 25px;
       border: none;
+    }
+  }
+
+  &-group-1 {
+    width: 60%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  
+    @include phone{
+      width: 100%;
+    }
+  
+    @include pad {
+      width: 60%;
+    }
+  }
+
+  &-group-2 {
+    width: 30%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  
+    @include phone{
+      width: 100%;
+    }
+  
+    @include pad {
+      width: 30%;
     }
   }
 }

@@ -9,8 +9,8 @@ type Props = {
   setTotalPrice: (value: number) => void;
   totalPrice: number;
   countItems: number;
-  setCountItems: (value: number) => void,
-  setPhoneId: (value: number) => void,
+  setCountItems: (value: number) => void;
+  setPhoneId: (value: number) => void;
 };
 
 export const CartBlockItem: React.FC<Props> = ({
@@ -26,7 +26,7 @@ export const CartBlockItem: React.FC<Props> = ({
   const [count, setCount] = useState(1);
 
   const handleRemove = () => {
-    setSelectedPhones(selectedPhones.filter(id => id !== phone.id));
+    setSelectedPhones(selectedPhones.filter((id) => id !== phone.id));
     setTotalPrice(totalPrice - phone.price * count);
     setCountItems(countItems - 1 * count);
 
@@ -60,44 +60,49 @@ export const CartBlockItem: React.FC<Props> = ({
   };
 
   return (
-    <div className="cart__block-item grid__item--desktop-1-15">
-      <button
-        type="submit"
-        className="cart__block-reset"
-        aria-label="text"
-        onClick={handleRemove}
-      />
-      <Link to={`/Phones/${phone.id}`} onClick={() => setPhoneId(phone.id)}>
-        <img
-          src={`http://localhost:8080/${phone.image}`}
-          className="cart__block-img"
-          alt=""
-        />
-      </Link>
-      <div className="cart__block-info">
-        {phone.name}
+    <div
+      className="grid__item--mobile-1-4
+      grid__item--iPad-1-12
+      grid__item--desktop-1-16"
+    >
+      <div className="cart__block-item">
+        <div className="cart__block-group-1">
+          <button
+            type="submit"
+            className="cart__block-reset"
+            aria-label="text"
+            onClick={handleRemove}
+          />
+          <Link to={`/Phones/${phone.id}`} onClick={() => setPhoneId(phone.id)}>
+            <img
+              src={`http://localhost:8080/${phone.image}`}
+              className="cart__block-img"
+              alt=""
+            />
+          </Link>
+          <div className="cart__block-info">{phone.name}</div>
+        </div>
+        <div className="cart__block-group-2">
+          <div className="cart__block-buttons">
+            <button
+              type="submit"
+              className="cart__block-btn-min"
+              onClick={changeCountSubtract}
+            >
+              -
+            </button>
+            <p className="cart__block-count">{count}</p>
+            <button
+              type="submit"
+              className="cart__block-btn-plus"
+              onClick={changeCountAdd}
+            >
+              +
+            </button>
+          </div>
+          <div className="cart__block-price">{phone.price * count}</div>
+        </div>
       </div>
-      <div className="cart__block-buttons">
-        <button
-          type="submit"
-          className="cart__block-btn
-              cart__block-btn-plus"
-          onClick={changeCountSubtract}
-        >
-          -
-        </button>
-        <p className="cart__block-count">
-          {count}
-        </p>
-        <button
-          type="submit"
-          className="cart__block-btn cart__block-btn-plus"
-          onClick={changeCountAdd}
-        >
-          +
-        </button>
-      </div>
-      <div className="cart__block-price">{phone.price * count}</div>
     </div>
   );
 };
