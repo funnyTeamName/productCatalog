@@ -9,7 +9,7 @@ import {
   ButtonClassModifier,
   ButtonClassType,
   ButtonType,
-} from '../../enums/ButtonEnum';
+} from '../../enums/buttonEnum';
 
 type Props = {
   phoneId: number;

@@ -3,7 +3,7 @@ import {
   ButtonClassModifier,
   ButtonClassType,
   ButtonType,
-} from '../../enums/ButtonEnum';
+} from '../../enums/buttonEnum';
 import { Button } from '../button';
 import { Phone } from '../../types/Phone';
 import './ProductCard.scss';
