@@ -11,6 +11,7 @@ import { Phone } from '../../types/Phone';
 import { CartBlock } from '../CartBlock';
 import './mainContent.scss';
 import { PhoneInfo } from '../phoneInfo/phoneInfo';
+import { Favourites } from '../Favourites';
 
 type Props = {
   phones: Phone[];
@@ -28,7 +29,11 @@ export const Main: React.FC<Props> = ({ phones }) => {
   ));
 
   const initialTotalPrice = visiblePhones
-    .map(phone => phone.price)
+    .map(phone => phone.price * (+window.localStorage.getItem(`item:${phone.id}`)! || 1))
+    .reduce((sum, value) => sum + value, 0);
+
+  const initialItemsCount = visiblePhones
+    .map(phone => 1 * (+window.localStorage.getItem(`item:${phone.id}`)! || 1))
     .reduce((sum, value) => sum + value, 0);
 
   useEffect(() => {
@@ -45,7 +50,7 @@ export const Main: React.FC<Props> = ({ phones }) => {
     window.localStorage
       .setItem('Total Price', JSON.stringify(initialTotalPrice));
     window.localStorage
-      .setItem('Items Count', JSON.stringify(visiblePhones.length));
+      .setItem('Items Count', JSON.stringify(initialItemsCount));
     setTotalPrice(initialTotalPrice);
   }, [selectedPhones]);
 
@@ -88,29 +93,30 @@ export const Main: React.FC<Props> = ({ phones }) => {
         <Route path="accessories" element={<Accessories />} />
 
         <Route
-          path="phoneInfo"
-          element={(
-            <PhoneInfo
-              phoneId={phoneId}
-              selectedPhones={selectedPhones}
-              setSelectedPhones={setSelectedPhones}
-              likedPhones={likedPhones}
-              setLikedPhones={setLikedPhones}
-            />
-          )}
-        />
-
-        <Route
           path="shopping"
           element={(
             <CartBlock
               phones={phones}
               selectedPhones={selectedPhones}
               setSelectedPhones={setSelectedPhones}
+              likedPhones={likedPhones}
+              setLikedPhones={setLikedPhones}
               totalPrice={totalPrice}
               setTotalPrice={setTotalPrice}
               countItems={countItems}
               setCountItems={setCountItems}
+              setPhoneId={setPhoneId}
+            />
+          )}
+        />
+        <Route
+          path="favourites"
+          element={(
+            <Favourites
+              phones={phones}
+              selectedPhones={selectedPhones}
+              setSelectedPhones={setSelectedPhones}
+              setPhoneId={setPhoneId}
             />
           )}
         />

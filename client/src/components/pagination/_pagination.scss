@@ -8,10 +8,18 @@
 
   &__prev-btn {
     margin-right: 16px;
+
+    &-disabled {
+      pointer-events: none;
+    }
   }
 
   &__next-btn {
     margin-left: 16px;
+
+    &-disabled {
+      pointer-events: none;
+    }
   }
 
   &__list {

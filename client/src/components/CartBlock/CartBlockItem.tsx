@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { Phone } from '../../types/Phone';
 
 type Props = {
@@ -9,6 +10,7 @@ type Props = {
   totalPrice: number;
   countItems: number;
   setCountItems: (value: number) => void,
+  setPhoneId: (value: number) => void,
 };
 
 export const CartBlockItem: React.FC<Props> = ({
@@ -19,6 +21,7 @@ export const CartBlockItem: React.FC<Props> = ({
   totalPrice,
   countItems,
   setCountItems,
+  setPhoneId,
 }) => {
   const [count, setCount] = useState(1);
 
@@ -64,13 +67,13 @@ export const CartBlockItem: React.FC<Props> = ({
         aria-label="text"
         onClick={handleRemove}
       />
-      <a href="/">
+      <Link to={`/Phones/${phone.id}`} onClick={() => setPhoneId(phone.id)}>
         <img
           src={`http://localhost:8080/${phone.image}`}
           className="cart__block-img"
           alt=""
         />
-      </a>
+      </Link>
       <div className="cart__block-info">
         {phone.name}
       </div>
