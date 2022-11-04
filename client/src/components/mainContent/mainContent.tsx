@@ -88,17 +88,6 @@ export const Main: React.FC<Props> = ({ phones }) => {
         <Route path="accessories" element={<Accessories />} />
 
         <Route
-          path="phoneInfo"
-          element={(
-            <PhoneInfo
-              phoneId={phoneId}
-              selectedPhones={selectedPhones}
-              setSelectedPhones={setSelectedPhones}
-            />
-          )}
-        />
-
-        <Route
           path="shopping"
           element={(
             <CartBlock
@@ -109,6 +98,7 @@ export const Main: React.FC<Props> = ({ phones }) => {
               setTotalPrice={setTotalPrice}
               countItems={countItems}
               setCountItems={setCountItems}
+              setPhoneId={setPhoneId}
             />
           )}
         />

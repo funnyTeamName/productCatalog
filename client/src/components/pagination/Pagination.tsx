@@ -50,6 +50,7 @@ export const Pagination: React.FC<Props> = ({
         data-page={page - 1}
         className={classNames(
           'pagination__prev-btn',
+          { 'pagination__prev-btn-disabled': page === 1 },
           ButtonClassType.SECONDARY,
           ButtonClassModifier.PREV_PAGE,
         )}
@@ -87,6 +88,7 @@ export const Pagination: React.FC<Props> = ({
         data-page={page + 1}
         className={classNames(
           'pagination__next-btn',
+          { 'pagination__next-btn-disabled': page === total },
           ButtonClassType.SECONDARY,
           ButtonClassModifier.NEXT_PAGE,
         )}
