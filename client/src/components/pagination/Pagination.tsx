@@ -21,7 +21,7 @@ export const Pagination: React.FC<Props> = ({
   prevPage,
 }) => {
   const pageNumbers = [];
-  const selectedPage = useLocation().pathname.split('/Phones/')[1] || 1;
+  const selectedPage = useLocation().pathname.split('/Phones/Page-')[1] || 1;
 
   if (totalPhones) {
     const totalPages = Math.ceil(totalPhones / phonesPerPage);
@@ -34,7 +34,7 @@ export const Pagination: React.FC<Props> = ({
   return (
     <div className="page__pagination pagination">
       <a // eslint-disable-line jsx-a11y/anchor-has-content
-        href={`#/Phones/${currentPage}`}
+        href={`#/Phones/Page-${currentPage}`}
         aria-label="link"
         className={classNames(
           'pagination__prev-btn',
@@ -52,7 +52,7 @@ export const Pagination: React.FC<Props> = ({
               key={number}
             >
               <a
-                href={`#/Phones/${currentPage}`}
+                href={`#/Phones/Page-${currentPage}`}
                 className={classNames(
                   ButtonClassType.SECONDARY,
                   ButtonClassModifier.NUM_PAGE,
@@ -70,7 +70,7 @@ export const Pagination: React.FC<Props> = ({
       </ul>
 
       <a // eslint-disable-line jsx-a11y/anchor-has-content
-        href={`#/Phones/${currentPage}`}
+        href={`#/Phones/Page-${currentPage}`}
         aria-label="link"
         className={classNames(
           'pagination__next-btn',
