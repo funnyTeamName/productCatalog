@@ -5,21 +5,13 @@
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  width: 76%;
+  width: 100%;
   margin-right: 8px;
 
   @include font-style($fw-700, $fs-14, 21px);
   background-color: $color-accent;
   border: none;
   @include hover(background-color, $color-accent-2);
-
-  @include pad {
-    width: 72%;
-  }
-
-  @include desktop {
-    width: 72%;
-  }
 
   &-added {
     background-color: $color-surface-2;
@@ -32,7 +24,7 @@
   //secondary button
   &__secondary {
     display: flex;
-    flex-grow: 1;
+    flex-shrink: 0;
     justify-content: center;
     align-items: center;
     @include height-width(32px, 32px);
