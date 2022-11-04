@@ -1,7 +1,5 @@
 import { useState, useEffect } from 'react';
-import {
-  Navigate, Route, Routes,
-} from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import {
   NotFoundPage,
   Home,
@@ -13,6 +11,7 @@ import { Phone } from '../../types/Phone';
 import { CartBlock } from '../CartBlock';
 import './mainContent.scss';
 import { PhoneInfo } from '../phoneInfo/phoneInfo';
+import { Favourites } from '../Favourites';
 
 type Props = {
   phones: Phone[];
@@ -72,14 +71,14 @@ export const Main: React.FC<Props> = ({ phones }) => {
               />
             )}
           />
-
           <Route
-            path=":phoneId"
+            path=":pagId"
             element={(
-              <PhoneInfo
-                phoneId={phoneId}
+              <PhonesList
+                phones={phones}
                 selectedPhones={selectedPhones}
                 setSelectedPhones={setSelectedPhones}
+                setPhoneId={setPhoneId}
               />
             )}
           />
@@ -99,6 +98,17 @@ export const Main: React.FC<Props> = ({ phones }) => {
               setTotalPrice={setTotalPrice}
               countItems={countItems}
               setCountItems={setCountItems}
+              setPhoneId={setPhoneId}
+            />
+          )}
+        />
+        <Route
+          path="favourites"
+          element={(
+            <Favourites
+              phones={phones}
+              selectedPhones={selectedPhones}
+              setSelectedPhones={setSelectedPhones}
               setPhoneId={setPhoneId}
             />
           )}
