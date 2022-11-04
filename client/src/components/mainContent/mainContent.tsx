@@ -27,7 +27,11 @@ export const Main: React.FC<Props> = ({ phones }) => {
   ));
 
   const initialTotalPrice = visiblePhones
-    .map(phone => phone.price)
+    .map(phone => phone.price * (+window.localStorage.getItem(`item:${phone.id}`)! || 1))
+    .reduce((sum, value) => sum + value, 0);
+
+  const initialItemsCount = visiblePhones
+    .map(phone => 1 * (+window.localStorage.getItem(`item:${phone.id}`)! || 1))
     .reduce((sum, value) => sum + value, 0);
 
   useEffect(() => {
@@ -44,7 +48,7 @@ export const Main: React.FC<Props> = ({ phones }) => {
     window.localStorage
       .setItem('Total Price', JSON.stringify(initialTotalPrice));
     window.localStorage
-      .setItem('Items Count', JSON.stringify(visiblePhones.length));
+      .setItem('Items Count', JSON.stringify(initialItemsCount));
     setTotalPrice(initialTotalPrice);
   }, [selectedPhones]);
 
