@@ -19,6 +19,7 @@ type Props = {
 
 export const Main: React.FC<Props> = ({ phones }) => {
   const [selectedPhones, setSelectedPhones] = useState<number[]>([]);
+  const [likedPhones, setLikedPhones] = useState<number[]>([]);
   const [totalPrice, setTotalPrice] = useState(0);
   const [countItems, setCountItems] = useState(0);
   const [phoneId, setPhoneId] = useState(1);
@@ -68,6 +69,8 @@ export const Main: React.FC<Props> = ({ phones }) => {
                 selectedPhones={selectedPhones}
                 setSelectedPhones={setSelectedPhones}
                 setPhoneId={setPhoneId}
+                likedPhones={likedPhones}
+                setLikedPhones={setLikedPhones}
               />
             )}
           />
@@ -79,6 +82,8 @@ export const Main: React.FC<Props> = ({ phones }) => {
                 selectedPhones={selectedPhones}
                 setSelectedPhones={setSelectedPhones}
                 setPhoneId={setPhoneId}
+                likedPhones={likedPhones}
+                setLikedPhones={setLikedPhones}
               />
             )}
           />
@@ -94,6 +99,8 @@ export const Main: React.FC<Props> = ({ phones }) => {
               phones={phones}
               selectedPhones={selectedPhones}
               setSelectedPhones={setSelectedPhones}
+              likedPhones={likedPhones}
+              setLikedPhones={setLikedPhones}
               totalPrice={totalPrice}
               setTotalPrice={setTotalPrice}
               countItems={countItems}

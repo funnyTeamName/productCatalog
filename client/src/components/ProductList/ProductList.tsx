@@ -11,6 +11,8 @@ type Props = {
   selectedPhones: number[];
   setSelectedPhones: (value: number[]) => void;
   setPhoneId: (value: number) => void;
+  likedPhones: number[];
+  setLikedPhones: (value: number[]) => void;
 };
 
 function filterPhones(
@@ -44,6 +46,8 @@ export const PhonesList: React.FC<Props> = ({
   selectedPhones,
   setSelectedPhones,
   setPhoneId,
+  likedPhones,
+  setLikedPhones,
 }) => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [page, setPage] = useState(+(searchParams.get('page') || 1));
@@ -87,6 +91,8 @@ export const PhonesList: React.FC<Props> = ({
             selectedPhones={selectedPhones}
             setSelectedPhones={setSelectedPhones}
             setPhoneId={setPhoneId}
+            likedPhones={likedPhones}
+            setLikedPhones={setLikedPhones}
           />
         ))}
       </div>
