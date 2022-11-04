@@ -10,7 +10,7 @@ import { PhonesList } from '../ProductList/ProductList';
 import { Phone } from '../../types/Phone';
 import { CartBlock } from '../CartBlock';
 import './mainContent.scss';
-import { PhoneInfo } from '../phoneInfo/phoneInfo';
+import { PhoneInfo } from '../phoneInfo';
 import { Favourites } from '../Favourites';
 
 type Props = {
@@ -75,13 +75,12 @@ export const Main: React.FC<Props> = ({ phones }) => {
             )}
           />
           <Route
-            path=":pagId"
+            path=":phoneId"
             element={(
-              <PhonesList
-                phones={phones}
+              <PhoneInfo
+                phoneId={phoneId}
                 selectedPhones={selectedPhones}
                 setSelectedPhones={setSelectedPhones}
-                setPhoneId={setPhoneId}
                 likedPhones={likedPhones}
                 setLikedPhones={setLikedPhones}
               />
@@ -99,8 +98,6 @@ export const Main: React.FC<Props> = ({ phones }) => {
               phones={phones}
               selectedPhones={selectedPhones}
               setSelectedPhones={setSelectedPhones}
-              likedPhones={likedPhones}
-              setLikedPhones={setLikedPhones}
               totalPrice={totalPrice}
               setTotalPrice={setTotalPrice}
               countItems={countItems}
@@ -114,9 +111,11 @@ export const Main: React.FC<Props> = ({ phones }) => {
           element={(
             <Favourites
               phones={phones}
+              likedPhones={likedPhones}
+              setLikedPhones={setLikedPhones}
+              setPhoneId={setPhoneId}
               selectedPhones={selectedPhones}
               setSelectedPhones={setSelectedPhones}
-              setPhoneId={setPhoneId}
             />
           )}
         />
