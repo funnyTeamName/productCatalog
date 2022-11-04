@@ -4,7 +4,7 @@ import './phoneInfo.scss';
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { PhoneType } from '../../types/PhoneType';
-import { Button } from '../button/Button';
+import { Button } from '../Button';
 import {
   ButtonClassModifier,
   ButtonClassType,

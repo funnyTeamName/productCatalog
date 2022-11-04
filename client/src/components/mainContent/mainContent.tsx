@@ -9,9 +9,9 @@ import {
 import { PhonesList } from '../ProductList/ProductList';
 import { Phone } from '../../types/Phone';
 import { CartBlock } from '../CartBlock';
-import './mainContent.scss';
 import { PhoneInfo } from '../phoneInfo';
 import { Favourites } from '../Favourites';
+import './MainContent.scss';
 
 type Props = {
   phones: Phone[];
@@ -55,9 +55,21 @@ export const Main: React.FC<Props> = ({ phones }) => {
   }, [selectedPhones]);
 
   return (
-    <div className="mainContent container">
+    <div className="mainContent">
       <Routes>
-        <Route path="Home" element={<Home />} />
+        <Route
+          path="Home"
+          element={(
+            <Home
+              phones={phones}
+              selectedPhones={selectedPhones}
+              setSelectedPhones={setSelectedPhones}
+              setPhoneId={setPhoneId}
+              likedPhones={likedPhones}
+              setLikedPhones={setLikedPhones}
+            />
+          )}
+        />
         <Route path="/" element={<Navigate to="Home" replace />} />
 
         <Route path="phones">

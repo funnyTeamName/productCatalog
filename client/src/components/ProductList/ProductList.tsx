@@ -3,7 +3,7 @@ import { useSearchParams } from 'react-router-dom';
 import { Pagination } from '../pagination/Pagination';
 import { FilterType } from '../../enums/FilterType';
 import { Phone } from '../../types/Phone';
-import { Filter } from '../filter';
+import { Filter } from '../Filter';
 import { PhonesListItem } from './ProductListItem';
 
 type Props = {
@@ -73,7 +73,7 @@ export const PhonesList: React.FC<Props> = ({
   };
 
   return (
-    <>
+    <div className="container">
       <Filter
         length={phones?.length}
         filterType={filterType}
@@ -83,7 +83,7 @@ export const PhonesList: React.FC<Props> = ({
         setPage={setPage}
       />
 
-      <div className="page__product-list grid__cards">
+      <div className="page__product-list grid--cards">
         {currentPhones.slice(from - 1, to).map(phone => (
           <PhonesListItem
             key={phone.id}
@@ -91,6 +91,7 @@ export const PhonesList: React.FC<Props> = ({
             selectedPhones={selectedPhones}
             setSelectedPhones={setSelectedPhones}
             setPhoneId={setPhoneId}
+            size
             likedPhones={likedPhones}
             setLikedPhones={setLikedPhones}
           />
@@ -103,6 +104,6 @@ export const PhonesList: React.FC<Props> = ({
         page={page}
         handlePageChange={handlePageChange}
       />
-    </>
+    </div>
   );
 };

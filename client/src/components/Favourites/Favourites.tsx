@@ -26,32 +26,34 @@ export const Favourites: React.FC<Props> = ({
   ));
 
   return (
-    <div className="favourites">
-      <div className="favourites__logo">
-        <Link to="/" className="favourites__logo-home" />
-        <Link to="/" className="favourites__logo-vector" />
-        <p className="favourites__logo-vector-text">Favourites</p>
-      </div>
-      <div className="favourites__title">
-        <p className="favourites__title-text">Favourites</p>
-        <p className="favourites__count">
-          {likedPhones.length}
-          &nbsp;items
-        </p>
-      </div>
+    <div className="container">
+      <div className="favourites">
+        <div className="favourites__logo">
+          <Link to="/" className="favourites__logo-home" />
+          <Link to="/" className="favourites__logo-vector" />
+          <p className="favourites__logo-vector-text">Favourites</p>
+        </div>
+        <div className="favourites__title">
+          <p className="favourites__title-text">Favourites</p>
+          <p className="favourites__count">
+            {likedPhones.length}
+            &nbsp;items
+          </p>
+        </div>
 
-      <div className="favourites__phones grid__cards">
-        {visiblePhones.map((phone) => (
-          <PhonesListItem
-            key={phone.id}
-            phone={phone}
-            selectedPhones={selectedPhones}
-            setSelectedPhones={setSelectedPhones}
-            setPhoneId={setPhoneId}
-            setLikedPhones={setLikedPhones}
-            likedPhones={likedPhones}
-          />
-        ))}
+        <div className="favourites__phones grid--cards">
+          {visiblePhones.map((phone) => (
+            <PhonesListItem
+              key={phone.id}
+              phone={phone}
+              selectedPhones={selectedPhones}
+              setSelectedPhones={setSelectedPhones}
+              setPhoneId={setPhoneId}
+              setLikedPhones={setLikedPhones}
+              likedPhones={likedPhones}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );

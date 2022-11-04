@@ -1,25 +1,35 @@
-@import "../../styles/main.scss";
+@import '../../styles/main.scss';
 
 .card {
   display: flex;
   flex-direction: column;
   align-items: center;
-  @include height-width(506px, 272px);
+  @include height-width(439px, 212px);
   background-color: $color-surface-1;
+
+  @include pad {
+    @include height-width(512px, 237px);
+  }
+
+  @include desktop {
+    @include height-width(506px, 272px);
+  }
 
   &__img {
     @include height-width(208px, 140px);
     margin-top: 32px;
     margin-bottom: 24px;
     border-radius: 15px;
-    
     object-fit: fill;
     @include hover(scale, 105%);
+
+    @include mobile {
+      @include height-width(129px, 115px);
+    }
   }
 
   &__description-content {
-    width: 208px;
-    margin: 0 32px;
+    padding: 0 32px 32px;
   }
 
   &__product-title {
@@ -70,5 +80,21 @@
   &__buttons {
     display: flex;
     justify-content: space-between;
+  }
+
+  &--size {
+    @include height-width(440px, 288px);
+
+    @include pad {
+      @include height-width(506px, 288px);
+    }
+
+    @media (min-width: 768px) {
+      width: 230px;
+    }
+
+    @include desktop {
+      @include height-width(506px, 272px);
+    }
   }
 }

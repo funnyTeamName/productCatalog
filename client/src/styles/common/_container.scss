@@ -2,8 +2,17 @@
 
 .container {
   max-width: 1200px;
-  padding: 0 32px;
-  margin: 0 auto;
+  padding: 0 16px;
+  margin-left: auto;
+  margin-right: auto;
+
+  @include pad {
+    padding: 0 24px;
+  }
+
+  @include desktop {
+    padding: 0 32px;
+  }
 }
 
 .logo {

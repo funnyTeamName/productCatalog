@@ -16,6 +16,12 @@
   }
 }
 
+@mixin mobile {
+  @media (max-width: $pad-media-width - 1) {
+    @content;
+  }
+}
+
 @mixin phone {
   @media (min-width: $mobile-media-width) {
     @content;

@@ -5,7 +5,8 @@
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  width: 160px;
+  width: 100%;
+  margin-right: 8px;
 
   @include font-style($fw-700, $fs-14, 21px);
   background-color: $color-accent;
@@ -23,6 +24,7 @@
   //secondary button
   &__secondary {
     display: flex;
+    flex-shrink: 0;
     justify-content: center;
     align-items: center;
     @include height-width(32px, 32px);
@@ -41,24 +43,24 @@
     &--heart {
       @include height-width(40px, 40px);
       border: 1px solid transparent;
-      background-image: url("../../images/icons/heart.svg");
+      background-image: url('../../images/icons/heart.svg');
 
       &-acive {
         border-color: $color-elements;
-        background-image: url("../../images/icons/red-heart.svg");
+        background-image: url('../../images/icons/red-heart.svg');
       }
     }
 
     &--next-page {
-      background-image: url("../../images/icons/next-page.svg");
+      background-image: url('../../images/icons/next-page.svg');
     }
 
     &--prev-page {
-      background-image: url("../../images/icons/prev-page.svg");
+      background-image: url('../../images/icons/prev-page.svg');
     }
 
     &--up-page {
-      background-image: url("../../images/icons/up-page.svg");
+      background-image: url('../../images/icons/up-page.svg');
     }
 
     &--num-page {

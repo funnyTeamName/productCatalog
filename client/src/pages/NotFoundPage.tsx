@@ -1,4 +1,4 @@
-import '../components/notFoundPage/NotFoundPage.scss';
+import '../components/NotFoundPage/NotFoundPage.scss';
 
 export const NotFoundPage = () => (
   <div id="notfound">
