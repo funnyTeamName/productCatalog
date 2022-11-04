@@ -9,18 +9,21 @@ type Props = {
   phones: Phone[];
   selectedPhones: number[];
   setSelectedPhones: (value: number[]) => void;
+  totalPrice: number;
+  setTotalPrice: (value: number) => void;
+  countItems: number;
+  setCountItems: (value: number) => void;
 };
 
 export const CartBlock: React.FC<Props> = ({
   phones,
   selectedPhones,
   setSelectedPhones,
+  totalPrice,
+  setTotalPrice,
+  countItems,
+  setCountItems,
 }) => {
-  const visiblePhones = phones.filter(phone => (
-    selectedPhones.includes(phone.id)
-  ));
-  const [totalPrice, setTotalPrice] = useState(0);
-  const [countItems, setCountItems] = useState(0);
   const [open, setOpen] = useState(false);
 
   const handleOpen = () => {
@@ -31,14 +34,22 @@ export const CartBlock: React.FC<Props> = ({
     setOpen(false);
   };
 
+  const visiblePhones = phones.filter(phone => (
+    selectedPhones.includes(phone.id)
+  ));
+
   const initialTotalPrice = visiblePhones
-    .map(phone => phone.price)
+    .map(phone => (phone.price * +window.localStorage.getItem(`item:${phone.id}`)!))
+    .reduce((sum, value) => sum + value, 0);
+
+  const initialItemsCount = visiblePhones
+    .map(phone => (1 * +window.localStorage.getItem(`item:${phone.id}`)!))
     .reduce((sum, value) => sum + value, 0);
 
   useEffect(() => {
     if (totalPrice === 0) {
       setTotalPrice(initialTotalPrice);
-      setCountItems(visiblePhones.length);
+      setCountItems(initialItemsCount);
     }
   }, [initialTotalPrice]);
 
