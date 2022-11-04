@@ -4,12 +4,12 @@ import './phoneInfo.scss';
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { PhoneType } from '../../types/PhoneType';
-import { Button } from '../Button/Button';
+import { Button } from '../button/Button';
 import {
   ButtonClassModifier,
   ButtonClassType,
   ButtonType,
-} from '../../enums/buttonEnum';
+} from '../../enums/ButtonEnum';
 
 type Props = {
   phoneId: number;
