@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Phone } from '../../types/Phone';
 import { PhonesListItem } from '../ProductList/ProductListItem';
-import './Favorite.scss';
+import './Favorites.scss';
 
 type Props = {
   phones: Phone[];
