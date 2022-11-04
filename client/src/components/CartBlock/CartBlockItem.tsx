@@ -5,10 +5,10 @@ type Props = {
   phone: Phone;
   selectedPhones: number[];
   setSelectedPhones: (value: number[]) => void;
-  setTotalPrice: React.Dispatch<React.SetStateAction<number>>;
+  setTotalPrice: (value: number) => void;
   totalPrice: number;
   countItems: number;
-  setCountItems: React.Dispatch<React.SetStateAction<number>>,
+  setCountItems: (value: number) => void,
 };
 
 export const CartBlockItem: React.FC<Props> = ({
@@ -20,11 +20,15 @@ export const CartBlockItem: React.FC<Props> = ({
   countItems,
   setCountItems,
 }) => {
+  const [count, setCount] = useState(1);
+
   const handleRemove = () => {
     setSelectedPhones(selectedPhones.filter(id => id !== phone.id));
-  };
+    setTotalPrice(totalPrice - phone.price * count);
+    setCountItems(countItems - 1 * count);
 
-  const [count, setCount] = useState(1);
+    window.localStorage.removeItem(`item:${phone.id}`);
+  };
 
   useEffect(() => {
     const data = window.localStorage.getItem(`item:${phone.id}`);

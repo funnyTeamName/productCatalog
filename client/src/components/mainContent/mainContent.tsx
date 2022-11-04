@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import {
   NotFoundPage,
@@ -17,9 +17,36 @@ type Props = {
 };
 
 export const Main: React.FC<Props> = ({ phones }) => {
-  const [selectedPhones, setSelectedPhones] = useState<number[] | []>([]);
-
+  const [selectedPhones, setSelectedPhones] = useState<number[]>([]);
+  const [totalPrice, setTotalPrice] = useState(0);
+  const [countItems, setCountItems] = useState(0);
   const [phoneId, setPhoneId] = useState(1);
+
+  const visiblePhones = phones.filter(phone => (
+    selectedPhones.includes(phone.id)
+  ));
+
+  const initialTotalPrice = visiblePhones
+    .map(phone => phone.price)
+    .reduce((sum, value) => sum + value, 0);
+
+  useEffect(() => {
+    const dataPhones = window.localStorage.getItem('Phones');
+
+    if (dataPhones !== null) {
+      setSelectedPhones(JSON.parse(dataPhones));
+    }
+  }, []);
+
+  useEffect(() => {
+    window.localStorage
+      .setItem('Phones', JSON.stringify(selectedPhones));
+    window.localStorage
+      .setItem('Total Price', JSON.stringify(initialTotalPrice));
+    window.localStorage
+      .setItem('Items Count', JSON.stringify(visiblePhones.length));
+    setTotalPrice(initialTotalPrice);
+  }, [selectedPhones]);
 
   return (
     <div className="mainContent container">
@@ -73,6 +100,10 @@ export const Main: React.FC<Props> = ({ phones }) => {
               phones={phones}
               selectedPhones={selectedPhones}
               setSelectedPhones={setSelectedPhones}
+              totalPrice={totalPrice}
+              setTotalPrice={setTotalPrice}
+              countItems={countItems}
+              setCountItems={setCountItems}
             />
           )}
         />
