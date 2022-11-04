@@ -1,0 +1,52 @@
+@import '../../styles/main.scss';
+
+.section-hero {
+  max-width: 1200px;
+
+  @include pad {
+    padding: 0 24px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @include desktop {
+    padding: 0 32px;
+  }
+
+  &__title {
+    @include mobile {
+      padding: 0 16px;
+      margin-bottom: 24px;
+    }
+
+    @include pad {
+      padding: 0 24px;
+      margin-bottom: 32px;
+    }
+
+    @include desktop {
+      margin-bottom: 56px;
+    }
+  }
+
+  &__img {
+    margin-bottom: 18px;
+  }
+
+  &__item:not(:last-child) {
+    margin-right: 14px;
+  }
+
+  &__pagination {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.home-button-slider {
+  display: inline-block;
+
+  &:not(:last-child) {
+    margin-right: 16px;
+  }
+}
