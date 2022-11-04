@@ -13,6 +13,7 @@ type Props = {
   setTotalPrice: (value: number) => void;
   countItems: number;
   setCountItems: (value: number) => void;
+  setPhoneId: (value: number) => void,
 };
 
 export const CartBlock: React.FC<Props> = ({
@@ -23,6 +24,7 @@ export const CartBlock: React.FC<Props> = ({
   setTotalPrice,
   countItems,
   setCountItems,
+  setPhoneId,
 }) => {
   const [open, setOpen] = useState(false);
 
@@ -98,6 +100,7 @@ export const CartBlock: React.FC<Props> = ({
           setTotalPrice={setTotalPrice}
           countItems={countItems}
           setCountItems={setCountItems}
+          setPhoneId={setPhoneId}
         />
       ))}
 

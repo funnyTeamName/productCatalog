@@ -99,6 +99,7 @@ export const Main: React.FC<Props> = ({ phones }) => {
               setTotalPrice={setTotalPrice}
               countItems={countItems}
               setCountItems={setCountItems}
+              setPhoneId={setPhoneId}
             />
           )}
         />
