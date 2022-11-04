@@ -1,9 +1,10 @@
 import { Link, useNavigate } from 'react-router-dom';
-import './phone_info.scss';
-import { useEffect, useState } from 'react';
+import classNames from 'classnames';
+import './phoneInfo.scss';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { PhoneType } from '../../types/PhoneType';
-import { Button } from '../Button/Button';
+import { Button } from '../Button';
 import {
   ButtonClassModifier,
   ButtonClassType,
@@ -23,6 +24,7 @@ export const PhoneInfo: React.FC<Props> = ({
 }) => {
   const [foundPhone, setFoundPhone] = useState<PhoneType | null>(null);
   const navigate = useNavigate();
+  const [imageCart, setImageCart] = useState(foundPhone?.images);
 
   useEffect(() => {
     const loadPhone = async () => {
@@ -76,20 +78,85 @@ export const PhoneInfo: React.FC<Props> = ({
           </button>
         </div>
       </div>
-      <div className="container">
+      <div>
         <h1 className="phone__title h1">
           {foundPhone.name}
         </h1>
         <div className="phone__wrapper">
           <div className="phone__list">
-            <img src="" alt="" />
+            <div className="image__container">
+              {foundPhone?.images.map(image => (
+                /* eslint-disable jsx-a11y/click-events-have-key-events, jsx-a11y/no-noninteractive-element-interactions */
+                <img
+                  src={`http://localhost:8080/${image}`}
+                  key={image}
+                  onClick={() => setImageCart([image])}
+                  className={classNames('phone__item', {
+                    'phone__item--focus': imageCart?.includes(image),
+                  })}
+                  alt="imageCart"
+                />
+              ))}
+            </div>
+            <img
+              src={`http://localhost:8080/${imageCart ? imageCart[0] : foundPhone?.images[0]}`}
+              alt="phone"
+              className="phone__image"
+            />
           </div>
-          <img
-            src={`http://localhost:8080/${foundPhone.images[0]}`}
-            alt="pictureCart"
-            className="phone__image"
-          />
+
           <div className="phone__functional">
+            <p className="phone__chose-color-text">
+              Avaliable colors
+            </p>
+            <div className="phone__chose-color">
+              <div className="phone__chose-color-list">
+                {foundPhone?.colorsAvailable.map(color => (
+                  <div
+                    key={color}
+                    className={classNames('phone__chose-color-item', {
+                      // eslint-disable-next-line max-len
+                      'phone__chose-color-item--focus': color === foundPhone?.color,
+                    })}
+                  >
+                    <button
+                      type="button"
+                      className="phone__chose-color-btn"
+                      style={{ backgroundColor: color }}
+                      aria-label="color"
+                    />
+                  </div>
+                ))}
+              </div>
+
+            </div>
+            <div className="phone__line--min" />
+            <p
+              className="phone__chose-color-text"
+            >
+              Select capacity
+            </p>
+            <div className="phone__chose-capacity">
+              <div className="phone__chose-capacity-list">
+                {foundPhone?.capacityAvailable.map(capacity => (
+                  <div
+                    key={capacity}
+                    className={classNames('phone__chose-capacity-item', {
+                      // eslint-disable-next-line max-len
+                      'phone__chose-capacity-item--focus': capacity === foundPhone?.capacity,
+                    })}
+                  >
+                    <button
+                      type="button"
+                      className="phone__chose-capacity-btn"
+                      aria-label="capacity"
+                    >
+                      {capacity}
+                    </button>
+                  </div>
+                ))}
+              </div>
+            </div>
             <div className="phone__price">
               <p className="phone__newPrice">
                 $
@@ -142,12 +209,14 @@ export const PhoneInfo: React.FC<Props> = ({
             <div className="phone__characteristic smalltext">
               <p className="phone__name">Resolution</p>
               <p className="phone__value">
-                Resolution
+                {foundPhone?.resolution}
               </p>
             </div>
             <div className="phone__characteristic smalltext">
               <p className="phone__name">Processor</p>
-              <p className="phone__value">Processor</p>
+              <p className="phone__value">
+                {foundPhone?.proccessor}
+              </p>
             </div>
             <div className="phone__characteristic smalltext">
               <p className="phone__name">RAM</p>
@@ -161,13 +230,26 @@ export const PhoneInfo: React.FC<Props> = ({
           <div className="phone__about">
             <h2 className="phone__subtitle h2">About</h2>
             <div className="phone__line" />
-            <div className="phone__about--text bodytext">
-              Phone description
+            <div className="phone__about--text ">
+              {foundPhone?.description.map(text => (
+                <div>
+                  <p
+                    className="phone__about--title"
+                  >
+                    {text.title}
+                  </p>
+                  <p
+                    className="phone__about--text"
+                  >
+                    {text.text}
+                  </p>
+                </div>
+              ))}
             </div>
           </div>
           <div className="phone__specs">
             <h2 className="phone__subtitle h2">Tech specs</h2>
-            <div className="phone__line cart__specs--line" />
+            <div className="phone__line--middle cart__specs--line" />
             <div className="phone__characteristic smalltext">
               <p className="phone__name">Screen</p>
               <p className="phone__value">
@@ -177,12 +259,14 @@ export const PhoneInfo: React.FC<Props> = ({
             <div className="phone__characteristic smalltext">
               <p className="phone__name">Resolution</p>
               <p className="phone__value">
-                Phone Resolution
+                {foundPhone?.resolution}
               </p>
             </div>
             <div className="phone__characteristic smalltext">
               <p className="phone__name">Processor</p>
-              <p className="phone__value">Phone processor</p>
+              <p className="phone__value">
+                {foundPhone?.proccessor}
+              </p>
             </div>
             <div className="phone__characteristic smalltext">
               <p className="phone__name">RAM</p>
@@ -198,15 +282,21 @@ export const PhoneInfo: React.FC<Props> = ({
             </div>
             <div className="phone__characteristic smalltext">
               <p className="phone__name">Camera</p>
-              <p className="phone__value">Phone camera</p>
+              <p className="phone__value">
+                {foundPhone.camera}
+              </p>
             </div>
             <div className="phone__characteristic smalltext">
               <p className="phone__name">Zoom</p>
-              <p className="phone__value">Phone zoom</p>
+              <p className="phone__value">
+                {foundPhone.zoom}
+              </p>
             </div>
             <div className="phone__characteristic smalltext">
               <p className="phone__name">Ceil</p>
-              <p className="phone__value">Phone ceil</p>
+              <p className="phone__value">
+                {foundPhone.cell.join(', ')}
+              </p>
             </div>
           </div>
         </div>

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Pagination } from '../pagination/Pagination';
 import { FilterType } from '../../enums/FilterType';
 import { Phone } from '../../types/Phone';
-import { Filter } from '../filter';
+import { Filter } from '../Filter';
 import { PhonesListItem } from './ProductListItem';
 
 type Props = {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FilterType } from '../../enums/FilterType';
-import './filter.scss';
+import './Filter.scss';
 
 type Props = {
   length: number | undefined;
@@ -56,11 +56,14 @@ export const Filter: React.FC<Props> = ({
       >
         <div className="filter__logo">
           <Link to="/" className="filter__logo-home" />
+
           <Link to="/" className="filter__logo-vector" />
+
           <p className="filter__logo-text">Phones</p>
         </div>
 
         <h1 className="filter__title">Mobile phones</h1>
+
         <div className="device__count device__count-margin">
           {`${length} models`}
         </div>
@@ -68,6 +71,7 @@ export const Filter: React.FC<Props> = ({
         <div className="filter__sorts">
           <div className="sorts__item sorts__item-margin">
             <p className="sorts__text">Sort by</p>
+
             <select
               name="sort"
               id="sort"
@@ -78,12 +82,15 @@ export const Filter: React.FC<Props> = ({
               <option value={FilterType.NEWEST} className="sorts__option">
                 Newest
               </option>
+
               <option value={FilterType.OLDEST} className="sorts__option">
                 Oldest
               </option>
+
               <option value={FilterType.ASC} className="sorts__option">
                 Ascending price
               </option>
+
               <option value={FilterType.DESC} className="sorts__option">
                 Descending price
               </option>
@@ -92,6 +99,7 @@ export const Filter: React.FC<Props> = ({
 
           <div className="sorts__item">
             <p className="sorts__text">Items on page</p>
+
             <select
               name="show"
               id="show"
@@ -108,6 +116,7 @@ export const Filter: React.FC<Props> = ({
                 );
               }}
             >
+
               <option value="8" className="sorts__option">8</option>
               <option value="12" className="sorts__option">12</option>
               <option value="16" className="sorts__option">16</option>
@@ -117,6 +126,5 @@ export const Filter: React.FC<Props> = ({
         </div>
       </div>
     </div>
-
   );
 };

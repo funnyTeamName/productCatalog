@@ -4,8 +4,8 @@ import {
   ButtonClassModifier,
   ButtonClassType,
   ButtonType,
-} from '../../enums/buttonEnum';
-import { Button } from '../button';
+} from '../../enums/ButtonEnum';
+import { Button } from '../Button';
 import { Phone } from '../../types/Phone';
 import './ProductCard.scss';
 

@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import { PhonesListItem } from '../components/ProductList/ProductListItem';
-import { ButtonClassModifier, ButtonClassType } from '../enums/buttonEnum';
+import { ButtonClassModifier, ButtonClassType } from '../enums/ButtonEnum';
 import { SliderButton } from '../images/icons/SliderButton';
 import { Phone } from '../types/Phone';
 import './SectionHero.scss';

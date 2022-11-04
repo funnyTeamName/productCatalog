@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
-import './footer.scss';
+import './Footer.scss';
 
 export const Footer: React.FC = () => {
   function Scroll() {
@@ -41,6 +41,7 @@ export const Footer: React.FC = () => {
         >
           Back to top
         </Link>
+
         <Link
           to={location}
           className="button__secondary button__secondary--up-page"

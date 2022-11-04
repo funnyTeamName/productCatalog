@@ -9,8 +9,8 @@ import {
 import { PhonesList } from '../ProductList/ProductList';
 import { Phone } from '../../types/Phone';
 import { CartBlock } from '../CartBlock';
-import './mainContent.scss';
 import { PhoneInfo } from '../phone_info/phone_info';
+import './MainContent.scss';
 
 type Props = {
   phones: Phone[];
