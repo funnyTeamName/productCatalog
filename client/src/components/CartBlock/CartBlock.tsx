@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'; //
+import React, { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { Phone } from '../../types/Phone';
 import { CartBlockItem } from './CartBlockItem';
@@ -77,8 +77,13 @@ export const CartBlock: React.FC<Props> = ({
   const navigate = useNavigate();
 
   return (
-    <div className="cart__block grid">
-      <div className="cart__block-links">
+    <div className="cart__block grid container">
+      <div
+        className="cart__block-links
+        grid__item--mobile-1-2
+        grid__item--iPad-1-2
+        grid__item--desktop-1-2"
+      >
         <Link to="/" className="cart__block-vector" />
         <button
           type="submit"
@@ -87,24 +92,39 @@ export const CartBlock: React.FC<Props> = ({
         >
           Back
         </button>
-        <div className="cart__block-title">Cart</div>
+      </div>
+      <div className="cart__block-title
+        grid__item--mobile-1-3
+        grid__item--iPad-1-3
+        grid__item--desktop-1-3"
+      >
+        Cart
       </div>
 
-      {visiblePhones.map(phone => (
-        <CartBlockItem
-          key={phone.id}
-          phone={phone}
-          setSelectedPhones={setSelectedPhones}
-          selectedPhones={selectedPhones}
-          totalPrice={totalPrice}
-          setTotalPrice={setTotalPrice}
-          countItems={countItems}
-          setCountItems={setCountItems}
-          setPhoneId={setPhoneId}
-        />
-      ))}
-
-      <div className="cart__block-total grid__item--desktop-17-23">
+      <div
+        className="grid__item--mobile-1-4
+        grid__item--iPad-1-12
+        grid__item--desktop-1-16"
+      >
+        {visiblePhones.map(phone => (
+          <CartBlockItem
+            key={phone.id}
+            phone={phone}
+            setSelectedPhones={setSelectedPhones}
+            selectedPhones={selectedPhones}
+            totalPrice={totalPrice}
+            setTotalPrice={setTotalPrice}
+            countItems={countItems}
+            setCountItems={setCountItems}
+            setPhoneId={setPhoneId}
+          />
+        ))}
+      </div>
+      <div className="cart__block-total
+        grid__item--mobile-1-4
+        grid__item--iPad-1-12
+        grid__item--desktop-17-24"
+      >
         <div className="cart__block-total-title">{`$${totalPrice}`}</div>
         <div className="cart__block-total-subtitle">{`Total for ${countItems} items`}</div>
         <button
