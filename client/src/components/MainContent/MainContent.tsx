@@ -10,8 +10,8 @@ import { Phone } from '../../types/Phone';
 import { CartBlock } from '../CartBlock';
 import { PhoneInfo } from '../phoneInfo';
 import { Favourites } from '../Favourites';
+import { HomePage } from '../HomePage/HomePage';
 import './MainContent.scss';
-import { Home } from '../../pages/Home';
 
 type Props = {
   phones: Phone[];
@@ -60,7 +60,7 @@ export const Main: React.FC<Props> = ({ phones }) => {
         <Route
           path="Home"
           element={(
-            <Home
+            <HomePage
               phones={phones}
               selectedPhones={selectedPhones}
               setSelectedPhones={setSelectedPhones}

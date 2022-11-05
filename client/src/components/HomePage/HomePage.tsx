@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Phone } from '../../types/Phone';
-import './SectionHero.scss';
 import { Loader } from '../Loader';
 import { HeroSection } from '../HeroSection';
 import { ModelsSection } from '../ModelsSection';
 import { HotPricesSection } from '../HotPricesSection';
 import { CategorySection } from '../CategorySection';
+import './HomePage.scss';
 
 type Props = {
   phones: Phone[];
@@ -18,7 +18,7 @@ type Props = {
   setLikedPhones: (value: number[]) => void;
 };
 
-export const Home: React.FC<Props> = ({
+export const HomePage: React.FC<Props> = ({
   phones,
   selectedPhones,
   setSelectedPhones,
