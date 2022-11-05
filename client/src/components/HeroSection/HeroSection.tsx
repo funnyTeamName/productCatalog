@@ -14,11 +14,29 @@ export const HeroSection = () => {
       >
         Welcome to Nice Gadgets store!
       </h1>
-      <img
-        className="section-hero__img"
-        src="http://localhost:8080/img/banner-accessories.png"
-        alt="slider"
-      />
+
+      <div className="section-hero__slider-wrapper">
+        <button
+          type="button"
+          className="section-hero__btn"
+        >
+          x
+        </button>
+
+        <img
+          className="section-hero__img"
+          src="http://localhost:8080/img/banner-accessories.png"
+          alt="slider"
+        />
+
+        <button
+          type="button"
+          className="section-hero__btn"
+        >
+          x
+        </button>
+      </div>
+
       <ul className="section-hero__pagination">
         <li className="section-hero__item">
           <a

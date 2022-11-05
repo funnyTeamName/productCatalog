@@ -13,6 +13,19 @@
     padding: 0 32px;
   }
 
+  &__slider-wrapper {
+    display: flex;
+    margin-bottom: 18px;
+
+    @include pad {
+      height: 189px;
+    }
+
+    @include desktop {
+      height: 400px;
+    }
+  }
+
   &__title {
     @include mobile {
       padding: 0 16px;
@@ -29,8 +42,23 @@
     }
   }
 
+  &__btn {
+    display: none;
+
+    @include pad {
+      display: block;
+      padding: 0 16px;
+    }
+  }
+
   &__img {
-    margin-bottom: 18px;
+    @include pad {
+      padding: 0 19px;
+    }
+
+    @include desktop {
+      padding: 0 16px;
+    }
   }
 
   &__item:not(:last-child) {
