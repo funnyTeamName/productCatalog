@@ -1,7 +1,9 @@
 import classNames from 'classnames';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import { ButtonClassModifier, ButtonClassType } from '../../enums/ButtonEnum';
 import { Phone } from '../../types/Phone';
 import { PhonesListItem } from '../ProductList';
+import 'swiper/css';
 
 type Props = {
   phones: Phone[];
@@ -69,19 +71,23 @@ export const HotPricesSection: React.FC<Props> = ({
       </div>
 
       <div className="product-slider-cards">
-        {cheapModels.map(phone => (
-          <div className="product-slider-cards__item">
-            <PhonesListItem
-              key={phone.id}
-              phone={phone}
-              selectedPhones={selectedPhones}
-              setSelectedPhones={setSelectedPhones}
-              setPhoneId={setPhoneId}
-              likedPhones={likedPhones}
-              setLikedPhones={setLikedPhones}
-            />
-          </div>
-        ))}
+        <Swiper slidesPerView={4}>
+          {cheapModels.map(phone => (
+            <SwiperSlide>
+              <div className="product-slider-cards__item">
+                <PhonesListItem
+                  key={phone.id}
+                  phone={phone}
+                  selectedPhones={selectedPhones}
+                  setSelectedPhones={setSelectedPhones}
+                  setPhoneId={setPhoneId}
+                  likedPhones={likedPhones}
+                  setLikedPhones={setLikedPhones}
+                />
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </div>
     </section>
   );
