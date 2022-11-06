@@ -38,9 +38,14 @@ export const Main: React.FC<Props> = ({ phones }) => {
 
   useEffect(() => {
     const dataPhones = window.localStorage.getItem('Phones');
+    const dataLiked = window.localStorage.getItem('LikedPhones');
 
     if (dataPhones !== null) {
       setSelectedPhones(JSON.parse(dataPhones));
+    }
+
+    if (dataLiked !== null) {
+      setLikedPhones(JSON.parse(dataLiked));
     }
   }, []);
 
@@ -53,6 +58,10 @@ export const Main: React.FC<Props> = ({ phones }) => {
       .setItem('Items Count', JSON.stringify(initialItemsCount));
     setTotalPrice(initialTotalPrice);
   }, [selectedPhones]);
+
+  useEffect(() => {
+    window.localStorage.setItem('LikedPhones', JSON.stringify(likedPhones));
+  }, [likedPhones]);
 
   return (
     <div className="mainContent">
