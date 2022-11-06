@@ -73,12 +73,17 @@
   flex-direction: column;
   &__title {
     font-weight: $fw-800;
-    font-size: 34px;
-    line-height: 56px;
+    font-size: $fs-22;
+    line-height: 30px;
     letter-spacing: -0.01em;
     color: $color-white;
     margin-bottom: 32px;
     font-family: $ff-mont;
+
+    @include pad {
+      font-size: $fs-32;
+      line-height: 40px;
+    }
   }
   &__wrapper {
     display: flex;
