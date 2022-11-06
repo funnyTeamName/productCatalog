@@ -1,26 +1,24 @@
 @import '../../styles/main.scss';
 
-.product-slider__container .swiper {
+.product-slider .swiper {
   position: static;
 }
 
 .product-slider {
-  &__container {
-    position: relative;
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 16px;
+  position: relative;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 16px;
 
-    @include pad {
-      padding-left: 24px;
-      padding-right: 0;
-    }
+  @include pad {
+    padding-left: 24px;
+    padding-right: 0;
+  }
 
-    @include desktop {
-      padding-left: 32px;
-      padding-right: 32px;
-    }
+  @include desktop {
+    padding-left: 32px;
+    padding-right: 32px;
   }
 
   &__title {

@@ -52,7 +52,7 @@ export const HomePage: React.FC<Props> = ({
     } finally {
       setIsLoading(false);
     }
-  });
+  }, []);
 
   return isLoading ? <Loader /> : (
     <>
