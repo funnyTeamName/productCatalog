@@ -36,7 +36,7 @@ export const Favourites: React.FC<Props> = ({
         <div className="favourites__title">
           <p className="favourites__title-text">Favourites</p>
           <p className="favourites__count">
-            {likedPhones.length}
+            {visiblePhones.length}
             &nbsp;items
           </p>
         </div>
