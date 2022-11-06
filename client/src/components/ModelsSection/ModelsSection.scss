@@ -1,54 +1,80 @@
 @import '../../styles/main.scss';
 
-.product-slider {
-  &__grid-container {
-    position: relative;
-    align-items: center;
-    margin-bottom: 24px;
-    max-width: 1200px;
-  }
+.product-slider__container .swiper {
+  position: static;
+}
 
-  &__button-wrapper {
-    position: absolute;
-    right: 16px;
-    display: flex;
-    width: 80px;
+.product-slider {
+  &__container {
+    position: relative;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 16px;
 
     @include pad {
-      right: 24px;
+      padding-left: 24px;
+      padding-right: 0;
     }
 
     @include desktop {
-      right: 32px;
+      padding-left: 32px;
+      padding-right: 32px;
+    }
+  }
+
+  &__title {
+    width: 70%;
+    margin-bottom: 56px;
+
+    @include pad {
+      width: 100%;
     }
   }
 }
 
-.product-slider-cards {
-  display: flex;
-  max-width: 1200px;
-  padding-left: 16px;
-  margin-left: auto;
-  margin-right: auto;
-  flex-wrap: nowrap;
-  flex-grow: 0;
-  overflow: hidden;
+.swiper-button-next,
+.swiper-button-prev {
+  top: 5px;
+  left: initial;
+  margin-top: 0;
+  @include height-width(32px, 32px);
+  background-color: $color-surface-2;
+  border: 1px solid $color-surface-2;
+  @include hover(background-color, $color-icons);
+  z-index: 1;
 
   @include pad {
-    padding-left: 24px;
+    top: 5px;
+  }
+}
+
+.swiper-button-prev {
+  right: 56px;
+
+  @include pad {
+    right: 64px;
   }
 
   @include desktop {
-    padding-left: 32px;
-    padding-right: 32px;
+    right: 72px;
+  }
+}
+
+.swiper-button-next {
+  right: 16px;
+
+  @include pad {
+    right: 24px;
   }
 
-  &__item {
-    flex: 1 0 24%;
-    margin-right: 16px;
-
-    &:nth-child(4) {
-      margin-right: 32px;
-    }
+  @include desktop {
+    right: 32px;
   }
+}
+
+.swiper-button-next:after,
+.swiper-button-prev:after {
+  font-size: 6px;
+  color: $color-white;
 }
