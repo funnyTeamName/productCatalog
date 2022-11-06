@@ -32,7 +32,9 @@ export const PhoneInfo: React.FC<Props> = ({
 
   useEffect(() => {
     const loadPhone = async () => {
-      const response = await axios.get(`http://localhost:8080/products/${phoneId}`);
+      const id = window.location.href.split('/Phones/')[1];
+
+      const response = await axios.get(`http://localhost:8080/products/${id}`);
 
       const data = await response.data;
 
@@ -89,7 +91,7 @@ export const PhoneInfo: React.FC<Props> = ({
         <div className="phone__wrapper">
           <div className="phone__list">
             <div className="image__container">
-              {foundPhone?.images.map(image => (
+              {foundPhone.images.map(image => (
                 /* eslint-disable jsx-a11y/click-events-have-key-events, jsx-a11y/no-noninteractive-element-interactions */
                 <img
                   src={`http://localhost:8080/${image}`}
@@ -103,7 +105,7 @@ export const PhoneInfo: React.FC<Props> = ({
               ))}
             </div>
             <img
-              src={`http://localhost:8080/${imageCart ? imageCart[0] : foundPhone?.images[0]}`}
+              src={`http://localhost:8080/${imageCart ? imageCart[0] : foundPhone.images[0]}`}
               alt="phone"
               className="phone__image"
             />
@@ -115,12 +117,12 @@ export const PhoneInfo: React.FC<Props> = ({
             </p>
             <div className="phone__chose-color">
               <div className="phone__chose-color-list">
-                {foundPhone?.colorsAvailable.map(color => (
+                {foundPhone.colorsAvailable.map(color => (
                   <div
                     key={color}
                     className={classNames('phone__chose-color-item', {
                       // eslint-disable-next-line max-len
-                      'phone__chose-color-item--focus': color === foundPhone?.color,
+                      'phone__chose-color-item--focus': color === foundPhone.color,
                     })}
                   >
                     <button
@@ -142,12 +144,12 @@ export const PhoneInfo: React.FC<Props> = ({
             </p>
             <div className="phone__chose-capacity">
               <div className="phone__chose-capacity-list">
-                {foundPhone?.capacityAvailable.map(capacity => (
+                {foundPhone.capacityAvailable.map(capacity => (
                   <div
                     key={capacity}
                     className={classNames('phone__chose-capacity-item', {
                       // eslint-disable-next-line max-len
-                      'phone__chose-capacity-item--focus': capacity === foundPhone?.capacity,
+                      'phone__chose-capacity-item--focus': capacity === foundPhone.capacity,
                     })}
                   >
                     <button
@@ -220,13 +222,13 @@ export const PhoneInfo: React.FC<Props> = ({
             <div className="phone__characteristic smalltext">
               <p className="phone__name">Resolution</p>
               <p className="phone__value">
-                {foundPhone?.resolution}
+                {foundPhone.resolution}
               </p>
             </div>
             <div className="phone__characteristic smalltext">
               <p className="phone__name">Processor</p>
               <p className="phone__value">
-                {foundPhone?.processor}
+                {foundPhone.processor}
               </p>
             </div>
             <div className="phone__characteristic smalltext">
@@ -242,7 +244,7 @@ export const PhoneInfo: React.FC<Props> = ({
             <h2 className="phone__subtitle h2">About</h2>
             <div className="phone__line" />
             <div className="phone__about--text ">
-              {foundPhone?.description.map(text => (
+              {foundPhone.description.map(text => (
                 <div>
                   <p
                     className="phone__about--title"
@@ -270,13 +272,13 @@ export const PhoneInfo: React.FC<Props> = ({
             <div className="phone__characteristic smalltext">
               <p className="phone__name">Resolution</p>
               <p className="phone__value">
-                {foundPhone?.resolution}
+                {foundPhone.resolution}
               </p>
             </div>
             <div className="phone__characteristic smalltext">
               <p className="phone__name">Processor</p>
               <p className="phone__value">
-                {foundPhone?.processor}
+                {foundPhone.processor}
               </p>
             </div>
             <div className="phone__characteristic smalltext">
