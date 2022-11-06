@@ -10,6 +10,8 @@ import {
   ButtonClassType,
   ButtonType,
 } from '../../enums/ButtonEnum';
+import { ProductsSwiper } from '../ProductsSwiper';
+import { Phone } from '../../types/Phone';
 
 type Props = {
   phoneId: number;
@@ -17,6 +19,7 @@ type Props = {
   selectedPhones: number[];
   likedPhones: number[];
   setLikedPhones: (value: number[]) => void;
+  setPhoneId: (value: number) => void;
 };
 
 export const PhoneInfo: React.FC<Props> = ({
@@ -25,24 +28,31 @@ export const PhoneInfo: React.FC<Props> = ({
   selectedPhones,
   likedPhones,
   setLikedPhones,
+  setPhoneId,
 }) => {
   const [foundPhone, setFoundPhone] = useState<PhoneType | null>(null);
-  const navigate = useNavigate();
+  const [suggestedPhones, setSuggestedPhones] = useState<Phone[]>([]);
   const [imageCart, setImageCart] = useState(foundPhone?.images);
+  const navigate = useNavigate();
+
+  const baseUrl = 'http://localhost:8080/products';
 
   useEffect(() => {
-    const loadPhone = async () => {
+    const loadData = async () => {
       const id = window.location.href.split('/Phones/')[1];
 
-      const response = await axios.get(`http://localhost:8080/products/${id}`);
+      const suggestedRes = await axios.get(`${baseUrl}/new`);
+      const suggestedData = await suggestedRes.data;
 
-      const data = await response.data;
+      const phoneRes = await axios.get(`${baseUrl}/${id}`);
+      const phoneData = await phoneRes.data;
 
-      setFoundPhone(data);
+      setFoundPhone(phoneData);
+      setSuggestedPhones(suggestedData);
     };
 
     try {
-      loadPhone();
+      loadData();
     } catch {
       setFoundPhone(null);
     }
@@ -312,6 +322,16 @@ export const PhoneInfo: React.FC<Props> = ({
           </div>
         </div>
       </div>
+
+      <ProductsSwiper
+        phones={suggestedPhones}
+        selectedPhones={selectedPhones}
+        setSelectedPhones={setSelectedPhones}
+        setPhoneId={setPhoneId}
+        likedPhones={likedPhones}
+        setLikedPhones={setLikedPhones}
+        title="You may also like"
+      />
     </main>
   );
 };
