@@ -22,7 +22,7 @@ app.get('/products', (req, res) => {
 app.get('/products/new', (req, res) => {
   const phones = JSON.parse(fs.readFileSync('./data/phones.json', 'utf-8'))
     .sort((p1, p2) => p2.year - p1.year)
-    .splice(0, 8);
+    .splice(0, 16);
 
   res.statusCode = 200;
 
@@ -33,7 +33,7 @@ app.get('/products/discount', (req, res) => {
   const phones = JSON.parse(fs.readFileSync('./data/phones.json', 'utf-8'))
     .filter(phone => phone.price < 1000)
     .sort((p1, p2) => p2.price - p1.price)
-    .splice(0, 8);
+    .splice(0, 16);
 
   res.statusCode = 200;
 
