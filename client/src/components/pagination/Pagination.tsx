@@ -58,27 +58,29 @@ export const Pagination: React.FC<Props> = ({
       />
 
       <ul className="pagination__list">
-        {getPageNumbers(1, total).map(currentPage => {
-          return (
-            <li
-              className="pagination__page-number"
-              key={currentPage}
-            >
-              <a
-                href={`#${currentPage}`}
-                data-page={currentPage}
-                className={classNames(
-                  ButtonClassType.SECONDARY,
-                  ButtonClassModifier.NUM_PAGE,
-                  { 'pagination__active-button': (currentPage === page) },
-                )}
-                onClick={handleClick}
+        {getPageNumbers(1, total)
+          .splice(total - page <= 3 ? total - 4 : page - 1, 4)
+          .map(currentPage => {
+            return (
+              <li
+                className="pagination__page-number"
+                key={currentPage}
               >
-                {currentPage}
-              </a>
-            </li>
-          );
-        })}
+                <a
+                  href={`#${currentPage}`}
+                  data-page={currentPage}
+                  className={classNames(
+                    ButtonClassType.SECONDARY,
+                    ButtonClassModifier.NUM_PAGE,
+                    { 'pagination__active-button': (currentPage === page) },
+                  )}
+                  onClick={handleClick}
+                >
+                  {currentPage}
+                </a>
+              </li>
+            );
+          })}
       </ul>
 
       <a // eslint-disable-line jsx-a11y/anchor-has-content
