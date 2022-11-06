@@ -71,7 +71,7 @@ export const HotPricesSection: React.FC<Props> = ({
       </div>
 
       <div className="product-slider-cards">
-        <Swiper slidesPerView={4}>
+        <Swiper slidesPerView={4} spaceBetween={16}>
           {cheapModels.map(phone => (
             <SwiperSlide>
               <div className="product-slider-cards__item">
