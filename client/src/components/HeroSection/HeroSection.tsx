@@ -1,5 +1,10 @@
-import { SliderButton } from '../../images/icons/SliderButton';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination, Navigation } from 'swiper';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
 import './HeroSection.scss';
+import '../ProductsSwiper/ProductsSwiper.scss';
 
 export const HeroSection = () => {
   return (
@@ -15,7 +20,41 @@ export const HeroSection = () => {
         Welcome to Nice Gadgets store!
       </h1>
 
-      <div className="section-hero__slider-wrapper">
+      <div className="hero-swiper-wrapper">
+        <Swiper
+          slidesPerView={1}
+          pagination={{
+            clickable: true,
+          }}
+          navigation
+          modules={[Pagination, Navigation]}
+          className="hero-swiper"
+        >
+          <SwiperSlide>
+            <img
+              className="hero-swiper__img"
+              src="http://localhost:8080/img/banner-1.jpg"
+              alt="slider"
+            />
+          </SwiperSlide>
+          <SwiperSlide>
+            <img
+              className="hero-swiper__img"
+              src="http://localhost:8080/img/banner-2.png"
+              alt="slider"
+            />
+          </SwiperSlide>
+          <SwiperSlide>
+            <img
+              className="hero-swiper__img"
+              src="http://localhost:8080/img/banner-3.png"
+              alt="slider"
+            />
+          </SwiperSlide>
+        </Swiper>
+      </div>
+
+      {/* <div className="section-hero__slider-wrapper">
         <button
           type="button"
           className="section-hero__btn"
@@ -65,7 +104,7 @@ export const HeroSection = () => {
             <SliderButton />
           </a>
         </li>
-      </ul>
+      </ul> */}
     </section>
   );
 };
