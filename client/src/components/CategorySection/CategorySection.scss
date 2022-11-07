@@ -5,6 +5,12 @@
     margin-bottom: 24px;
   }
 
+  &__subtitle {
+    @include desktop {
+      @include hover(color, $color-accent-2);
+    }
+  }
+
   &__baner-wrap {
     @include pad {
       display: flex;
