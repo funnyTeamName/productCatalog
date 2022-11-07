@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import { Phone } from '../../types/Phone';
 import './CategorySection.scss';
 
@@ -13,14 +14,16 @@ export const CategorySection: React.FC<Props> = ({ phones }) => {
       </h2>
       <div className="section-category__baner-wrap">
         <div className="section-category__baner">
-          <div
-            className="section-category__img section-category__img--phones"
-          />
+          <NavLink to="/Phones">
+            <div
+              className="section-category__img section-category__img--phones"
+            />
+          </NavLink>
 
-          <h4 className="subtitle section-category__subtitle">
-            <a href="/">
-              Mobile phones
-            </a>
+          <h4 className="subtitle">
+            <NavLink to="/Phones" className="section-category__subtitle">
+              Mobile Phones
+            </NavLink>
           </h4>
 
           <p className="section-category__product-count">
@@ -29,14 +32,16 @@ export const CategorySection: React.FC<Props> = ({ phones }) => {
         </div>
 
         <div className="section-category__baner">
-          <div
-            className="section-category__img section-category__img--tablets"
-          />
+          <NavLink to="/Tablets">
+            <div
+              className="section-category__img section-category__img--tablets"
+            />
+          </NavLink>
 
-          <h4 className="subtitle section-category__subtitle">
-            <a href="/">
+          <h4 className="subtitle">
+            <NavLink to="/Tablets" className="section-category__subtitle">
               Tablets
-            </a>
+            </NavLink>
           </h4>
 
           <p className="section-category__product-count">
@@ -45,17 +50,19 @@ export const CategorySection: React.FC<Props> = ({ phones }) => {
         </div>
 
         <div className="section-category__baner">
-          <div
-            className="
+          <NavLink to="/Accessories">
+            <div
+              className="
             section-category__img
             section-category__img--accessories
           "
-          />
+            />
+          </NavLink>
 
-          <h4 className="subtitle section-category__subtitle">
-            <a href="/">
+          <h4 className="subtitle">
+            <NavLink to="/Accessories" className="section-category__subtitle">
               Accessories
-            </a>
+            </NavLink>
           </h4>
 
           <p className="section-category__product-count">

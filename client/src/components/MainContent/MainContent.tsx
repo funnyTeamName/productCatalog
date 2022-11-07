@@ -104,6 +104,7 @@ export const Main: React.FC<Props> = ({ phones }) => {
                 setSelectedPhones={setSelectedPhones}
                 likedPhones={likedPhones}
                 setLikedPhones={setLikedPhones}
+                setPhoneId={setPhoneId}
               />
             )}
           />

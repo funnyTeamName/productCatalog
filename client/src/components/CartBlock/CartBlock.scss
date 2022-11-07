@@ -78,6 +78,7 @@
   }
 
   &-img {
+    margin-right: 20px;
     @include height-width(66px, 66px);
     @include hover(scale, 115%);
     border-radius: 5px;
