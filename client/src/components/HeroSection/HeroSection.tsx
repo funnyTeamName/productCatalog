@@ -31,12 +31,19 @@ export const HeroSection = () => {
           className="hero-swiper"
         >
           <SwiperSlide>
-            <img
-              className="hero-swiper__img"
-              src="http://localhost:8080/img/banner-1.jpg"
-              alt="slider"
-            />
+            <picture>
+              <source
+                srcSet="http://localhost:8080/img/banner-1mobile.jpg"
+                media="(max-width: 500px)"
+              />
+              <img
+                className="hero-swiper__img"
+                src="http://localhost:8080/img/banner-1.jpg"
+                alt="slider"
+              />
+            </picture>
           </SwiperSlide>
+
           <SwiperSlide>
             <img
               className="hero-swiper__img"
@@ -44,6 +51,7 @@ export const HeroSection = () => {
               alt="slider"
             />
           </SwiperSlide>
+
           <SwiperSlide>
             <img
               className="hero-swiper__img"
@@ -53,58 +61,6 @@ export const HeroSection = () => {
           </SwiperSlide>
         </Swiper>
       </div>
-
-      {/* <div className="section-hero__slider-wrapper">
-        <button
-          type="button"
-          className="section-hero__btn"
-        >
-          x
-        </button>
-
-        <img
-          className="section-hero__img"
-          src="http://localhost:8080/img/banner-accessories.png"
-          alt="slider"
-        />
-
-        <button
-          type="button"
-          className="section-hero__btn"
-        >
-          x
-        </button>
-      </div>
-
-      <ul className="section-hero__pagination">
-        <li className="section-hero__item">
-          <a
-            href="/"
-            className="section-hero__link"
-            aria-label="link"
-          >
-            <SliderButton />
-          </a>
-        </li>
-        <li className="section-hero__item">
-          <a
-            href="/"
-            className="section-hero__link"
-            aria-label="link"
-          >
-            <SliderButton />
-          </a>
-        </li>
-        <li className="section-hero__item">
-          <a
-            href="/"
-            className="section-hero__link"
-            aria-label="link"
-          >
-            <SliderButton />
-          </a>
-        </li>
-      </ul> */}
     </section>
   );
 };
