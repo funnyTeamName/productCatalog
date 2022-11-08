@@ -24,14 +24,14 @@
   }
 
   &__section-hero {
-    margin-bottom: 66px;
+    margin-bottom: 26px;
 
     @include pad {
-      margin-bottom: 74px;
+      margin-bottom: 34px;
     }
 
     @include desktop {
-      margin-bottom: 90px;
+      margin-bottom: 50px;
     }
   }
 
