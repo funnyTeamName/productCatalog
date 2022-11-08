@@ -1,8 +1,8 @@
 @import '../../styles/main.scss';
 .hero-swiper {
-
   &__img {
-    
+    height: 320px;
+
     @include pad {
       height: 230px;
     }
@@ -14,9 +14,16 @@
   }
 }
 
-.swiper-horizontal > .swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal, .swiper-pagination-custom, .swiper-pagination-fraction {
-  bottom: 0;
+.hero-swiper > .swiper-pagination-bullets,
+.swiper-pagination-bullets.swiper-pagination-horizontal,
+.swiper-pagination-custom,
+.swiper-pagination-fraction {
+  bottom: 75px !important;
   z-index: 1;
+
+  @include pad {
+    bottom: 10px !important;
+  }
 }
 
 .hero-swiper-wrapper > .swiper {
@@ -26,15 +33,33 @@
 }
 
 .hero-swiper > .swiper-button-next {
-  top: 0;
-  right: 0;
-  height: 402px;
+  display: none;
+
+  @include pad {
+    top: 0;
+    right: 0;
+    display: flex;
+    height: 230px;
+  }
+
+  @include desktop {
+    height: 402px;
+  }
 }
 
 .hero-swiper > .swiper-button-prev {
-  top: 0;
-  left: 0;
-  height: 402px;
+  display: none;
+
+  @include pad {
+    top: 0;
+    left: 0;
+    display: flex;
+    height: 230px;
+  }
+
+  @include desktop {
+    height: 402px;
+  }
 }
 
 .product-slider .swiper {
@@ -42,13 +67,23 @@
 }
 
 .hero-swiper-wrapper {
-  position: relative;
-  height: 440px;
-  padding: 0 48px;
+  height: 360px;
+
+  @include pad {
+    position: relative;
+    height: 280px;
+    padding: 0 48px;
+  }
+
+  @include desktop {
+    height: 440px;
+  }
 }
 
-.swiper-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet, .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
-  margin: 0 var(--swiper-pagination-bullet-horizontal-gap,7px) !important;
+.swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet,
+.swiper-pagination-horizontal.swiper-pagination-bullets
+  .swiper-pagination-bullet {
+  margin: 0 var(--swiper-pagination-bullet-horizontal-gap, 7px) !important;
 }
 
 .swiper-pagination > .swiper-pagination-bullet {
