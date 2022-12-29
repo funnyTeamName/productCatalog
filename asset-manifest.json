@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/productCatalog/static/css/main.c96882b6.css",
-    "main.js": "/productCatalog/static/js/main.3595a981.js",
-    "static/media/logo.svg": "/productCatalog/static/media/logo.61c778bb493b57bf5cdd.svg",
+    "main.css": "/productCatalog/static/css/main.d24cb508.css",
+    "main.js": "/productCatalog/static/js/main.d6da0b2f.js",
+    "static/media/logo.svg": "/productCatalog/static/media/logo.8a86a0c00b6e489a4ce4.svg",
     "static/media/Mont-Heavy.ttf": "/productCatalog/static/media/Mont-Heavy.f370bce757bbfe4c8350.ttf",
     "static/media/Mont-Regular.ttf": "/productCatalog/static/media/Mont-Regular.e797167c18f9897bb607.ttf",
     "static/media/Mont-SemiBold.ttf": "/productCatalog/static/media/Mont-SemiBold.0b5e68ebb36ca4006e21.ttf",
@@ -10,19 +10,19 @@
     "static/media/tablets.jpg": "/productCatalog/static/media/tablets.ae183cf59982c872bd36.jpg",
     "static/media/accessories.jpg": "/productCatalog/static/media/accessories.5807ae38258731eabf34.jpg",
     "static/media/phones.jpg": "/productCatalog/static/media/phones.806369370749250c7a62.jpg",
-    "static/media/cart.svg": "/productCatalog/static/media/cart.c6d6212a3ea700d6002e.svg",
-    "static/media/heart.svg": "/productCatalog/static/media/heart.a48831a1ed897e1e3553.svg",
-    "static/media/red-heart.svg": "/productCatalog/static/media/red-heart.e06f68523386b982e85a.svg",
-    "static/media/Close.svg": "/productCatalog/static/media/Close.a7b1ced7ed3e49385129.svg",
-    "static/media/next-page.svg": "/productCatalog/static/media/next-page.1218d346d7bbd8f26b9e.svg",
-    "static/media/prev-page.svg": "/productCatalog/static/media/prev-page.2cfdb8e7490ef908e01b.svg",
-    "static/media/up-page.svg": "/productCatalog/static/media/up-page.9344bb0be5d109fe52f6.svg",
+    "static/media/cart.svg": "/productCatalog/static/media/cart.8594ae92bea0d217c539.svg",
+    "static/media/heart.svg": "/productCatalog/static/media/heart.92d170a64f6c45dbc5bb.svg",
+    "static/media/red-heart.svg": "/productCatalog/static/media/red-heart.9a0acd7b91ae2b20f628.svg",
+    "static/media/Close.svg": "/productCatalog/static/media/Close.7e83b31f9fd1385433e5.svg",
+    "static/media/next-page.svg": "/productCatalog/static/media/next-page.5bd6cbd62cc577611186.svg",
+    "static/media/prev-page.svg": "/productCatalog/static/media/prev-page.557aa1d8531b86b6157e.svg",
+    "static/media/up-page.svg": "/productCatalog/static/media/up-page.22e4065c96e5bd9dc5f3.svg",
     "index.html": "/productCatalog/index.html",
-    "main.c96882b6.css.map": "/productCatalog/static/css/main.c96882b6.css.map",
-    "main.3595a981.js.map": "/productCatalog/static/js/main.3595a981.js.map"
+    "main.d24cb508.css.map": "/productCatalog/static/css/main.d24cb508.css.map",
+    "main.d6da0b2f.js.map": "/productCatalog/static/js/main.d6da0b2f.js.map"
   },
   "entrypoints": [
-    "static/css/main.c96882b6.css",
-    "static/js/main.3595a981.js"
+    "static/css/main.d24cb508.css",
+    "static/js/main.d6da0b2f.js"
   ]
 }
