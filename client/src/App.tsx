@@ -10,7 +10,8 @@ export const App = () => {
 
   useEffect(() => {
     const loadPhones = async () => {
-      const response = await axios.get('http://localhost:8080/products');
+      // eslint-disable-next-line max-len
+      const response = await axios.get('https://product-catalog-server.onrender.com/products');
 
       const data = await response.data;
 

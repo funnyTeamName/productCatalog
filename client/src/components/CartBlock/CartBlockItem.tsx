@@ -76,7 +76,7 @@ export const CartBlockItem: React.FC<Props> = ({
             />
             <Link to={`/Phones/${phone.id}`} onClick={() => setPhoneId(phone.id)}>
               <img
-                src={`http://localhost:8080/${phone.image}`}
+                src={`https://product-catalog-server.onrender.com/${phone.image}`}
                 className="cart__block-img"
                 alt=""
               />

@@ -33,12 +33,14 @@ export const HeroSection = () => {
           <SwiperSlide>
             <picture>
               <source
-                srcSet="http://localhost:8080/img/banner-1mobile.jpg"
+                // eslint-disable-next-line max-len
+                srcSet="https://product-catalog-server.onrender.com/img/banner-1mobile.jpg"
                 media="(max-width: 500px)"
               />
               <img
                 className="hero-swiper__img"
-                src="http://localhost:8080/img/banner-1.jpg"
+                // eslint-disable-next-line max-len
+                src="https://product-catalog-server.onrender.com/img/banner-1.jpg"
                 alt="slider"
               />
             </picture>
@@ -47,7 +49,7 @@ export const HeroSection = () => {
           <SwiperSlide>
             <img
               className="hero-swiper__img"
-              src="http://localhost:8080/img/banner-2.png"
+              src="https://product-catalog-server.onrender.com/img/banner-2.png"
               alt="slider"
             />
           </SwiperSlide>
@@ -55,7 +57,7 @@ export const HeroSection = () => {
           <SwiperSlide>
             <img
               className="hero-swiper__img"
-              src="http://localhost:8080/img/banner-3.png"
+              src="https://product-catalog-server.onrender.com/img/banner-3.png"
               alt="slider"
             />
           </SwiperSlide>
