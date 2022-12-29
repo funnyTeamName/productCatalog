@@ -35,7 +35,7 @@ export const PhoneInfo: React.FC<Props> = ({
   const [imageCart, setImageCart] = useState(foundPhone?.images);
   const navigate = useNavigate();
 
-  const baseUrl = 'http://localhost:8080/products';
+  const baseUrl = 'https://product-catalog-server.onrender.com/products';
 
   useEffect(() => {
     const loadData = async () => {
@@ -104,7 +104,7 @@ export const PhoneInfo: React.FC<Props> = ({
                 {foundPhone.images.map(image => (
                   /* eslint-disable jsx-a11y/click-events-have-key-events, jsx-a11y/no-noninteractive-element-interactions */
                   <img
-                    src={`http://localhost:8080/${image}`}
+                    src={`https://product-catalog-server.onrender.com/${image}`}
                     key={image}
                     onClick={() => setImageCart([image])}
                     className={classNames('phone__item', {
@@ -115,7 +115,7 @@ export const PhoneInfo: React.FC<Props> = ({
                 ))}
               </div>
               <img
-                src={`http://localhost:8080/${imageCart ? imageCart[0] : foundPhone.images[0]}`}
+                src={`https://product-catalog-server.onrender.com/${imageCart ? imageCart[0] : foundPhone.images[0]}`}
                 alt="phone"
                 className="phone__image"
               />

@@ -39,7 +39,7 @@ export const PhonesListItem: React.FC<Props> = ({
         onClick={() => setPhoneId(phone.id)}
       >
         <img
-          src={`http://localhost:8080/${phone.image}`}
+          src={`https://product-catalog-server.onrender.com/${phone.image}`}
           className="card__img"
           alt="product"
         />
