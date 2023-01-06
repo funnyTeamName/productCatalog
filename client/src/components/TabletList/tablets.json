@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "category": "tablets",
+    "phoneId": "apple-ipad-mini-4-128gb-silver",
+    "itemId": "apple-ipad-mini-4-128gb-silver",
+    "name": "Apple iPad mini 4 128GB Silver",
+    "fullPrice": 400,
+    "price": 375,
+    "screen": "7,9' IPS",
+    "capacity": "128GB",
+    "color": "Silver",
+    "ram": "2GB",
+    "year": 2015,
+    "image": "img/tablets/ipad-mini-8-3-wi-fi-64gb-space-gray-2021.jpg"
+  },
+  {
+    "id": 2,
+    "category": "tablets",
+    "phoneId": "apple-ipad-pro-128gb-space-gray",
+    "itemId": "apple-ipad-pro-128gb-space-gray",
+    "name": "Apple iPad Pro 128GB Space Gray",
+    "fullPrice": 800,
+    "price": 750,
+    "screen": "12,9' IPS",
+    "capacity": "128GB",
+    "color": "Space Gray",
+    "ram": "4GB",
+    "year": 2015,
+    "image": "img/tablets/ipad-pro-12-9-m2-2022-wi-fi-lte-128gb-space-gray-mp1x3.png"
+  },
+  {
+    "id": 3,
+    "category": "tablets",
+    "phoneId": "apple-ipad-air-64gb-space-gray",
+    "itemId": "apple-ipad-air-64gb-space-gray",
+    "name": "Apple iPad Air 64GB Space Gray",
+    "fullPrice": 500,
+    "price": 450,
+    "screen": "9,7' IPS",
+    "capacity": "64GB",
+    "color": "Space Gray",
+    "ram": "2GB",
+    "year": 2014,
+    "image": "img/tablets/ipad-air-10-9-space-gray-64gb-wifi-2022.jpg"
+  },
+  {
+    "id": 4,
+    "category": "tablets",
+    "phoneId": "apple-ipad-128gb-space-gray",
+    "itemId": "apple-ipad-128gb-space-gray",
+    "name": "Apple iPad 128GB Space Gray",
+    "fullPrice": 300,
+    "price": 275,
+    "screen": "10,2' IPS",
+    "capacity": "128GB",
+    "color": "Space Gray",
+    "ram": "8GB",
+    "year": 2021,
+    "image": "img/tablets/ipad-10-2-space-gray-64gb-wi-fi-2021.jpg"
+  }
+]

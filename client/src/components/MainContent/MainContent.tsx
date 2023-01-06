@@ -2,8 +2,6 @@ import { useState, useEffect } from 'react'; //
 import { Navigate, Route, Routes } from 'react-router-dom';
 import {
   NotFoundPage,
-  Tablets,
-  Accessories,
 } from '../../pages';
 import { PhonesList } from '../ProductList/ProductList';
 import { Phone } from '../../types/Phone';
@@ -12,6 +10,8 @@ import { PhoneInfo } from '../phoneInfo';
 import { Favourites } from '../Favourites';
 import { HomePage } from '../HomePage/HomePage';
 import './MainContent.scss';
+import { TabletList } from '../TabletList';
+import { AccessoriesList } from '../AccessoriesList';
 
 type Props = {
   phones: Phone[];
@@ -110,8 +110,30 @@ export const Main: React.FC<Props> = ({ phones }) => {
           />
         </Route>
 
-        <Route path="tablets" element={<Tablets />} />
-        <Route path="accessories" element={<Accessories />} />
+        <Route
+          path="tablets"
+          element={(
+            <TabletList
+              selectedPhones={selectedPhones}
+              setSelectedPhones={setSelectedPhones}
+              setPhoneId={setPhoneId}
+              likedPhones={likedPhones}
+              setLikedPhones={setLikedPhones}
+            />
+          )}
+        />
+        <Route
+          path="accessories"
+          element={(
+            <AccessoriesList
+              selectedPhones={selectedPhones}
+              setSelectedPhones={setSelectedPhones}
+              setPhoneId={setPhoneId}
+              likedPhones={likedPhones}
+              setLikedPhones={setLikedPhones}
+            />
+          )}
+        />
 
         <Route
           path="shopping"
