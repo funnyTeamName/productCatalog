@@ -5,6 +5,7 @@ import { FilterType } from '../../enums/FilterType';
 import { Phone } from '../../types/Phone';
 import { Filter } from '../Filter';
 import { PhonesListItem } from './ProductListItem';
+import { Loader } from '../Loader';
 
 type Props = {
   phones: Phone[];
@@ -82,7 +83,7 @@ export const PhonesList: React.FC<Props> = ({
         setPerPage={setPerPage}
         setPage={setPage}
       />
-
+      {!phones.length && <Loader /> }
       <div className="page__product-list grid--cards">
         {currentPhones.slice(from - 1, to).map(phone => (
           <PhonesListItem

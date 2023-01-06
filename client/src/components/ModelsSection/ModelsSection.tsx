@@ -1,4 +1,5 @@
 import { Phone } from '../../types/Phone';
+import { Loader } from '../Loader';
 import { ProductsSwiper } from '../ProductsSwiper';
 
 type Props = {
@@ -19,6 +20,7 @@ export const ModelsSection: React.FC<Props> = ({
   setLikedPhones,
 }) => (
   <section className="home__section-models">
+    {!phones.length && <Loader />}
     <ProductsSwiper
       phones={phones}
       selectedPhones={selectedPhones}

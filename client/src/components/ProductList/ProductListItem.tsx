@@ -28,6 +28,17 @@ export const PhonesListItem: React.FC<Props> = ({
   likedPhones,
   setLikedPhones,
 }) => {
+  const {
+    id,
+    image,
+    name,
+    price,
+    fullPrice,
+    screen,
+    capacity,
+    ram,
+  } = phone;
+
   return (
     <div className={classNames('card',
       {
@@ -35,11 +46,11 @@ export const PhonesListItem: React.FC<Props> = ({
       })}
     >
       <Link
-        to={`/Phones/${phone.id}`}
-        onClick={() => setPhoneId(phone.id)}
+        to={`/Phones/${id}`}
+        onClick={() => setPhoneId(id)}
       >
         <img
-          src={`https://product-catalog-server.onrender.com/${phone.image}`}
+          src={`https://product-catalog-server.onrender.com/${image}`}
           className="card__img"
           alt="product"
         />
@@ -51,16 +62,16 @@ export const PhonesListItem: React.FC<Props> = ({
         })}
       >
         <p className="card__product-title">
-          {phone.name}
+          {name}
         </p>
 
         <p className="card__price">
           $
-          {phone.price}
+          {price}
 
           <s className="card__price card__price--old">
             $
-            {phone.fullPrice}
+            {fullPrice}
           </s>
         </p>
 
@@ -73,7 +84,7 @@ export const PhonesListItem: React.FC<Props> = ({
             </span>
 
             <span className="card__features">
-              {phone.screen}
+              {screen}
             </span>
           </div>
 
@@ -83,7 +94,7 @@ export const PhonesListItem: React.FC<Props> = ({
             </span>
 
             <span className="card__features">
-              {phone.capacity}
+              {capacity}
             </span>
           </div>
 
@@ -93,7 +104,7 @@ export const PhonesListItem: React.FC<Props> = ({
             </span>
 
             <span className="card__features">
-              {phone.ram}
+              {ram}
             </span>
           </div>
         </div>

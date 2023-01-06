@@ -1,6 +1,7 @@
 import { Phone } from '../../types/Phone';
 import 'swiper/css';
 import { ProductsSwiper } from '../ProductsSwiper';
+import { Loader } from '../Loader';
 
 type Props = {
   phones: Phone[];
@@ -20,6 +21,7 @@ export const HotPricesSection: React.FC<Props> = ({
   setLikedPhones,
 }) => (
   <section className="home__section-hot-prices">
+    {!phones.length && <Loader />}
     <ProductsSwiper
       phones={phones}
       selectedPhones={selectedPhones}
